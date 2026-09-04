@@ -10,6 +10,7 @@ Validated on 4 September 2026 with Node.js 24 and the production Vite build.
 - Axe-core WCAG A/AA checks pass in both languages at desktop and mobile widths.
 - No horizontal overflow, failed image requests, broken section anchors, or browser runtime errors in the tested layouts.
 - Language persistence, Serbian browser locale, blocked storage, mobile menu selection/Escape/outside click/resizing, email links, clipboard success/denial, keyboard skip link, reduced motion, and 200% text enlargement pass.
+- The resize test explicitly waits for the desktop breakpoint state before returning to mobile, avoiding back-to-back resizes being coalesced into one browser frame on CI.
 - `npm audit` reports **0 vulnerabilities**.
 - Project-subpath bundle: approximately **227 kB JavaScript / 71.2 kB gzip** and **28 kB CSS / 6.7 kB gzip**. No animation dependency was added.
 

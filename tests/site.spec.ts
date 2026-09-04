@@ -135,7 +135,11 @@ test("mobile navigation closes on selection, escape, outside click, and desktop 
   await expect(menu).toHaveAttribute("aria-expanded", "false");
   await menu.click();
   await page.setViewportSize({ width: 1366, height: 768 });
+  // Allow the browser to deliver the desktop media-query change before resizing again.
+  await expect(menu).toHaveAttribute("aria-expanded", "false");
+  await expect(menu).toBeHidden();
   await page.setViewportSize({ width: 375, height: 812 });
+  await expect(menu).toBeVisible();
   await expect(menu).toHaveAttribute("aria-expanded", "false");
 });
 
