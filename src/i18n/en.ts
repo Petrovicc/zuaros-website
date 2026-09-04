@@ -23,7 +23,6 @@ export const en = {
     secondary: "View our services",
     foot: "BUSINESS · ENGINEERING · RESEARCH",
     scroll: "SCROLL TO EXPLORE",
-    core: "ZUAROS / SYMBOL",
     coreNote: "SOFTWARE · ENGINEERING",
   },
   services: {
@@ -73,7 +72,6 @@ export const en = {
     text: "Zuaros focuses on custom software, engineering applications, research tools, and independent digital products. Our work combines software development with knowledge of the problem domain.",
     origin:
       "The name Zuaros takes inspiration from Svarožić, a Slavic deity associated with the young Sun and fire. The spark in our visual identity is a reference to that origin.",
-    caption: "ZUAROS / BRAND MARK",
   },
   engineering: {
     label: "03 / ENERGY & ENGINEERING",

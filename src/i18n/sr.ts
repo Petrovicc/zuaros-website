@@ -20,12 +20,11 @@ export const sr: Translation = {
     line2: "specifične",
     line3: "zahteve.",
     description:
-      "Zuaros razvija namenski softver, inženjerske alate i digitalna rešenja za kompanije, obrazovne ustanove i istraživačke timove.",
+      "Zuaros razvija softver po meri, inženjerske alate i digitalna rešenja za kompanije, obrazovne ustanove i istraživačke timove.",
     primary: "Razgovarajmo o projektu",
     secondary: "Pogledajte usluge",
     foot: "POSLOVANJE · INŽENJERING · ISTRAŽIVANJE",
     scroll: "ISTRAŽITE DALJE",
-    core: "ZUAROS / ZNAK",
     coreNote: "SOFTVER · INŽENJERING",
   },
   services: {
@@ -36,7 +35,7 @@ export const sr: Translation = {
     items: [
       {
         number: "01",
-        title: "Namenski softver",
+        title: "Softver po meri",
         text: "Desktop, veb i mobilne aplikacije za poslovne procese i specifične radne zadatke.",
         tags: ["Veb i mobilne aplikacije", "Desktop", "Automatizacija"],
         href: "#software",
@@ -71,10 +70,9 @@ export const sr: Translation = {
   about: {
     label: "02 / O ZUAROSU",
     title: "Razvoj softvera.\nInženjerski pristup.",
-    text: "Zuaros se bavi razvojem namenskog softvera, inženjerskih aplikacija, istraživačkih alata i nezavisnih digitalnih proizvoda. Razvoj zasnivamo na poznavanju softverskog inženjerstva i oblasti u kojoj se rešenje primenjuje.",
+    text: "Zuaros se bavi razvojem softvera po meri, inženjerskih aplikacija, istraživačkih alata i nezavisnih digitalnih proizvoda. Razvoj zasnivamo na poznavanju softverskog inženjerstva i oblasti u kojoj se rešenje primenjuje.",
     origin:
       "Ime Zuaros inspirisano je Svarožićem, slovenskim božanstvom povezanim sa mladim Suncem i vatrom. Iskra u vizuelnom identitetu upućuje na to poreklo imena.",
-    caption: "ZUAROS / ZNAK",
   },
   engineering: {
     label: "03 / ENERGETIKA I INŽENJERING",
@@ -103,7 +101,7 @@ export const sr: Translation = {
     cta: "Razgovarajmo o inženjerskom izazovu",
   },
   software: {
-    label: "04 / NAMENSKI SOFTVER",
+    label: "04 / SOFTVER PO MERI",
     title: "Aplikacije za\nvaš način rada.",
     text: "Razvijamo desktop, veb i mobilne aplikacije za zadatke koje gotovi proizvodi ne pokrivaju. Rešenje oblikujemo prema zahtevima, podacima i postojećim radnim procesima.",
     items: [
@@ -176,7 +174,7 @@ export const sr: Translation = {
   contact: {
     label: "08 / KONTAKT",
     title: "Razgovarajmo o\nvašem projektu.",
-    text: "Imate projekat ili potrebu za namenskim softverom? Kontaktirajte nas da razmotrimo zahteve i način realizacije.",
+    text: "Imate projekat ili potrebu za softverom po meri? Kontaktirajte nas da razmotrimo zahteve i način realizacije.",
     send: "Pošaljite imejl",
     copy: "Kopirajte imejl",
     copied: "Imejl je kopiran",
@@ -186,14 +184,14 @@ export const sr: Translation = {
     note: "Za početak, pošaljite kratak opis zahteva.",
   },
   footer: {
-    description: "Namenski softver i inženjerski alati.",
+    description: "Softver po meri i inženjerski alati.",
     rights: "Sva prava zadržana.",
     top: "Na vrh",
     navigation: "Navigacija u podnožju",
   },
   seo: {
-    title: "Zuaros — Namenski softver i inženjering",
+    title: "Zuaros — Softver po meri i inženjering",
     description:
-      "Razvoj namenskog softvera, elektroenergetskih i inženjerskih rešenja, alata za obrazovanje i istraživanje i nezavisnih video igara.",
+      "Razvoj softvera po meri, elektroenergetskih i inženjerskih rešenja, alata za obrazovanje i istraživanje i nezavisnih video igara.",
   },
 };

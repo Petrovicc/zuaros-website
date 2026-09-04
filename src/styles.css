@@ -378,13 +378,6 @@
     letter-spacing: 0.12em;
     color: var(--muted);
   }
-  .coordinate-top {
-    position: absolute;
-    top: 3%;
-    left: 12%;
-    right: 6%;
-    justify-content: flex-end;
-  }
   .coordinate-bottom {
     justify-content: center;
     position: absolute;
@@ -628,9 +621,6 @@
       align-self: center;
       margin: 28px 0 10px;
     }
-    .coordinate-top {
-      top: 2%;
-    }
     .coordinate-bottom {
       bottom: -3%;
       font-size: 0.5rem;
@@ -784,13 +774,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 25px;
     color: var(--accent);
-  }
-  .about-sign > span {
-    color: #969c8e;
-    font-size: 0.625rem;
-    letter-spacing: 0.15em;
   }
   .about-symbol {
     width: 185px;
@@ -1591,14 +1575,8 @@
     .about-lead {
       font-size: 0.9375rem;
     }
-    .about-sign {
-      gap: 20px;
-    }
     .about-symbol {
       width: 135px;
-    }
-    .about-sign > span {
-      font-size: 0.625rem;
     }
     .engineering-grid {
       gap: 32px;

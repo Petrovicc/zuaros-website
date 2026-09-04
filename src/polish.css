@@ -42,7 +42,6 @@
   .coordinate-bottom,
   .section-label,
   .service-tags,
-  .about-sign > span,
   .diagram-label,
   .signal-labels,
   .signal-labels small,
@@ -59,10 +58,6 @@
   }
   .service-card > p {
     font-size: 1rem;
-  }
-  .coordinate-top {
-    gap: 16px;
-    font-size: 0.75rem;
   }
   .core-coordinate {
     letter-spacing: 0.08em;

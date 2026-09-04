@@ -14,9 +14,6 @@ export function SolarCore({ t }: { t: Translation }) {
 
   return (
     <div className="solar-visual" aria-hidden="true">
-      <div className="core-coordinate coordinate-top">
-        <span>{t.hero.core}</span>
-      </div>
       <div ref={field} className="core-field">
         <svg className="orbital-grid" viewBox="0 0 600 600" fill="none">
           <defs>

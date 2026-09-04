@@ -36,6 +36,14 @@ for (const viewport of viewports) {
         lang === "sr" ? "Softver za" : "Software for",
       );
       await expect(page.locator("main section")).toHaveCount(10);
+      await expect(page.locator(".coordinate-top")).toHaveCount(0);
+      await expect(page.locator(".about-sign > span")).toHaveCount(0);
+      if (lang === "sr") {
+        await expect(page.locator("main")).not.toContainText(/namensk/i);
+        await expect(page.locator("#services h3").first()).toHaveText(
+          "Softver po meri",
+        );
+      }
       for (const section of await page.locator("main section").all()) {
         await section.scrollIntoViewIfNeeded();
         const overflow = await page.evaluate(
@@ -77,10 +85,10 @@ test("language persists, browser Serbian defaults, and metadata updates", async 
   await page.getByRole("button", { name: "Srpski", exact: true }).click();
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("lang", "sr-Latn");
-  await expect(page).toHaveTitle(/Namenski softver/);
+  await expect(page).toHaveTitle(/Softver po meri/);
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     "content",
-    /Razvoj namenskog softvera/,
+    /Razvoj softvera po meri/,
   );
   await page.getByRole("button", { name: "English", exact: true }).click();
   await page.reload();

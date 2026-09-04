@@ -59,7 +59,6 @@ export function About({ t }: { t: Translation }) {
             <div className="about-symbol">
               <Symbol />
             </div>
-            <span>{t.about.caption}</span>
           </div>
           <div>
             <SectionHeading
