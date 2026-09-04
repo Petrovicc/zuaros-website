@@ -1,0 +1,184 @@
+/* Readability and intrinsic-size constraints, shared across breakpoint layouts. */
+@layer responsive {
+  .language-switch button {
+    position: relative;
+    transition: color var(--duration-fast);
+  }
+  .language-switch button::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: 5px;
+    left: 6px;
+    right: 6px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform var(--duration-fast);
+  }
+  .language-switch button[aria-pressed="true"]::after {
+    transform: scaleX(1);
+  }
+  .text-link {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .engineering-grid > *,
+  .engineering-points > *,
+  .engineering-points p {
+    min-width: 0;
+  }
+  .signal-labels {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow-wrap: anywhere;
+  }
+  .navigation a,
+  .header-contact {
+    font-size: 0.875rem;
+  }
+  .hero .eyebrow,
+  .hero-baseline,
+  .hero-baseline a,
+  .core-coordinate,
+  .coordinate-bottom,
+  .section-label,
+  .service-tags,
+  .about-sign > span,
+  .diagram-label,
+  .signal-labels,
+  .signal-labels small,
+  .diagram-note,
+  .research-tags li,
+  .research-label,
+  .research-diagram > p,
+  .game-tags,
+  .game-teaser .section-label,
+  .contact-note,
+  .contact-person dt,
+  .footer-bottom {
+    font-size: 0.75rem;
+  }
+  .service-card > p {
+    font-size: 1rem;
+  }
+  .coordinate-top {
+    gap: 16px;
+    font-size: 0.75rem;
+  }
+  .core-coordinate {
+    letter-spacing: 0.08em;
+  }
+  .hero-baseline {
+    letter-spacing: 0.08em;
+  }
+  .contact-grid {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  }
+  .contact-grid > *,
+  .contact-person dl,
+  .contact-person dd {
+    min-width: 0;
+  }
+  .contact-person dd a {
+    display: block;
+    overflow-wrap: anywhere;
+  }
+  .contact-person dd a svg {
+    display: inline-block;
+    margin-left: 12px;
+    vertical-align: middle;
+  }
+  .footer-main a {
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 1190px) {
+    .navigation {
+      gap: 15px;
+    }
+    .header-inner {
+      gap: 18px;
+    }
+    .header-actions {
+      gap: 12px;
+    }
+  }
+  @media (max-width: 1023px) {
+    .contact-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .navigation a {
+      font-size: 1rem;
+    }
+    .header-actions {
+      gap: 20px;
+    }
+    .hero .eyebrow {
+      max-width: 360px;
+    }
+    .coordinate-bottom {
+      font-size: 0.75rem;
+    }
+    .core-coordinate .tiny-spark {
+      display: none;
+    }
+    .coordinate-bottom > span:last-child {
+      display: none;
+    }
+  }
+  @media (max-width: 680px) {
+    .header-inner {
+      gap: 10px;
+    }
+    .header-actions {
+      gap: 10px;
+    }
+    .hero .eyebrow {
+      letter-spacing: 0.06em;
+    }
+    .hero-baseline {
+      gap: 18px;
+      letter-spacing: 0.04em;
+    }
+    .hero-baseline a {
+      white-space: nowrap;
+      gap: 8px;
+    }
+    .coordinate-bottom {
+      font-size: 0.75rem;
+    }
+    .hero-baseline > span {
+      max-width: 170px;
+    }
+    .contact-person {
+      flex-wrap: wrap;
+    }
+    .contact-person dl {
+      max-width: 100%;
+    }
+    .research-diagram > p {
+      text-align: center;
+    }
+    .signal-labels {
+      font-size: 0.75rem;
+    }
+    .footer-bottom {
+      font-size: 0.75rem;
+    }
+    .contact-actions .button {
+      white-space: normal;
+    }
+    .hero-baseline {
+      flex-wrap: wrap;
+      row-gap: 0;
+    }
+    .hero-baseline > span {
+      max-width: none;
+      width: 100%;
+    }
+    .hero-baseline a {
+      min-height: 38px;
+    }
+    .hero {
+      padding-bottom: 112px;
+    }
+  }
+}
