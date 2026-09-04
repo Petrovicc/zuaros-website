@@ -33,7 +33,7 @@ for (const viewport of viewports) {
         lang === "sr" ? "sr-Latn" : "en",
       );
       await expect(page.locator("h1")).toContainText(
-        lang === "sr" ? "Iskra ideje." : "Ideas sparked.",
+        lang === "sr" ? "Softver za" : "Software for",
       );
       await expect(page.locator("main section")).toHaveCount(10);
       for (const section of await page.locator("main section").all()) {
@@ -77,7 +77,7 @@ test("language persists, browser Serbian defaults, and metadata updates", async 
   await page.getByRole("button", { name: "Srpski", exact: true }).click();
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("lang", "sr-Latn");
-  await expect(page).toHaveTitle(/Iskra ideje/);
+  await expect(page).toHaveTitle(/Namenski softver/);
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     "content",
     /Razvoj namenskog softvera/,
@@ -108,7 +108,7 @@ test("Serbian browser locale selects Serbian, blocked storage remains usable", a
   await blockedPage
     .getByRole("button", { name: "Srpski", exact: true })
     .click();
-  await expect(blockedPage.locator("h1")).toContainText("Iskra ideje.");
+  await expect(blockedPage.locator("h1")).toContainText("Softver za");
   await blocked.close();
 });
 
@@ -171,11 +171,11 @@ test("reduced motion, keyboard skip link, and root font enlargement", async ({
   await expect(
     page.getByRole("link", { name: "Skip to content" }),
   ).toBeFocused();
-  expect(
-    await page
-      .locator(".orbit-motion")
-      .evaluate((node) => getComputedStyle(node).animationName),
-  ).toBe("none");
+  await expect(page.locator(".orbit-particles")).toHaveAttribute(
+    "data-motion",
+    "reduced",
+  );
+  await expect(page.locator(".orbit-trail").first()).toBeHidden();
   expect(
     await page
       .locator("html")

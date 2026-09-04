@@ -1,18 +1,15 @@
+import mark from "../brand/mark.json";
+
 export function Symbol({ className = "" }: { className?: string }) {
   return (
     <svg
       className={className}
-      viewBox="0 0 64 64"
+      viewBox={mark.viewBox}
       fill="none"
       aria-hidden="true"
     >
-      <path
-        d="M10 16H43L13 48H48"
-        stroke="currentColor"
-        strokeWidth="9"
-        strokeLinejoin="bevel"
-      />
-      <path d="m53 5 5 5-5 5-5-5Z" fill="currentColor" />
+      <path d={mark.body} fill="currentColor" />
+      <path d={mark.spark} fill="currentColor" />
     </svg>
   );
 }

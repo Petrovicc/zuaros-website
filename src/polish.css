@@ -117,12 +117,6 @@
     .coordinate-bottom {
       font-size: 0.75rem;
     }
-    .core-coordinate .tiny-spark {
-      display: none;
-    }
-    .coordinate-bottom > span:last-child {
-      display: none;
-    }
   }
   @media (max-width: 680px) {
     .header-inner {

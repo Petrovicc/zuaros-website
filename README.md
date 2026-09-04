@@ -6,7 +6,7 @@ The official bilingual website and original vector identity for Zuaros: custom s
 
 ## Stack
 
-React 19, strict TypeScript, Vite 8, plain layered CSS, and self-hosted Space Grotesk / Inter variable fonts. No backend, external runtime APIs, analytics, database, or animation library. Small SVG and CSS effects honor reduced-motion preferences.
+React 19, strict TypeScript, Vite 8, plain layered CSS, and self-hosted Space Grotesk / Inter variable fonts. No backend, external runtime APIs, analytics, database, or animation library. A ref-based requestAnimationFrame controller moves four SVG particles (three on mobile), with historical-position tails, offscreen/hidden-page pausing, and reduced-motion support.
 
 ## Local development
 
@@ -34,7 +34,7 @@ npm run build
 npm test
 ```
 
-The production preview is started automatically. Tests cover English/Serbian at 375×812, 430×932, 768×1024, 1366×768, and 1920×1080; internal anchors; asset loading; console errors; language persistence and blocked storage; mobile navigation; clipboard success/failure; keyboard access; reduced motion; and 200% text enlargement. See `docs/VALIDATION.md` for the launch checks.
+The production preview is started automatically. The 31 tests cover English/Serbian at 375×812, 430×932, 768×1024, 1366×768, and 1920×1080; internal anchors; asset loading; console errors; language persistence and blocked storage; mobile navigation; clipboard success/failure; keyboard access; reduced motion; and 200% text enlargement. They also check all particles in both directions, rendered tail positions, mobile simplification, pause/resume, lifecycle cleanup, bounded SVG work, and shared logo geometry. See `docs/VALIDATION.md` for validation details.
 
 ## Deployment: GitHub Pages
 
@@ -61,6 +61,8 @@ References: [Vite static deployment](https://vite.dev/guide/static-deploy), [Git
 
 ```text
 src/
+  animation/        Shared orbit geometry, historical trails, RAF lifecycle
+  brand/mark.json   Single source for the final Z and detached spark paths
   components/       Semantic sections, diagrams, shared UI, ProjectCard
   data/projects.ts  Typed, intentionally empty portfolio collection
   i18n/             English and Serbian dictionaries, preference hook

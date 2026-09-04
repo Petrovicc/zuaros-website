@@ -48,6 +48,9 @@
     --muted: #a4aaa1;
     --accent: #edb466;
     --accent-bright: #f6c580;
+    --accent-muted: #b59a70;
+    --accent-rgb: 237 180 102;
+    --orbit-line: #4a4940;
     --line: #34382f;
     --cyan: #9abbb4;
     --font-heading: "Space Grotesk Variable", sans-serif;
@@ -60,7 +63,6 @@
     --space-6: 5rem;
     --space-7: 8rem;
     --radius: 3px;
-    --shadow-glow: 0 0 60px #edb46618;
     --duration-fast: 180ms;
     --duration-medium: 400ms;
     --duration-reveal: 750ms;
@@ -142,7 +144,7 @@
   }
   .status-dot {
     border-radius: 50%;
-    box-shadow: 0 0 12px #edb46655;
+    box-shadow: 0 0 12px rgb(var(--accent-rgb) / 0.33);
   }
   .tiny-spark {
     transform: rotate(45deg);
@@ -374,23 +376,20 @@
     gap: 12px;
     font-size: 0.5625rem;
     letter-spacing: 0.12em;
-    color: #9a9c8b;
+    color: var(--muted);
   }
   .coordinate-top {
     position: absolute;
     top: 3%;
     left: 12%;
     right: 6%;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
   .coordinate-bottom {
     justify-content: center;
     position: absolute;
     bottom: 0;
     width: 100%;
-  }
-  .coordinate-bottom > span:last-child {
-    margin-left: 12px;
   }
   .solar-halo {
     position: absolute;
@@ -401,11 +400,10 @@
     border-radius: 50%;
     background: radial-gradient(
       circle at 48% 46%,
-      #efaa491f,
-      #e8972910 48%,
+      rgb(var(--accent-rgb) / 0.1),
+      rgb(var(--accent-rgb) / 0.04) 48%,
       transparent 70%
     );
-    box-shadow: 0 0 75px #e5a2470a;
   }
   .core-symbol {
     position: absolute;
@@ -414,33 +412,11 @@
     width: 34%;
     aspect-ratio: 1;
     color: var(--accent);
-    filter: drop-shadow(0 0 18px #edb46633);
+    filter: drop-shadow(0 0 18px rgb(var(--accent-rgb) / 0.16));
     transform: rotate(-7deg);
   }
   .core-symbol svg {
     width: 100%;
-  }
-  .spark {
-    position: absolute;
-    height: 3px;
-    width: 3px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 12px 3px #edb46622;
-  }
-  .spark-one {
-    top: 20%;
-    left: 70%;
-  }
-  .spark-two {
-    top: 68%;
-    left: 23%;
-    animation-delay: -2s !important;
-  }
-  .spark-three {
-    top: 73%;
-    left: 77%;
-    animation-delay: -4s !important;
   }
   @media (prefers-reduced-motion: no-preference) {
     .hero-content {
@@ -448,16 +424,6 @@
     }
     .solar-visual {
       animation: entrance 1200ms 100ms both;
-    }
-    .orbit-motion {
-      transform-origin: 300px 300px;
-      animation: orbit 60s linear infinite;
-    }
-    .spark {
-      animation: float 7s ease-in-out infinite;
-    }
-    .core-symbol {
-      animation: breathe 9s ease-in-out infinite;
     }
   }
   @keyframes entrance {
@@ -470,21 +436,15 @@
       transform: translateY(0);
     }
   }
-  @keyframes orbit {
-    to {
-      transform: rotate(360deg);
+  @media (prefers-reduced-motion: reduce) {
+    .orbit-trail {
+      display: none;
     }
   }
-  @keyframes float {
-    50% {
-      transform: translate(6px, -12px);
-      opacity: 0.25;
-    }
-  }
-  @keyframes breathe {
-    50% {
-      transform: rotate(-7deg) scale(1.04);
-      opacity: 0.8;
+  @media (max-width: 680px) {
+    .desktop-particle,
+    .orbit-trail circle:nth-child(n + 6) {
+      display: none;
     }
   }
 }
@@ -1015,7 +975,7 @@
   }
   .final-node {
     border-color: var(--accent);
-    background: #edb46612;
+    background: rgb(var(--accent-rgb) / 0.07);
   }
   .research-section {
     background: #151815;
@@ -1118,7 +1078,11 @@
     font-size: 0.6875rem;
   }
   .games-section {
-    background: radial-gradient(ellipse at 85% 55%, #6c442311, transparent 60%);
+    background: radial-gradient(
+      ellipse at 85% 55%,
+      rgb(var(--accent-rgb) / 0.025),
+      transparent 60%
+    );
   }
   .games-grid {
     display: grid;
@@ -1170,7 +1134,7 @@
     position: absolute;
     width: 5px;
     height: 5px;
-    border: 1px solid #b7a07b;
+    border: 1px solid var(--accent-muted);
     left: 50%;
     top: 50%;
     transform: rotate(var(--angle)) translateX(105px) rotate(45deg);
@@ -1224,7 +1188,7 @@
   .empty-marker span {
     width: 5px;
     height: 5px;
-    background: #8c805f;
+    background: var(--accent-muted);
   }
   .empty-marker span:first-child {
     background: var(--accent);
