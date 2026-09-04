@@ -2,6 +2,8 @@
 
 The official bilingual website and original vector identity for Zuaros: custom software, energy and engineering solutions, education and research tools, and independent games.
 
+[Website](https://petrovicc.github.io/zuaros-website/) · [Repository](https://github.com/Petrovicc/zuaros-website) · [Deployments](https://github.com/Petrovicc/zuaros-website/actions/workflows/deploy.yml)
+
 ## Stack
 
 React 19, strict TypeScript, Vite 8, plain layered CSS, and self-hosted Space Grotesk / Inter variable fonts. No backend, external runtime APIs, analytics, database, or animation library. Small SVG and CSS effects honor reduced-motion preferences.

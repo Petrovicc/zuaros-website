@@ -9,6 +9,7 @@ Validated on 4 September 2026 with Node.js 24 and the production Vite build.
 - `npm audit` reports **0 vulnerabilities**.
 - **17 Playwright tests pass**, including an axe-core WCAG A/AA audit in both languages at desktop and mobile widths.
 - All five requested sizes are covered in both English and Serbian: 375×812, 430×932, 768×1024, 1366×768, 1920×1080.
+- Additional WebKit 26.5 smoke checks pass in both languages at all five widths, without horizontal overflow or runtime errors. This is browser-engine testing, not a physical Safari/iPhone test.
 - No horizontal overflow, failed image requests, broken section anchors, or browser runtime errors in the tested layouts.
 - Language persistence, Serbian browser locale, blocked storage, mobile menu selection/Escape/outside click/resizing, email links, clipboard success/denial, keyboard skip link, reduced motion, and 200% text enlargement are covered.
 
