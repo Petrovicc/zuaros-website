@@ -1,0 +1,59 @@
+.studio-intro {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 280px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  isolation: isolate;
+  background: #101211;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.studio-intro[hidden] {
+  display: none;
+}
+
+.studio-intro::before {
+  position: absolute;
+  inset: 18%;
+  z-index: -1;
+  content: "";
+  background: radial-gradient(circle, rgb(237 180 102 / 7%), transparent 67%);
+}
+
+.studio-intro > svg {
+  width: min(78%, 36rem);
+  height: min(88%, 36rem);
+}
+
+.studio-intro[data-variant="wordmark"] > svg {
+  height: min(92%, 40rem);
+}
+
+.studio-intro[data-exiting="true"] {
+  opacity: 0;
+}
+
+.studio-intro--scale-fade[data-exiting="true"] {
+  transform: scale(1.025);
+}
+
+.studio-intro[data-state="reduced"] .intro-particle-trail {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-intro {
+    transition: none;
+  }
+
+  .studio-intro .intro-particle-trail {
+    display: none;
+  }
+}

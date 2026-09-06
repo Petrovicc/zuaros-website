@@ -1,51 +1,80 @@
-# Refinement validation
+# Brand package validation
 
-Validated on 4 September 2026 with Node.js 24 and the production Vite build.
+Validated on 6 September 2026 with Node.js 24, Chromium, Sharp, and the installed .NET 10 MAUI workloads.
 
-## Automated checks
+## Automated website and asset checks
 
-- ESLint, strict TypeScript, and production build pass.
-- **31 Playwright tests pass** against both root hosting and the `/zuaros-website/` production build.
-- The five requested sizes are covered in both English and Serbian: 375×812, 430×932, 768×1024, 1366×768, and 1920×1080.
-- Axe-core WCAG A/AA checks pass in both languages at desktop and mobile widths.
-- No horizontal overflow, failed image requests, broken section anchors, or browser runtime errors in the tested layouts.
-- Language persistence, Serbian browser locale, blocked storage, mobile menu selection/Escape/outside click/resizing, email links, clipboard success/denial, keyboard skip link, reduced motion, and 200% text enlargement pass.
-- The resize test explicitly waits for the desktop breakpoint state before returning to mobile, avoiding back-to-back resizes being coalesced into one browser frame on CI.
-- `npm audit` reports **0 vulnerabilities**.
-- Project-subpath bundle: approximately **227 kB JavaScript / 71.2 kB gzip** and **28 kB CSS / 6.7 kB gzip**. No animation dependency was added.
+- ESLint, strict TypeScript, and the production Vite build pass.
+- `npm audit` reports 0 vulnerabilities.
+- **40 Playwright tests pass** against both root hosting and the `/zuaros-website/` GitHub Pages production bundle.
+- The existing bilingual website still passes at 375×812, 430×932, 768×1024, 1366×768, and 1920×1080 in English and Serbian.
+- Axe-core WCAG A/AA checks still pass for the public website at desktop and mobile widths.
+- No normal-site route, public navigation item, localization path, deployment base, or existing brand URL was removed.
+- Brand tests verify every Core Mark, orbital emblem, and lockup contains the exact master Z and spark paths.
+- The clean orbital SVG is checked for four thin orbit paths, four bodies, correct layer order, transparent background, and absence of text, crosshairs, coordinate labels, dashed measurement marks, and background rectangles.
+- Dark-background, light-background, monochrome-dark, and monochrome-light inks are verified.
+- Transparent PNGs at 256, 512, 1024, and 2048 px are checked for exact dimensions, preserved lockup aspect ratios, a real alpha channel, transparent pixels, and opaque artwork pixels.
+- Two consecutive brand generations produce byte-identical JSON, SVG, PNG, splash, and generated C# outputs.
 
-## Logo and visual review
+## Static visual review
 
-Three related Z/spark variations were compared privately at 16, 24, navbar, 128, and hero sizes. The clipped-terminal version retains a clear Z silhouette and separated spark at favicon scale. Final paths are shared by React and every generated SVG/raster derivative; the original wordmark paths and alignment remain unchanged.
+The maintenance preview was reviewed on both graphite and white presentation-like panels. The following actual display sizes are present in the preview:
 
-Reviewed the hero in both languages at all five requested viewports, plus services, About, engineering, software, research, games, the empty project state, approach, contact, footer, and the revised social image. Reviewed the narrow Serbian contact layout separately. No clipping, awkward hero line breaks, or CTA overflow was observed in these checks. The existing page structure, typography, and graphite/amber direction remain intact.
+- Core Mark: 24, 48, and 128 px;
+- Full Orbital Emblem: 128, 256, and 512 px;
+- horizontal and vertical lockups on dark;
+- horizontal document lockup on white;
+- all four background/monochrome emblem variants.
 
-English and Serbian copy were reviewed together for factual scope, natural phrasing, and consistent CTA intent. Contact remains Nikola Petrović / zuaros.dev@gmail.com. Project and game placeholders do not imply published work. The engineering graphic is still explicitly conceptual, not live telemetry.
+At 24 and 48 px, the Core Mark remains the intended choice. At 128 px and above, the orbital paths remain subordinate to the Z, the spark stays distinct, and the emblem reads without glow. The white-page version uses contrast gold `#976018` and graphite paths; the dark-page version uses solar amber and muted-gold paths. SVG is the master format and all PNGs preserve transparency.
 
-## Particle direction and history
+The full emblem retains the hero's intentional asymmetry: one circular path, two opposing angled ellipses with different visual emphasis, one narrow offset-feeling ellipse, mixed particle sizes, and mixed phases. It does not include the hero's instrumentation or astronomical scenery.
 
-`tests/orbits.spec.ts` independently reverses the ellipse transform to recover each rendered point's path phase. All four particles are tested in **both directions**, including loop boundaries and multiple complete cycles, with desktop and mobile sampling.
+## Studio intro behavior
 
-For every point, signed phase lag must equal `age / period`. Every trail point must lie on the same path, have a positive historical age, and be smaller and dimmer than the point before it. The head must occupy the expected current position. This catches a tail in front of its head and does not rely on visual appearance alone.
+The web reference uses a finite **1,900 ms** timeline, with one cached-node `requestAnimationFrame` controller and no React render per frame.
 
-Browser tests verify actual movement direction and all visible tail positions at desktop and mobile widths. The primary/tertiary particles run clockwise, secondary/distant counterclockwise. Periods are 14/19/25/31 seconds. Mobile has three active particles and five shorter trail samples each; desktop has four and eight respectively.
+- Ignition, Z formation, spark pulse, staggered orbital drawing, particle activation, and optional wordmark appear in the required order.
+- Four particles have distinct size, phase, opacity, period, and mixed clockwise/counter-clockwise directions.
+- Every rendered trail point is independently mapped back onto its ellipse. Its signed phase lag must equal `age / period`, proving that each point is a previous position behind its head for either direction.
+- The symbol-only variant contains no wordmark. The studio variant reaches a fully visible wordmark at about 1,360 ms and holds it for approximately 540 ms.
+- Reduced motion immediately resolves to a stable completed frame, hides trails, stops movement, and does not deadlock completion.
+- The component supports host-controlled fade or slight scale/fade exits, completion callbacks, and optional automatic dismissal.
 
-## Animation lifecycle and performance
+The standalone intro was rendered and pixel dimensions were verified at:
 
-- One requestAnimationFrame loop, cached SVG nodes, batched transform writes, no layout reads or frame-driven React state.
-- Offscreen pause/resume and dynamic reduced-motion changes pass in the browser. Stationary reduced-motion heads have no visible tails.
-- Ten repeated controller mount/dispose cycles check one outstanding frame at most, document-hidden pause/resume, media changes, observer disconnection, listener removal, and late-callback safety.
-- Chromium performance counters show stable DOM-node and listener counts. SVG transform updates are bounded to at most one normal layout bookkeeping pass per animation frame, rather than repeated read/write layout thrashing.
-- One local 700 ms sample recorded 43 frames, about 1.4 ms total SVG layout time and 4.4 ms script time. This is a desktop lab sample, not a device-independent performance guarantee.
-- While the hero is offscreen, its RAF count stops and the measured layout count remains unchanged.
-- No continuously animated large blur or individual compositor-layer promotion is used for the particles.
+| CSS viewport and scale | Output pixels | Result |
+| --- | --- | --- |
+| 360×800 at 3× | 1080×2400 | centered, contained, no overflow |
+| 480×1067 at 3× | 1440×3201 (approximately 1440×3200) | centered, contained, no overflow |
+| 1920×1080 at 1× | 1920×1080 | centered, contained, no overflow |
 
-These are local browser and lifecycle checks, not long-running physical-device battery/GPU measurements. No physical iPhone/Android hardware test was performed.
+## Performance and lifecycle
 
-## Static hosting
+- The existing hero still uses one cached-node RAF loop, pauses offscreen and while the document is hidden, responds to live reduced-motion changes, and removes its observer/listeners on cleanup.
+- Hero particle rendering now reuses preallocated coordinate objects in the frame loop instead of allocating sample arrays each frame.
+- Intro rendering queries DOM nodes once, reuses point objects, and stops permanently after its finite timeline.
+- Existing lifecycle tests confirm repeated hero mount/dispose safety and bounded SVG layout work.
+- No animation library, video, texture, canvas bitmap, or large blur dependency was added.
 
-The complete suite passes against `/zuaros-website/`. Deployment metadata, asset URLs, canonical URL, and sitemap derive from the actual Pages URL. The existing workflow and routing/localization architecture are unchanged. There is no form backend, required runtime API, analytics, or third-party font request.
+## .NET MAUI reference
 
-## Earlier launch baseline
+`extras/maui/ZuarosIntro/` was validated as a standalone multi-target MAUI project:
 
-Before this refinement, WebKit 26.5 smoke checks passed at the same five widths and Lighthouse 13.4.1 recorded performance 95, accessibility 100, best practices 100, and SEO 100 (simulated mobile, local production build). Those WebKit/Lighthouse measurements were **not rerun for this refinement** and should not be represented as measurements of the new animation.
+- Android, iOS, Mac Catalyst, and Windows builds pass with **0 warnings and 0 errors**.
+- `dotnet format --verify-no-changes` passes.
+- The package uses one `GraphicsView`, one `IDrawable`, MAUI's native animation timing, cached paths/tables, and no third-party animation dependency.
+- `npm run brand` reads the authoritative `src/brand/zuaros-master.svg`, generates the React JSON manifest, and derives the MAUI Z, spark, wordmark, orbit, center, transform, and particle definitions from the same vector source.
+- The MAUI renderer evaluates trail samples at `t − age` with direction inside the orbit function.
+- Normalized layout math was checked at 1080×2400, 1440×3200, and 1920×1080.
+- The static native splash uses the Core Mark on transparent SVG artwork; full motion runs in-app after initialization.
+
+These are local automated and rendered checks. No claim is made for physical-device battery use, OEM splash timing, or a hardware frame-rate measurement until the package is integrated into a specific game and profiled on its target devices.
+
+## Preview locations
+
+With `npm run dev` running:
+
+- `/?brand-preview=1` — full brand QA surface;
+- `/?brand-preview=1&intro=symbol` — full-screen symbol intro;
+- `/?brand-preview=1&intro=wordmark` — full-screen wordmark intro.

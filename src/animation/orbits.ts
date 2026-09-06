@@ -1,8 +1,15 @@
+import mark from "../brand/mark.json" with { type: "json" };
+
 export interface Orbit {
   id: string;
   rx: number;
   ry: number;
   rotation: number;
+}
+
+export interface OrbitPoint {
+  x: number;
+  y: number;
 }
 
 export interface Particle {
@@ -17,79 +24,54 @@ export interface Particle {
   mobile: boolean;
 }
 
-// The same definitions drive visible paths and particle positions.
-export const orbits: Orbit[] = [
-  { id: "inner", rx: 185, ry: 185, rotation: 0 },
-  { id: "ascending", rx: 236, ry: 116, rotation: -38 },
-  { id: "descending", rx: 236, ry: 116, rotation: 38 },
-  { id: "outer", rx: 90, ry: 235, rotation: 38 },
-];
+// Hero, exported emblem, preview intro, and MAUI generator all start here.
+export const orbits: Orbit[] = mark.orbital.orbits.map((orbit) => ({
+  ...orbit,
+}));
 
-export const particles: Particle[] = [
-  {
-    id: "primary",
-    orbit: orbits[0],
-    period: 14,
-    phase: 0.06,
-    direction: 1,
-    radius: 3.5,
-    opacity: 1,
-    trailDuration: 0.52,
-    mobile: true,
-  },
-  {
-    id: "secondary",
-    orbit: orbits[1],
-    period: 19,
-    phase: 0.43,
-    direction: -1,
-    radius: 2.7,
-    opacity: 0.78,
-    trailDuration: 0.46,
-    mobile: true,
-  },
-  {
-    id: "tertiary",
-    orbit: orbits[2],
-    period: 25,
-    phase: 0.74,
-    direction: 1,
-    radius: 2.2,
-    opacity: 0.62,
-    trailDuration: 0.64,
-    mobile: true,
-  },
-  {
-    id: "distant",
-    orbit: orbits[3],
-    period: 31,
-    phase: 0.21,
-    direction: -1,
-    radius: 1.6,
-    opacity: 0.42,
-    trailDuration: 0.42,
-    mobile: false,
-  },
-];
+export const particles: Particle[] = mark.orbital.particles.map((particle) => ({
+  ...particle,
+  direction: particle.direction as 1 | -1,
+  orbit: orbits.find((orbit) => orbit.id === particle.orbit)!,
+}));
 
 export const TRAIL_COUNT = 8;
 export const MOBILE_TRAIL_COUNT = 5;
 
-export function pointOnOrbit(orbit: Orbit, turns: number) {
+export function pointOnOrbitInto(
+  orbit: Orbit,
+  turns: number,
+  target: OrbitPoint,
+) {
   const angle = (((turns % 1) + 1) % 1) * Math.PI * 2;
   const rotation = (orbit.rotation * Math.PI) / 180;
   const x = orbit.rx * Math.cos(angle);
   const y = orbit.ry * Math.sin(angle);
-  return {
-    x: 300 + x * Math.cos(rotation) - y * Math.sin(rotation),
-    y: 300 + x * Math.sin(rotation) + y * Math.cos(rotation),
-  };
+  target.x = mark.orbital.center.x + x * Math.cos(rotation) - y * Math.sin(rotation);
+  target.y = mark.orbital.center.y + x * Math.sin(rotation) + y * Math.cos(rotation);
+  return target;
+}
+
+export function pointOnOrbit(orbit: Orbit, turns: number) {
+  return pointOnOrbitInto(orbit, turns, { x: 0, y: 0 });
 }
 
 export function particleAt(particle: Particle, seconds: number) {
   return pointOnOrbit(
     particle.orbit,
     particle.phase + (particle.direction * seconds) / particle.period,
+  );
+}
+
+export function particleAtInto(
+  particle: Particle,
+  seconds: number,
+  target: OrbitPoint,
+) {
+  return pointOnOrbitInto(
+    particle.orbit,
+    particle.phase + (particle.direction * seconds) / particle.period,
+    target,
   );
 }
 

@@ -1,6 +1,6 @@
 # Zuaros
 
-The official bilingual website and original vector identity for Zuaros: custom software, energy and engineering solutions, education and research tools, and independent games.
+The official bilingual website and reusable vector identity for Zuaros: custom software, energy and engineering solutions, education and research tools, and independent games. The brand package includes the compact Z/spark mark, full orbital emblem, document lockups, transparent raster exports, a short studio intro, and a .NET MAUI reference implementation.
 
 [Website](https://petrovicc.github.io/zuaros-website/) · [Repository](https://github.com/Petrovicc/zuaros-website) · [Deployments](https://github.com/Petrovicc/zuaros-website/actions/workflows/deploy.yml)
 
@@ -34,7 +34,7 @@ npm run build
 npm test
 ```
 
-The production preview is started automatically. The 31 tests cover English/Serbian at 375×812, 430×932, 768×1024, 1366×768, and 1920×1080; internal anchors; asset loading; console errors; language persistence and blocked storage; mobile navigation; clipboard success/failure; keyboard access; reduced motion; and 200% text enlargement. They also check all particles in both directions, rendered tail positions, mobile simplification, pause/resume, lifecycle cleanup, bounded SVG work, and shared logo geometry. See `docs/VALIDATION.md` for validation details.
+The production preview is started automatically. The 40 tests cover English/Serbian website layouts; navigation, storage, clipboard, accessibility, and reduced motion; every particle direction and historical trail; lifecycle and bounded SVG work; the complete SVG/PNG asset inventory; transparent raster dimensions; intro timing; and centered studio-intro rendering at the requested portrait and landscape resolutions. See `docs/VALIDATION.md` for details.
 
 ## Deployment: GitHub Pages
 
@@ -62,7 +62,8 @@ References: [Vite static deployment](https://vite.dev/guide/static-deploy), [Git
 ```text
 src/
   animation/        Shared orbit geometry, historical trails, RAF lifecycle
-  brand/mark.json   Single source for the final Z and detached spark paths
+  brand/zuaros-master.svg  Editable vector master for the whole identity
+  brand/mark.json          Generated geometry manifest consumed by React
   components/       Semantic sections, diagrams, shared UI, ProjectCard
   data/projects.ts  Typed, intentionally empty portfolio collection
   i18n/             English and Serbian dictionaries, preference hook
@@ -73,6 +74,7 @@ public/brand/       SVG logos, symbols, favicons, avatar, social artwork
 scripts/           Reproducible brand generation
 tests/             Browser regression suite
 docs/              Brand guide and validation notes
+extras/maui/        Reusable GraphicsView/IDrawable studio intro and splash
 .github/           Pages workflow and dependency updates
 ```
 
@@ -88,11 +90,13 @@ Add approved records to `src/data/projects.ts`. Each record has localized title,
 
 ## Identity and contact
 
-Reusable assets: `public/brand/`. Practical usage rules, colors, typography, and motion: [Brand guide](docs/BRAND_GUIDE.md).
+Reusable assets: `public/brand/core/`, `public/brand/orbital/`, and `public/brand/raster/`. Practical usage rules, variants, minimum sizes, studio timing, and MAUI integration: [Brand guide](docs/BRAND_GUIDE.md).
 
 ```sh
 npm run brand
 ```
+
+The generator reads `src/brand/zuaros-master.svg`, refreshes `src/brand/mark.json`, and keeps `extras/maui/ZuarosIntro/ZuarosGeometry.Generated.cs` plus its native splash synchronized. Run the private QA page locally at `/?brand-preview=1`; it is not linked from the public website.
 
 Contact is a genuine `mailto:` link and optional clipboard copy, not a fake submission form. Official contact: **Nikola Petrović — zuaros.dev@gmail.com**.
 

@@ -1,91 +1,174 @@
 # Zuaros visual identity
 
-## The mark: a Z with a spark terminal
+## Brand idea
 
-A geometric **Z** ends in a clipped upper terminal. A detached quadrilateral continues its cut angle, making the spark a related fragment rather than an independent decoration. Three closely related variations were compared at 16, 24, navbar, 128, and large hero sizes. The selected version retains a continuous, legible Z and a clear gap to the spark at small sizes. It is deliberately not a flame pictogram, sun icon, or religious emblem. The name's Svarožić connection is brand inspiration supplied by the company.
+The Zuaros identity has one core and two levels of expression. The geometric **Z** is the brand; its detached upper-right fragment is the **spark**. At larger sizes, a restrained orbital energy system expresses interconnected software, engineering, and controlled complexity around that core.
 
-The custom lowercase wordmark uses consistent monoline geometry, open counters, and restrained rounded joins. Every letter is a vector path: it does not depend on an installed font.
+The orbital emblem is a direct simplification of the website hero. It keeps the hero's four shared paths, mixed directions, and deliberate asymmetry, but excludes its crosshairs, coordinate note, guide circles, measurement marks, background grid, and other instrumentation. The paths always sit behind the core, remain much thinner than the Z, and do not require glow for legibility.
 
-## Assets
+## Two-level identity system
 
-All reusable assets are in `public/brand/`. The final body and spark paths live in `src/brand/mark.json`, shared by the React symbol and `scripts/generate-brand.mjs` (`npm run brand`). Navbar, hero, standalone mark, monochrome export, favicon, avatar, and social artwork use identical underlying geometry. The existing wordmark paths, scale, and placement are unchanged. Exploratory variants are not shipped.
+### Compact Core Mark — Z + spark
 
-| Asset                                      | Use                                                           |
-| ------------------------------------------ | ------------------------------------------------------------- |
-| `zuaros-logo.svg`, `zuaros-logo-light.svg` | Primary horizontal mark on graphite/dark backgrounds          |
-| `zuaros-logo-dark.svg`                     | Dark lettering, bronze symbol on white/light backgrounds      |
-| `zuaros-logo-mono.svg`                     | Single-color black artwork for print and restricted-color use |
-| `zuaros-symbol.svg`                        | Standalone solar Z, amber on transparent background           |
-| `favicon.svg`, `favicon-32.png`            | Small browser icons with a dark protective tile               |
-| `apple-touch-icon.png`                     | 180 px touch icon                                             |
-| `zuaros-avatar.png`                        | 512 px avatar, no account changes made                        |
-| `social-preview.svg`, `social-preview.png` | 1200 × 630 share artwork                                      |
+Use the Core Mark for:
 
-The light/dark suffix describes the artwork, not the intended background. The light logo is for dark backgrounds.
+- favicon and browser icons;
+- navbar and compact footer placement;
+- app icons and the operating system's native mobile splash;
+- GitHub and other small avatars;
+- any placement below the Full Orbital Emblem's minimum size.
 
-## Logo rules
+The Core Mark is the correct choice at tiny sizes. Never squeeze orbital paths into a favicon or a small navigation control.
 
-- Keep at least one spark-width of clear space around the symbol; for the horizontal mark, prefer half the symbol's height.
-- Use the horizontal mark at least 120 CSS pixels wide; use the symbol alone below that.
-- Keep the symbol legible at 16 px. The favicon's dark tile supplies contrast.
-- Preserve proportions, the detached spark, and the direction of the Z.
-- Do not stretch, outline, add rays, surround it with a crest, or add heavy effects.
-- A restrained glow is allowed in large decorative brand visuals, never required for legibility.
-- Keep accessible labels on linked logos. Decorative repeated symbols should be hidden from assistive technology.
+### Full Orbital Emblem — Z + spark + orbital system
+
+Use the Full Orbital Emblem for:
+
+- Word and PDF document covers or headers;
+- PowerPoint and presentation title pages;
+- reports, posters, splash screens, and social graphics;
+- the in-app game studio intro;
+- large website and event-branding placements.
+
+Use the emblem-only asset when the surrounding context already says Zuaros. Use the horizontal lockup for document headers and wide layouts. Use the vertical lockup for covers, posters, and centered title pages.
+
+## Master geometry
+
+[`src/brand/zuaros-master.svg`](../src/brand/zuaros-master.svg) is the single editable vector source. Its visible vertical lockup and structured SVG attributes contain:
+
+- the exact 64-unit Z and spark paths;
+- the existing outlined lowercase wordmark paths;
+- the 600-unit emblem center and core transform;
+- four hero-derived orbit definitions;
+- four particle phases, directions, sizes, periods, and trail durations.
+
+Running `npm run brand` reads that SVG and regenerates `src/brand/mark.json`, the complete SVG/PNG library, social artwork, native splash, and `ZuarosGeometry.Generated.cs`. React consumes the generated JSON manifest. Do not hand-edit the manifest or generated outputs; change the master SVG and regenerate instead.
+
+## Asset library
+
+All production artwork lives under `public/brand/`. Existing root-level asset URLs remain as compatibility aliases for the live website.
+
+```text
+public/brand/
+  core/
+    zuaros-core.svg
+    zuaros-core-dark.svg
+    zuaros-core-light.svg
+    zuaros-core-mono-dark.svg
+    zuaros-core-mono-light.svg
+
+  orbital/
+    zuaros-orbital.svg
+    zuaros-orbital-on-dark.svg
+    zuaros-orbital-on-light.svg
+    zuaros-orbital-mono-dark.svg
+    zuaros-orbital-mono-light.svg
+    zuaros-orbital-horizontal*.svg
+    zuaros-orbital-vertical*.svg
+
+  raster/
+    core/
+    orbital/
+    lockups/
+```
+
+The raster folders contain transparent PNGs at 256, 512, 1024, and 2048 px. The number is the exported width; square marks are the same height, while horizontal and vertical lockups preserve their SVG aspect ratio. Prefer SVG whenever the destination supports it. Use 1024 or 2048 PNGs for office documents, PDF workflows that rasterize placed artwork, and social production.
+
+### Variant naming
+
+| Suffix | Intended surface | Construction |
+| --- | --- | --- |
+| `on-dark` or the unsuffixed orbital asset | Graphite/dark | Solar-gold core, light spark, muted-gold paths |
+| `on-light` | White/light | Contrast gold core, graphite paths and wordmark |
+| `mono-dark` | White/light print | Graphite-only artwork |
+| `mono-light` | Dark single-color use | Soft-white artwork |
+
+`zuaros-orbital-dark.svg` and `zuaros-orbital-light.svg` are convenient aliases for dark- and light-background artwork. Prefer the explicit `on-dark` / `on-light` names in new integrations. The older root-level `zuaros-logo-light.svg` name is retained only because the deployed navbar already references it.
+
+For the compact set, `zuaros-core-dark.svg` is intended for a dark canvas and `zuaros-core-light.svg` is tuned for a light canvas.
+
+## Minimum sizes and spacing
+
+| Mark | Recommended minimum | Notes |
+| --- | --- | --- |
+| Core Mark | 24 px / 6 mm | The purpose-built favicon is the 16 px exception |
+| Full Orbital Emblem | 128 px / 32 mm | Switch to Core Mark below this size |
+| Horizontal Orbital Lockup | 520 px / 130 mm wide | Keeps its embedded orbital emblem at the 128 px / 32 mm minimum |
+| Vertical Orbital Lockup | 160 px / 40 mm wide | Best for covers and title pages |
+
+Keep at least one spark-width of clear space around the Core Mark. Around an orbital emblem, keep at least 8% of the emblem width clear. Never crop an orbit or let nearby rules appear to continue one of its paths.
+
+Do not stretch, outline, redraw, mirror, add rays, enclose in a crest, or place the mark over a busy image. A restrained warm glow is allowed in a large animated or decorative context, but it is never part of the required logo geometry.
 
 ## Palette
 
-| Token               | Value     | Role                                       |
-| ------------------- | --------- | ------------------------------------------ |
-| Graphite            | `#101211` | Main background                            |
-| Charcoal            | `#161917` | Secondary surfaces                         |
-| Soft white          | `#F1F0E9` | Primary text                               |
-| Muted gray          | `#A4AAA1` | Supporting text                            |
-| Solar amber         | `#EDB466` | Brand mark, links, primary CTA backgrounds |
-| Light amber         | `#F6C580` | Hover and keyboard-focus accents           |
-| Muted amber         | `#B59A70` | Decorative markers and secondary gold      |
-| Orbital line        | `#4A4940` | Decorative technical paths                 |
-| Technical sage-cyan | `#9ABBB4` | Engineering diagrams and secondary accents |
-| Structural line     | `#34382F` | Nonessential separators                    |
+| Token | Value | Role |
+| --- | --- | --- |
+| Graphite | `#101211` | Primary background and monochrome dark ink |
+| Charcoal | `#161917` | Secondary surfaces |
+| Soft white | `#F1F0E9` | Wordmark/text on dark and monochrome light |
+| Muted gray | `#A4AAA1` | Supporting text |
+| Solar amber | `#EDB466` | Core brand gold on dark |
+| Light amber | `#F6C580` | Spark, particle heads, focus accents |
+| Muted amber | `#B59A70` | Orbital paths on dark |
+| Contrast gold | `#976018` | Core mark on white/light documents |
+| Orbital graphite | `#34382F` | Orbital paths on white/light documents |
 
-Use dark text on amber buttons. Thin low-contrast lines are decorative, not the sole way of identifying an interactive control. Do not use the muted structural lines for body text.
+The contrast-gold version is deliberately darker than the web accent so the mark remains readable on white. Do not introduce blue/purple gradients, realistic planets, starscapes, lens flares, 3D metal, crypto styling, or gaming-clan treatments.
 
-The CSS tokens `--bg`, `--surface`, `--surface-light`, `--ink`, `--muted`, `--accent`, `--accent-bright`, `--accent-muted`, `--line`, and `--orbit-line` define the system. Translucent gold uses `rgb(var(--accent-rgb) / opacity)`, not unrelated orange shades. The bronze in the light-background logo is a deliberate contrast variant, not another web accent.
+## Typography and wordmark
 
-## Typography
+The lowercase `zuaros` wordmark is custom outlined vector geometry with open counters and restrained rounded joins. It does not depend on an installed font. Do not typeset a replacement wordmark.
 
-**Space Grotesk Variable** for headings. **Inter Variable** for body copy and UI. Both are self-hosted OFL-licensed fonts supplied through Fontsource; Latin and extended Latin files support Serbian diacritics. Font licenses are in the installed font packages and copied to `public/brand/licenses/`.
+Use **Space Grotesk Variable** for headings and **Inter Variable** for body/UI copy. Both website fonts are self-hosted and OFL-licensed; license copies are in `public/brand/licenses/`.
 
-Headings use medium weight and slightly tight tracking. Body copy is calm and left-aligned. Uppercase tracking is reserved for short section labels. Avoid full paragraphs in uppercase, excessive bold, and narrow line spacing.
+## Studio intro
 
-## Layout and motion
+The reusable React reference is [`src/components/ZuarosStudioIntro.tsx`](../src/components/ZuarosStudioIntro.tsx). The default sequence lasts **1.9 seconds**, inside the approved 1.5–2.2 second range:
 
-- Desktop: up to 1320 px of content, generous section spacing, alternating editorial columns.
-- Mobile: content-first vertical order, deliberate navigation disclosure, no sideways scrolling.
-- Prefer fine rules, open layouts, and near-square corners over a page full of rounded cards.
-- The solar core uses geometric orbital paths, not an astronomical simulation.
-- Engineering flow means signal → acquisition → processing → insight. It is explicitly labeled as conceptual, never live telemetry.
-- Research loops express ask → test → learn. Game particles loosen the same geometric vocabulary.
-- Contact uses a single stable mark.
-- Continuous motion is slow and restrained. Hover motion is short. All motion is disabled under `prefers-reduced-motion`.
+1. ignition point appears during roughly 0–200 ms;
+2. the Z fades and scales gently into place from roughly 160–520 ms;
+3. the spark appears and gives one restrained pulse from roughly 430–720 ms;
+4. four orbital paths draw in with 70 ms staggering from roughly 520–1,190 ms;
+5. four particles activate from roughly 700 ms and move at distinct speeds in both directions;
+6. the optional wordmark fades in from 1,180–1,360 ms and remains fully visible for about 540 ms.
 
-### Hero particles
+Every trail is physical history. The head is evaluated at `P(t)` and each trail sample at `P(t − age)`. Direction is inside `P`, so clockwise and counter-clockwise particles both leave their trails behind their heads. No directional gradient is used.
 
-Four particles share the visible path definitions in `src/animation/orbits.ts`. Positive motion is clockwise in the SVG's downward-Y coordinate system.
+### Finished variants
 
-| Particle  | Orbit              | Direction        | Period | Head radius | Opacity | Tail history |
-| --------- | ------------------ | ---------------- | ------ | ----------- | ------- | ------------ |
-| Primary   | Inner circle       | Clockwise        | 14 s   | 3.5         | 1.00    | 0.52 s       |
-| Secondary | Ascending ellipse  | Counterclockwise | 19 s   | 2.7         | 0.78    | 0.46 s       |
-| Tertiary  | Descending ellipse | Clockwise        | 25 s   | 2.2         | 0.62    | 0.64 s       |
-| Distant   | Outer ellipse      | Counterclockwise | 31 s   | 1.6         | 0.42    | 0.42 s       |
+- **Variant A — Symbol only:** `showWordmark={false}`. Use when a game immediately presents its own strong title screen.
+- **Variant B — Studio wordmark:** `showWordmark`. Use when explicit studio recognition matters.
+- **Recommended hybrid:** run the same core/orbit activation, reveal `zuaros` for the last recognition beat, then crossfade immediately into the prepared application content. This is the default recommendation because it names the studio without adding a long logo hold.
 
-Radii are in the shared 600-unit SVG coordinate system. Each tail contains eight progressively smaller, dimmer points. Head position is `P(t)`; every tail point is `P(t - age)`. Direction is applied inside `P`, so changing direction also reverses the trail correctly. Gradient direction does not control the tail.
+The React component exposes `durationMs`, `autoDismiss`, `reducedMotion`, `exitStyle`, `exiting`, and `onComplete`. A host can use a 180–220 ms fade, a slight scale-up plus fade, or its own crossfade into the game. Reduced motion resolves to the stable final composition, removes trails, and still completes—never wait for a disabled CSS animation event.
 
-At widths of 680 px or less, the distant particle is hidden and not updated; the remaining three use five tail points and 60% of the desktop tail duration. Reduced motion leaves stationary heads without tails. One requestAnimationFrame loop writes transforms to cached SVG nodes, with no frame-driven React state or layout reads. It pauses offscreen or when the document is hidden. Cleanup cancels the frame and removes the observer and all three listeners. The central mark no longer has a separate continuous breathing animation.
+## .NET MAUI games
 
-## Voice
+Do not use the animated two-second sequence as the operating system's native splash. Native splash behavior differs by platform and should remain static.
 
-Specific, direct, quietly confident. Describe actual capabilities. No invented clients, project counts, awards, releases, partners, team size, or infrastructure deployments. English and Serbian Latin are independently phrased, not mechanically translated. The contact person is **Nikola Petrović**, at **zuaros.dev@gmail.com**.
+1. Copy [`extras/maui/ZuarosIntro/Resources/Splash/zuaros-splash.svg`](../extras/maui/ZuarosIntro/Resources/Splash/zuaros-splash.svg) into the game's `Resources/Splash/` and register it as `MauiSplashScreen` with graphite `#101211`.
+2. Show `ZuarosIntroView` as an in-app layer immediately after initialization, over an already-prepared first screen.
+3. Select `ShowWordmark`, `Duration`, `BackgroundColor`, `AutoDismiss`, and `ReducedMotion` through `ZuarosIntroOptions`.
 
-The hero states “Software for specialized requirements.” / “Softver za specifične zahteve.” Use “Discuss your project,” “View our services,” and “Contact,” with natural Serbian equivalents. Describe requirements, software, monitoring, simulation, data processing, research, and games directly. Avoid ignition metaphors in sales copy, future-building slogans, startup jargon, and unsupported operating claims. Keep the name's origin to a brief explanation in About.
+The support package in [`extras/maui/ZuarosIntro/`](../extras/maui/ZuarosIntro/) uses `GraphicsView`, `IDrawable`, MAUI's native animation clock, normalized coordinates, cached paths, and no third-party animation dependency. Its README contains copy/reference integration examples.
+
+## Practical application
+
+- **Small UI, favicon, avatar:** Core Mark.
+- **Document header:** horizontal orbital lockup, preferably `on-light` for a white page.
+- **Report or presentation cover:** Full Orbital Emblem or vertical lockup.
+- **Dark presentation title page:** `on-dark` emblem or lockup.
+- **Monochrome print:** `mono-dark`; use `mono-light` only when printing light ink on a dark field.
+- **Game startup:** static Core Mark as native splash, then the in-app Orbital Intro.
+- **Social graphic:** Full Orbital Emblem with sufficient clear space; do not add astronomical scenery.
+
+## Preview and maintenance
+
+Run `npm run dev`, then open:
+
+- `/?brand-preview=1` — complete asset and animation QA page;
+- `/?brand-preview=1&intro=symbol` — full-screen symbol-only intro;
+- `/?brand-preview=1&intro=wordmark` — full-screen studio-wordmark intro.
+
+The preview is intentionally not linked from public navigation. It shows Core Mark sizes, Full Orbital Emblem sizes, light/dark/monochrome contexts, horizontal and vertical lockups, and independently replayable intro variants.

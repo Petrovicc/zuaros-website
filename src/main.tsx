@@ -5,8 +5,22 @@ import { App } from "./App";
 import "./styles.css";
 import "./polish.css";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+const root = ReactDOM.createRoot(document.getElementById("root")!);
+const isBrandPreview = new URLSearchParams(window.location.search).has(
+  "brand-preview",
 );
+
+if (isBrandPreview) {
+  const { BrandPreview } = await import("./brand/BrandPreview");
+  root.render(
+    <React.StrictMode>
+      <BrandPreview />
+    </React.StrictMode>,
+  );
+} else {
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  );
+}

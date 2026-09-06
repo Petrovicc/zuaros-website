@@ -1,5 +1,120 @@
 {
   "viewBox": "0 0 64 64",
   "body": "M8 12H41L47 18L21 45H49V54H8V45L35 21H8Z",
-  "spark": "M47 9L52 4L59 11L54 16Z"
+  "spark": "M47 9L52 4L59 11L54 16Z",
+  "wordmark": {
+    "viewBox": "0 0 178 40",
+    "strokeWidth": 3.8,
+    "paths": [
+      "M4 12h20L4 34h21",
+      "M37 12v14q0 9 9 9t9-9V12",
+      "M86 34V12",
+      "M85 17q-3-6-9-6-11 0-11 12t11 12q6 0 9-6",
+      "M99 34V13m0 8q3-10 14-9",
+      "M133 11q-11 0-11 12t11 12q11 0 11-12t-11-12Z",
+      "M173 14q-4-3-9-3-10 0-10 6 0 5 10 6t10 6q0 6-10 6-6 0-11-4"
+    ]
+  },
+  "orbital": {
+    "viewBox": "0 0 600 600",
+    "center": {
+      "x": 300,
+      "y": 300
+    },
+    "symbol": {
+      "x": 200,
+      "y": 198,
+      "scale": 3.2,
+      "rotation": -7
+    },
+    "orbits": [
+      {
+        "id": "inner",
+        "rx": 185,
+        "ry": 185,
+        "rotation": 0
+      },
+      {
+        "id": "ascending",
+        "rx": 236,
+        "ry": 116,
+        "rotation": -38
+      },
+      {
+        "id": "descending",
+        "rx": 236,
+        "ry": 116,
+        "rotation": 38
+      },
+      {
+        "id": "outer",
+        "rx": 90,
+        "ry": 235,
+        "rotation": 38
+      }
+    ],
+    "particles": [
+      {
+        "id": "primary",
+        "orbit": "inner",
+        "period": 14,
+        "phase": 0.06,
+        "direction": 1,
+        "radius": 3.5,
+        "opacity": 1,
+        "trailDuration": 0.52,
+        "mobile": true
+      },
+      {
+        "id": "secondary",
+        "orbit": "ascending",
+        "period": 19,
+        "phase": 0.43,
+        "direction": -1,
+        "radius": 2.7,
+        "opacity": 0.78,
+        "trailDuration": 0.46,
+        "mobile": true
+      },
+      {
+        "id": "tertiary",
+        "orbit": "descending",
+        "period": 25,
+        "phase": 0.74,
+        "direction": 1,
+        "radius": 2.2,
+        "opacity": 0.62,
+        "trailDuration": 0.64,
+        "mobile": true
+      },
+      {
+        "id": "distant",
+        "orbit": "outer",
+        "period": 31,
+        "phase": 0.21,
+        "direction": -1,
+        "radius": 1.6,
+        "opacity": 0.42,
+        "trailDuration": 0.42,
+        "mobile": false
+      }
+    ]
+  },
+  "lockups": {
+    "horizontal": {
+      "viewBox": "0 0 600 160",
+      "emblemX": 4,
+      "emblemY": 4,
+      "emblemScale": 0.2533,
+      "wordmarkX": 184,
+      "wordmarkY": 28,
+      "wordmarkScale": 2.25
+    },
+    "vertical": {
+      "viewBox": "0 0 600 700",
+      "wordmarkX": 102,
+      "wordmarkY": 590,
+      "wordmarkScale": 2.22
+    }
+  }
 }

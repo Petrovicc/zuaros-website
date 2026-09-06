@@ -1,4 +1,10 @@
-import { particles, sampleParticle } from "./orbits";
+import {
+  MOBILE_TRAIL_COUNT,
+  particles,
+  particleAtInto,
+  sampleParticle,
+  TRAIL_COUNT,
+} from "./orbits";
 
 /** Owns one RAF and cached SVG nodes. No per-frame React work or layout reads. */
 export function animateOrbits(layer: SVGGElement, viewport: HTMLElement) {
@@ -11,9 +17,10 @@ export function animateOrbits(layer: SVGGElement, viewport: HTMLElement) {
     return {
       particle,
       head: group.querySelector<SVGCircleElement>(".orbit-head")!,
-      trail: [
-        ...group.querySelectorAll<SVGCircleElement>(".orbit-trail circle"),
-      ],
+      headPoint: { x: 0, y: 0 },
+      trail: [...group.querySelectorAll<SVGCircleElement>(".orbit-trail circle")].map(
+        (node) => ({ node, point: { x: 0, y: 0 } }),
+      ),
     };
   });
   let frame: number | null = null;
@@ -23,14 +30,20 @@ export function animateOrbits(layer: SVGGElement, viewport: HTMLElement) {
   let disposed = false;
 
   function draw(seconds: number) {
-    for (const { particle, head, trail } of nodes) {
+    const isMobile = mobile.matches;
+    const trailCount = isMobile ? MOBILE_TRAIL_COUNT : TRAIL_COUNT;
+    for (const { particle, head, headPoint, trail } of nodes) {
       if (mobile.matches && !particle.mobile) continue;
-      const sample = sampleParticle(particle, seconds, mobile.matches);
-      head.style.transform = `translate(${sample.head.x.toFixed(3)}px, ${sample.head.y.toFixed(3)}px)`;
-      sample.trail.forEach((point, index) => {
-        trail[index].style.transform =
-          `translate(${point.x.toFixed(3)}px, ${point.y.toFixed(3)}px)`;
-      });
+      particleAtInto(particle, seconds, headPoint);
+      head.style.transform = `translate(${headPoint.x.toFixed(3)}px, ${headPoint.y.toFixed(3)}px)`;
+      const duration = particle.trailDuration * (isMobile ? 0.6 : 1);
+      for (let index = 0; index < trailCount; index++) {
+        const age = (duration * (index + 1)) / trailCount;
+        const entry = trail[index];
+        particleAtInto(particle, seconds - age, entry.point);
+        entry.node.style.transform =
+          `translate(${entry.point.x.toFixed(3)}px, ${entry.point.y.toFixed(3)}px)`;
+      }
     }
   }
 
@@ -58,8 +71,8 @@ export function animateOrbits(layer: SVGGElement, viewport: HTMLElement) {
     for (const { particle, trail } of nodes) {
       sampleParticle(particle, 0, mobile.matches).trail.forEach(
         (point, index) => {
-          trail[index].setAttribute("r", String(point.radius));
-          trail[index].setAttribute("opacity", String(point.opacity));
+          trail[index].node.setAttribute("r", String(point.radius));
+          trail[index].node.setAttribute("opacity", String(point.opacity));
         },
       );
     }
