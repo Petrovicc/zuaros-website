@@ -1,0 +1,19 @@
+{
+  "package": "Zuaros standalone brand media",
+  "generatedFrom": "src/brand/mark.json",
+  "intro": {
+    "durationSeconds": 1.9,
+    "framesPerSecond": 30,
+    "frameCount": 57,
+    "normalBackground": "#101211",
+    "alphaWebm": true
+  },
+  "colors": {
+    "graphite": "#101211",
+    "gold": "#EDB466",
+    "spark": "#F6C580",
+    "orbit": "#B59A70",
+    "paperGold": "#976018",
+    "warmWhite": "#F1F0E9"
+  }
+}
