@@ -18,10 +18,16 @@ const mediaRoot = path.join(repositoryRoot, "media");
 const mark = JSON.parse(
   await readFile(path.join(repositoryRoot, "src/brand/mark.json"), "utf8"),
 );
+const introConfig = JSON.parse(
+  await readFile(
+    path.join(repositoryRoot, "src/animation/studioIntroConfig.json"),
+    "utf8",
+  ),
+);
 
-const FPS = 30;
-const DURATION_MS = 1900;
-const FRAME_COUNT = 57;
+const FPS = introConfig.framesPerSecond;
+const DURATION_MS = introConfig.durationMs;
+const FRAME_COUNT = Math.round((DURATION_MS / 1000) * FPS);
 const orbitOpacities = [0.44, 0.58, 0.42, 0.5];
 const introOrbitOpacities = [0.42, 0.455, 0.49, 0.525];
 
@@ -214,25 +220,106 @@ const segment = (milliseconds, start, end) =>
 const easeOut = (value) => 1 - Math.pow(1 - value, 3);
 
 function introState(milliseconds, showWordmark) {
-  const ignitionIn = easeOut(segment(milliseconds, 0, 190));
-  const ignitionOut = 1 - segment(milliseconds, 260, 540);
-  const body = easeOut(segment(milliseconds, 160, 520));
-  const spark = easeOut(segment(milliseconds, 430, 650));
-  const sparkPulse = Math.sin(segment(milliseconds, 430, 720) * Math.PI);
+  const ignitionIn = easeOut(
+    segment(
+      milliseconds,
+      introConfig.ignition.inStartMs,
+      introConfig.ignition.inEndMs,
+    ),
+  );
+  const ignitionOut =
+    1 -
+    segment(
+      milliseconds,
+      introConfig.ignition.outStartMs,
+      introConfig.ignition.outEndMs,
+    );
+  const body = easeOut(
+    segment(
+      milliseconds,
+      introConfig.body.startMs,
+      introConfig.body.endMs,
+    ),
+  );
+  const spark = easeOut(
+    segment(
+      milliseconds,
+      introConfig.spark.startMs,
+      introConfig.spark.endMs,
+    ),
+  );
+  const sparkPulse = Math.sin(
+    segment(
+      milliseconds,
+      introConfig.spark.startMs,
+      introConfig.spark.pulseEndMs,
+    ) * Math.PI,
+  );
+  const settleProgress = easeOut(
+    segment(
+      milliseconds,
+      introConfig.motion.settleStartMs,
+      introConfig.motion.settleEndMs,
+    ),
+  );
   return {
-    ignitionOpacity: ignitionIn * ignitionOut * 0.82,
+    ignitionOpacity:
+      ignitionIn * ignitionOut * introConfig.ignition.maxOpacity,
     bodyOpacity: body,
-    bodyScale: 0.92 + body * 0.08,
+    bodyScale:
+      introConfig.body.initialScale +
+      body * (1 - introConfig.body.initialScale),
     sparkOpacity: spark,
     sparkGlow: Math.max(0, sparkPulse),
     orbitProgress: mark.orbital.orbits.map((_, index) =>
-      easeOut(segment(milliseconds, 520 + index * 70, 980 + index * 70)),
+      easeOut(
+        segment(
+          milliseconds,
+          introConfig.orbits.startMs + index * introConfig.orbits.staggerMs,
+          introConfig.orbits.startMs +
+            introConfig.orbits.durationMs +
+            index * introConfig.orbits.staggerMs,
+        ),
+      ),
     ),
-    particleOpacity: easeOut(segment(milliseconds, 700, 860)),
+    particleOpacity: easeOut(
+      segment(
+        milliseconds,
+        introConfig.particles.startMs,
+        introConfig.particles.endMs,
+      ),
+    ),
+    motionSeconds: resolvedMotionSeconds(milliseconds),
+    trailOpacity:
+      1 -
+      (1 - introConfig.motion.finalTrailOpacity) * settleProgress,
     wordmarkOpacity: showWordmark
-      ? easeOut(segment(milliseconds, 1180, 1360))
+      ? easeOut(
+          segment(
+            milliseconds,
+            introConfig.wordmark.startMs,
+            introConfig.wordmark.endMs,
+          ),
+        )
       : 0,
   };
+}
+
+function resolvedMotionSeconds(milliseconds) {
+  const { startOffsetSeconds, rate, settleStartMs, settleEndMs } =
+    introConfig.motion;
+  if (milliseconds <= settleStartMs)
+    return startOffsetSeconds + (milliseconds / 1000) * rate;
+  const settleDurationSeconds = (settleEndMs - settleStartMs) / 1000;
+  const settleProgress = segment(milliseconds, settleStartMs, settleEndMs);
+  const deceleratedTime =
+    settleDurationSeconds *
+    (settleProgress - (settleProgress * settleProgress) / 2);
+  return (
+    startOffsetSeconds +
+    (settleStartMs / 1000) * rate +
+    deceleratedTime * rate
+  );
 }
 
 function orbitArc(orbit, progress) {
@@ -248,7 +335,6 @@ function orbitArc(orbit, progress) {
 
 function animatedArtwork(milliseconds, showWordmark) {
   const state = introState(milliseconds, showWordmark);
-  const motionSeconds = (milliseconds / 1000) * 3;
   const orbits = mark.orbital.orbits
     .map((orbit, index) => {
       const progress = state.orbitProgress[index];
@@ -260,13 +346,14 @@ function animatedArtwork(milliseconds, showWordmark) {
     .join("");
   const particleGroups = mark.orbital.particles
     .map((particle) => {
-      const head = particlePoint(particle, motionSeconds);
+      const head = particlePoint(particle, state.motionSeconds);
       const trail = Array.from({ length: 8 }, (_, index) => {
         const age = (particle.trailDuration * (index + 1)) / 8;
         const fade = 1 - (index + 1) / 9;
-        const point = particlePoint(particle, motionSeconds - age);
+        const point = particlePoint(particle, state.motionSeconds - age);
         const radius = particle.radius * (0.22 + 0.46 * fade);
-        const opacity = particle.opacity * 0.56 * fade * fade;
+        const opacity =
+          particle.opacity * 0.56 * fade * fade * state.trailOpacity;
         return `<circle cx="${point.x.toFixed(3)}" cy="${point.y.toFixed(3)}" r="${radius.toFixed(3)}" fill="#EDB466" opacity="${opacity.toFixed(4)}"/>`;
       }).join("");
       return `<g opacity="${state.particleOpacity.toFixed(4)}">${trail}<circle cx="${head.x.toFixed(3)}" cy="${head.y.toFixed(3)}" r="${particle.radius}" fill="#F6C580" opacity="${particle.opacity}"/></g>`;
@@ -329,7 +416,7 @@ async function renderSequence(
 ) {
   await resetDirectory(directory, allowedParent);
   for (let index = 0; index < FRAME_COUNT; index++) {
-    const milliseconds = (index / (FRAME_COUNT - 1)) * DURATION_MS;
+    const milliseconds = (index * 1000) / FPS;
     const filename = `frame_${String(index + 1).padStart(4, "0")}.png`;
     const svg = introFrameSvg(
       width,
@@ -824,10 +911,16 @@ async function generateAnimationAssets(tempRoot) {
   );
 
   const animationCards = [];
-  for (const milliseconds of [0, 300, 600, 900, 1300, 1900]) {
+  for (const milliseconds of [0, 350, 750, 1150, 1950, DURATION_MS]) {
     animationCards.push({
       label: `${(milliseconds / 1000).toFixed(1)} s`,
-      svg: introFrameSvg(720, 405, milliseconds, milliseconds === 1900, true),
+      svg: introFrameSvg(
+        720,
+        405,
+        milliseconds,
+        milliseconds === DURATION_MS,
+        true,
+      ),
       background: "#101211",
       border: "#34382F",
       text: "#F1F0E9",
@@ -835,7 +928,7 @@ async function generateAnimationAssets(tempRoot) {
   }
   await contactSheet(
     "preview/zuaros-animation-preview.png",
-    "Zuaros studio intro · 1.9 seconds · 30 fps",
+    `Zuaros studio intro · ${(DURATION_MS / 1000).toFixed(1)} seconds · ${FPS} fps`,
     animationCards,
     3,
   );
@@ -849,6 +942,8 @@ async function writeManifest() {
       durationSeconds: DURATION_MS / 1000,
       framesPerSecond: FPS,
       frameCount: FRAME_COUNT,
+      finalHoldMilliseconds: introConfig.finalHoldMs,
+      exportExitFadeMilliseconds: introConfig.exportExitFadeMs,
       normalBackground: "#101211",
       alphaWebm: true,
     },
@@ -874,7 +969,9 @@ const tempRoot = await mkdtemp(path.join(os.tmpdir(), "zuaros-media-export-"));
 try {
   console.log("Rendering static logos, wordmarks, splash assets, and previews...");
   await generateStaticAssets();
-  console.log("Rendering 57-frame studio intro sequences and encoding media...");
+  console.log(
+    `Rendering ${FRAME_COUNT}-frame studio intro sequences and encoding media...`,
+  );
   await generateAnimationAssets(tempRoot);
   await writeManifest();
 } finally {

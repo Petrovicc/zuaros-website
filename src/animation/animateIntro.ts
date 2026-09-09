@@ -17,6 +17,7 @@ interface ParticleNodes {
   group: SVGGElement;
   head: SVGCircleElement;
   headPoint: OrbitPoint;
+  trailGroup: SVGGElement;
   trail: { node: SVGCircleElement; point: OrbitPoint }[];
 }
 
@@ -54,6 +55,7 @@ export function animateIntro(
       group,
       head: group.querySelector<SVGCircleElement>(".intro-particle-head")!,
       headPoint: { x: 0, y: 0 },
+      trailGroup: group.querySelector<SVGGElement>(".intro-particle-trail")!,
       trail: [
         ...group.querySelectorAll<SVGCircleElement>(".intro-particle-trail circle"),
       ].map((node) => ({ node, point: { x: 0, y: 0 } })),
@@ -76,6 +78,8 @@ export function animateIntro(
     sparkGlow: 0,
     orbitProgress: [0, 0, 0, 0],
     particleOpacity: 0,
+    motionSeconds: 0,
+    trailOpacity: 1,
     wordmarkOpacity: 0,
   };
 
@@ -108,16 +112,16 @@ export function animateIntro(
     }
     wordmark?.setAttribute("opacity", state.wordmarkOpacity.toFixed(3));
 
-    const motionSeconds = (milliseconds / 1000) * 3;
     for (const entry of particleNodes) {
       const { particle } = entry;
       entry.group.setAttribute("opacity", state.particleOpacity.toFixed(3));
-      particleAtInto(particle, motionSeconds, entry.headPoint);
+      entry.trailGroup.setAttribute("opacity", state.trailOpacity.toFixed(3));
+      particleAtInto(particle, state.motionSeconds, entry.headPoint);
       entry.head.style.transform = `translate(${entry.headPoint.x.toFixed(3)}px, ${entry.headPoint.y.toFixed(3)}px)`;
       for (let index = 0; index < entry.trail.length; index++) {
         const age = (particle.trailDuration * (index + 1)) / TRAIL_COUNT;
         const trail = entry.trail[index];
-        particleAtInto(particle, motionSeconds - age, trail.point);
+        particleAtInto(particle, state.motionSeconds - age, trail.point);
         trail.node.style.transform = `translate(${trail.point.x.toFixed(3)}px, ${trail.point.y.toFixed(3)}px)`;
       }
     }

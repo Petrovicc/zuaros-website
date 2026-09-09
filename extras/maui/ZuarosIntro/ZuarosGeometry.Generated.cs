@@ -13,6 +13,29 @@ public static partial class ZuarosGeometry
     internal const float CenterX = 50f;
     internal const float CenterY = 50f;
     internal const float WordmarkCanvasHeight = 116.666667f;
+    internal const float IntroDurationMilliseconds = 2800f;
+    internal const float IgnitionInStartMilliseconds = 0f;
+    internal const float IgnitionInEndMilliseconds = 220f;
+    internal const float IgnitionOutStartMilliseconds = 300f;
+    internal const float IgnitionOutEndMilliseconds = 580f;
+    internal const float BodyStartMilliseconds = 170f;
+    internal const float BodyEndMilliseconds = 650f;
+    internal const float SparkStartMilliseconds = 440f;
+    internal const float SparkEndMilliseconds = 780f;
+    internal const float SparkPulseEndMilliseconds = 850f;
+    internal const float OrbitStartMilliseconds = 560f;
+    internal const float OrbitStaggerMilliseconds = 75f;
+    internal const float OrbitDurationMilliseconds = 570f;
+    internal const float ParticleStartMilliseconds = 720f;
+    internal const float ParticleEndMilliseconds = 940f;
+    internal const float WordmarkStartMilliseconds = 1500f;
+    internal const float WordmarkEndMilliseconds = 1760f;
+    internal const float MotionStartOffsetSeconds = 7.4775f;
+    internal const float MotionRate = 2.65f;
+    internal const float MotionSettleStartMilliseconds = 1950f;
+    internal const float MotionSettleEndMilliseconds = 2350f;
+    internal const float FinalTrailOpacity = 0.42f;
+    internal const float AutoDismissStartProgress = 0.95f;
 
     internal static readonly OrbitDefinition[] Orbits =
     {

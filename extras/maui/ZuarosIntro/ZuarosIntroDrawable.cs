@@ -8,7 +8,6 @@ namespace Zuaros.Intro;
 public sealed class ZuarosIntroDrawable : IDrawable
 {
     private const int TrailSampleCount = 6;
-    private const float ParticleStart = 0.48f;
 
     private static readonly Color Gold = Color.FromArgb("#EDB466");
     private static readonly Color GoldBright = Color.FromArgb("#F6C580");
@@ -47,7 +46,7 @@ public sealed class ZuarosIntroDrawable : IDrawable
     {
         float progress = (float)_progress;
         float exitOpacity = _options.AutoDismiss
-            ? 1f - SmoothStep(0.90f, 1f, progress)
+            ? 1f - SmoothStep(ZuarosGeometry.AutoDismissStartProgress, 1f, progress)
             : 1f;
 
         canvas.SaveState();
@@ -89,29 +88,59 @@ public sealed class ZuarosIntroDrawable : IDrawable
 
     private void DrawAnimatedFrame(ICanvas canvas, float progress, float exitOpacity)
     {
-        float ignitionIn = SmoothStep(0f, 0.11f, progress);
-        float ignitionOut = 1f - SmoothStep(0.23f, 0.40f, progress);
+        float milliseconds = progress * ZuarosGeometry.IntroDurationMilliseconds;
+        float ignitionIn = SmoothStep(
+            ZuarosGeometry.IgnitionInStartMilliseconds,
+            ZuarosGeometry.IgnitionInEndMilliseconds,
+            milliseconds);
+        float ignitionOut = 1f - SmoothStep(
+            ZuarosGeometry.IgnitionOutStartMilliseconds,
+            ZuarosGeometry.IgnitionOutEndMilliseconds,
+            milliseconds);
         DrawIgnition(canvas, ignitionIn * ignitionOut, exitOpacity);
 
-        DrawOrbits(canvas, progress, exitOpacity);
+        DrawOrbits(canvas, milliseconds, exitOpacity);
 
-        float particleReveal = SmoothStep(ParticleStart, 0.64f, progress);
-        float elapsedSeconds =
-            MathF.Max(0f, progress - ParticleStart) *
-            (float)_options.Duration.TotalSeconds *
-            3f;
-        DrawParticles(canvas, elapsedSeconds, particleReveal, exitOpacity, drawTrails: true);
+        float particleReveal = SmoothStep(
+            ZuarosGeometry.ParticleStartMilliseconds,
+            ZuarosGeometry.ParticleEndMilliseconds,
+            milliseconds);
+        float trailSettle = SmoothStep(
+            ZuarosGeometry.MotionSettleStartMilliseconds,
+            ZuarosGeometry.MotionSettleEndMilliseconds,
+            milliseconds);
+        float trailOpacity = 1f - (1f - ZuarosGeometry.FinalTrailOpacity) * trailSettle;
+        DrawParticles(
+            canvas,
+            ResolveMotionSeconds(milliseconds),
+            particleReveal,
+            trailOpacity,
+            exitOpacity,
+            drawTrails: true);
 
-        float bodyReveal = SmoothStep(0.10f, 0.36f, progress);
+        float bodyReveal = SmoothStep(
+            ZuarosGeometry.BodyStartMilliseconds,
+            ZuarosGeometry.BodyEndMilliseconds,
+            milliseconds);
         DrawCoreBody(canvas, bodyReveal, exitOpacity);
 
-        float sparkReveal = SmoothStep(0.28f, 0.45f, progress);
-        float sparkPulse = MathF.Sin(MathF.PI * Normalize(0.30f, 0.54f, progress)) * sparkReveal;
+        float sparkReveal = SmoothStep(
+            ZuarosGeometry.SparkStartMilliseconds,
+            ZuarosGeometry.SparkEndMilliseconds,
+            milliseconds);
+        float sparkPulse = MathF.Sin(
+            MathF.PI * Normalize(
+                ZuarosGeometry.SparkStartMilliseconds,
+                ZuarosGeometry.SparkPulseEndMilliseconds,
+                milliseconds)) * sparkReveal;
         DrawSpark(canvas, sparkReveal, sparkPulse, exitOpacity);
 
         if (_options.ShowWordmark)
         {
-            float wordmarkReveal = SmoothStep(0.62f, 0.72f, progress);
+            float wordmarkReveal = SmoothStep(
+                ZuarosGeometry.WordmarkStartMilliseconds,
+                ZuarosGeometry.WordmarkEndMilliseconds,
+                milliseconds);
             DrawWordmark(canvas, wordmarkReveal, exitOpacity);
         }
     }
@@ -120,7 +149,13 @@ public sealed class ZuarosIntroDrawable : IDrawable
     {
         float reveal = SmoothStep(0.04f, 0.22f, progress);
         DrawOrbits(canvas, reveal, exitOpacity, useUnifiedReveal: true);
-        DrawParticles(canvas, 0f, reveal, exitOpacity, drawTrails: false);
+        DrawParticles(
+            canvas,
+            ResolveMotionSeconds(ZuarosGeometry.IntroDurationMilliseconds),
+            reveal,
+            0f,
+            exitOpacity,
+            drawTrails: false);
         DrawCoreBody(canvas, reveal, exitOpacity);
         DrawSpark(canvas, reveal, 0f, exitOpacity);
 
@@ -148,7 +183,7 @@ public sealed class ZuarosIntroDrawable : IDrawable
 
     private static void DrawOrbits(
         ICanvas canvas,
-        float progress,
+        float milliseconds,
         float exitOpacity,
         bool useUnifiedReveal = false)
     {
@@ -158,8 +193,14 @@ public sealed class ZuarosIntroDrawable : IDrawable
         for (int index = 0; index < ZuarosGeometry.OrbitPaths.Length; index++)
         {
             float reveal = useUnifiedReveal
-                ? progress
-                : SmoothStep(0.34f + index * 0.055f, 0.55f + index * 0.055f, progress);
+                ? milliseconds
+                : SmoothStep(
+                    ZuarosGeometry.OrbitStartMilliseconds +
+                        index * ZuarosGeometry.OrbitStaggerMilliseconds,
+                    ZuarosGeometry.OrbitStartMilliseconds +
+                        ZuarosGeometry.OrbitDurationMilliseconds +
+                        index * ZuarosGeometry.OrbitStaggerMilliseconds,
+                    milliseconds);
 
             if (reveal <= 0f)
             {
@@ -176,6 +217,7 @@ public sealed class ZuarosIntroDrawable : IDrawable
         ICanvas canvas,
         float elapsedSeconds,
         float reveal,
+        float trailOpacity,
         float exitOpacity,
         bool drawTrails)
     {
@@ -205,7 +247,14 @@ public sealed class ZuarosIntroDrawable : IDrawable
                         out float trailY);
 
                     float radius = particle.Radius * (0.22f + 0.46f * fade);
-                    canvas.Alpha = particle.Opacity * 0.56f * fade * fade * reveal * exitOpacity;
+                    canvas.Alpha =
+                        particle.Opacity *
+                        0.56f *
+                        fade *
+                        fade *
+                        reveal *
+                        trailOpacity *
+                        exitOpacity;
                     canvas.FillEllipse(trailX - radius, trailY - radius, radius * 2f, radius * 2f);
                 }
             }
@@ -271,6 +320,30 @@ public sealed class ZuarosIntroDrawable : IDrawable
         canvas.StrokeLineJoin = LineJoin.Round;
         canvas.Alpha = opacity * exitOpacity;
         canvas.DrawPath(ZuarosGeometry.WordmarkPath);
+    }
+
+    private static float ResolveMotionSeconds(float milliseconds)
+    {
+        if (milliseconds <= ZuarosGeometry.MotionSettleStartMilliseconds)
+        {
+            return ZuarosGeometry.MotionStartOffsetSeconds +
+                milliseconds / 1000f * ZuarosGeometry.MotionRate;
+        }
+
+        float settleDurationSeconds =
+            (ZuarosGeometry.MotionSettleEndMilliseconds -
+                ZuarosGeometry.MotionSettleStartMilliseconds) / 1000f;
+        float settleProgress = Normalize(
+            ZuarosGeometry.MotionSettleStartMilliseconds,
+            ZuarosGeometry.MotionSettleEndMilliseconds,
+            milliseconds);
+        float deceleratedTime =
+            settleDurationSeconds *
+            (settleProgress - settleProgress * settleProgress / 2f);
+        return ZuarosGeometry.MotionStartOffsetSeconds +
+            ZuarosGeometry.MotionSettleStartMilliseconds / 1000f *
+            ZuarosGeometry.MotionRate +
+            deceleratedTime * ZuarosGeometry.MotionRate;
     }
 
     private static float Normalize(float start, float end, float value)

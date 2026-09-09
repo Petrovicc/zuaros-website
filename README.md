@@ -96,7 +96,7 @@ Reusable assets: `public/brand/core/`, `public/brand/orbital/`, and `public/bran
 npm run brand
 ```
 
-The generator reads `src/brand/zuaros-master.svg`, refreshes `src/brand/mark.json`, and keeps `extras/maui/ZuarosIntro/ZuarosGeometry.Generated.cs` plus its native splash synchronized. Run the private QA page locally at `/?brand-preview=1`; it is not linked from the public website.
+The generator reads `src/brand/zuaros-master.svg`, refreshes `src/brand/mark.json`, and keeps `extras/maui/ZuarosIntro/ZuarosGeometry.Generated.cs` plus its native splash synchronized. Standalone contact sheets, final frames, logos, splash graphics, and videos are available under `media/`; the production website intentionally has no Brand Preview mode.
 
 Contact is a genuine `mailto:` link and optional clipboard copy, not a fake submission form. Official contact: **Nikola Petrović — zuaros.dev@gmail.com**.
 

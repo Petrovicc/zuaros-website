@@ -6,21 +6,20 @@ import "./styles.css";
 import "./polish.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
-const isBrandPreview = new URLSearchParams(window.location.search).has(
-  "brand-preview",
-);
 
-if (isBrandPreview) {
-  const { BrandPreview } = await import("./brand/BrandPreview");
-  root.render(
-    <React.StrictMode>
-      <BrandPreview />
-    </React.StrictMode>,
-  );
-} else {
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
+const currentUrl = new URL(window.location.href);
+if (currentUrl.searchParams.has("brand-preview")) {
+  currentUrl.searchParams.delete("brand-preview");
+  currentUrl.searchParams.delete("intro");
+  window.history.replaceState(
+    window.history.state,
+    "",
+    `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`,
   );
 }
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);

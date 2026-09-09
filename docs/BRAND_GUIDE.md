@@ -124,14 +124,15 @@ Use **Space Grotesk Variable** for headings and **Inter Variable** for body/UI c
 
 ## Studio intro
 
-The reusable React reference is [`src/components/ZuarosStudioIntro.tsx`](../src/components/ZuarosStudioIntro.tsx). The default sequence lasts **1.9 seconds**, inside the approved 1.5–2.2 second range:
+The reusable React reference is [`src/components/ZuarosStudioIntro.tsx`](../src/components/ZuarosStudioIntro.tsx). The default sequence lasts **2.8 seconds** and is authored as a finite identity rather than a clipped recording:
 
-1. ignition point appears during roughly 0–200 ms;
-2. the Z fades and scales gently into place from roughly 160–520 ms;
-3. the spark appears and gives one restrained pulse from roughly 430–720 ms;
-4. four orbital paths draw in with 70 ms staggering from roughly 520–1,190 ms;
-5. four particles activate from roughly 700 ms and move at distinct speeds in both directions;
-6. the optional wordmark fades in from 1,180–1,360 ms and remains fully visible for about 540 ms.
+1. ignition point appears during roughly 0–220 ms and recedes by 580 ms;
+2. the Z fades and scales gently into place from roughly 170–650 ms;
+3. the spark appears and gives one restrained pulse from roughly 440–850 ms;
+4. four orbital paths draw in with 75 ms staggering from roughly 560–1,355 ms;
+5. four particles activate from roughly 720 ms, move at distinct speeds in both directions, then decelerate from 1,950–2,350 ms;
+6. the optional wordmark fades in only after formation, from 1,500–1,760 ms;
+7. trails soften during resolution and the completed identity holds unchanged for the final **450 ms**.
 
 Every trail is physical history. The head is evaluated at `P(t)` and each trail sample at `P(t − age)`. Direction is inside `P`, so clockwise and counter-clockwise particles both leave their trails behind their heads. No directional gradient is used.
 
@@ -139,13 +140,13 @@ Every trail is physical history. The head is evaluated at `P(t)` and each trail 
 
 - **Variant A — Symbol only:** `showWordmark={false}`. Use when a game immediately presents its own strong title screen.
 - **Variant B — Studio wordmark:** `showWordmark`. Use when explicit studio recognition matters.
-- **Recommended hybrid:** run the same core/orbit activation, reveal `zuaros` for the last recognition beat, then crossfade immediately into the prepared application content. This is the default recommendation because it names the studio without adding a long logo hold.
+- **Recommended hybrid:** run the same core/orbit activation, reveal `zuaros` after formation, hold the resolved identity, then crossfade into prepared application content. This names the studio without making the intro feel truncated.
 
-The React component exposes `durationMs`, `autoDismiss`, `reducedMotion`, `exitStyle`, `exiting`, and `onComplete`. A host can use a 180–220 ms fade, a slight scale-up plus fade, or its own crossfade into the game. Reduced motion resolves to the stable final composition, removes trails, and still completes—never wait for a disabled CSS animation event.
+The React component exposes `durationMs`, `autoDismiss`, `reducedMotion`, `exitStyle`, `exiting`, and `onComplete`. Exported videos end on the stable held frame without an exit fade. A host may use the optional 140–200 ms crossfade into its next screen. Reduced motion resolves to the stable final composition, removes trails, and still completes—never wait for a disabled CSS animation event.
 
 ## .NET MAUI games
 
-Do not use the animated two-second sequence as the operating system's native splash. Native splash behavior differs by platform and should remain static.
+Do not use the animated sequence as the operating system's native splash. Native splash behavior differs by platform and should remain static.
 
 1. Copy [`extras/maui/ZuarosIntro/Resources/Splash/zuaros-splash.svg`](../extras/maui/ZuarosIntro/Resources/Splash/zuaros-splash.svg) into the game's `Resources/Splash/` and register it as `MauiSplashScreen` with graphite `#101211`.
 2. Show `ZuarosIntroView` as an in-app layer immediately after initialization, over an already-prepared first screen.
@@ -165,10 +166,9 @@ The support package in [`extras/maui/ZuarosIntro/`](../extras/maui/ZuarosIntro/)
 
 ## Preview and maintenance
 
-Run `npm run dev`, then open:
+The production website has no interactive brand-preview route or query mode. Use the standalone files in [`media/preview/`](../media/preview/) for visual review. Regenerate and validate the complete media package without running the website:
 
-- `/?brand-preview=1` — complete asset and animation QA page;
-- `/?brand-preview=1&intro=symbol` — full-screen symbol-only intro;
-- `/?brand-preview=1&intro=wordmark` — full-screen studio-wordmark intro.
-
-The preview is intentionally not linked from public navigation. It shows Core Mark sizes, Full Orbital Emblem sizes, light/dark/monochrome contexts, horizontal and vertical lockups, and independently replayable intro variants.
+```sh
+node tools/media-export/export.mjs
+node tools/media-export/validate.mjs
+```

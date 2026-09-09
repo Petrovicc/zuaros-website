@@ -10,6 +10,16 @@ const execFileAsync = promisify(execFile);
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, "../..");
 const mediaRoot = path.join(repositoryRoot, "media");
+const introConfig = JSON.parse(
+  await readFile(
+    path.join(repositoryRoot, "src/animation/studioIntroConfig.json"),
+    "utf8",
+  ),
+);
+const expectedDurationSeconds = introConfig.durationMs / 1000;
+const expectedFrameCount = Math.round(
+  expectedDurationSeconds * introConfig.framesPerSecond,
+);
 const errors = [];
 
 function fail(message) {
@@ -59,7 +69,7 @@ async function probe(relativePath, expected) {
     "-v",
     "error",
     "-show_entries",
-    "stream=codec_name,width,height,pix_fmt:stream_tags=alpha_mode:format=duration,size",
+    "stream=codec_name,width,height,pix_fmt,r_frame_rate:stream_tags=alpha_mode:format=duration,size",
     "-of",
     "json",
     fullPath,
@@ -72,10 +82,34 @@ async function probe(relativePath, expected) {
     fail(`${relativePath} expected ${expected.codec}, got ${stream.codec_name}`);
   if (stream.width !== expected.width || stream.height !== expected.height)
     fail(`${relativePath} expected ${expected.width}x${expected.height}`);
-  if (Math.abs(duration - 1.9) > 0.08)
-    fail(`${relativePath} duration ${duration} is not approximately 1.9 seconds`);
+  if (Math.abs(duration - expectedDurationSeconds) > 0.08)
+    fail(
+      `${relativePath} duration ${duration} is not approximately ${expectedDurationSeconds} seconds`,
+    );
+  if (stream.r_frame_rate !== `${introConfig.framesPerSecond}/1`)
+    fail(
+      `${relativePath} expected ${introConfig.framesPerSecond} fps, got ${stream.r_frame_rate}`,
+    );
   if (expected.alpha && stream.tags?.ALPHA_MODE !== "1")
     fail(`${relativePath} is missing VP9 alpha metadata`);
+
+  try {
+    await execFileAsync("ffmpeg", [
+      "-v",
+      "error",
+      "-i",
+      fullPath,
+      "-vf",
+      `select=eq(n\\,0)+eq(n\\,${expectedFrameCount - 1})`,
+      "-frames:v",
+      "2",
+      "-f",
+      "null",
+      "-",
+    ]);
+  } catch {
+    fail(`${relativePath} could not decode its first and last frames`);
+  }
 }
 
 async function validateDecodedAlpha(relativePath) {
@@ -203,14 +237,22 @@ for (const [width, height] of [
 
 const framesDirectory = path.join(mediaRoot, "studio-intro/frames/symbol");
 const frames = (await readdir(framesDirectory)).filter((entry) => entry.endsWith(".png"));
-if (frames.length !== 57) fail(`Expected 57 symbol frames, got ${frames.length}`);
+if (frames.length !== expectedFrameCount)
+  fail(`Expected ${expectedFrameCount} symbol frames, got ${frames.length}`);
 for (let index = 0; index < frames.length; index++) {
   const expected = `frame_${String(index + 1).padStart(4, "0")}.png`;
   if (frames[index] !== expected) fail(`Frame ${index + 1} is ${frames[index]}, expected ${expected}`);
 }
-await validatePng("studio-intro/frames/symbol/frame_0001.png", 1080, 1920, "channel");
-await validatePng("studio-intro/frames/symbol/frame_0029.png", 1080, 1920, true);
-await validatePng("studio-intro/frames/symbol/frame_0057.png", 1080, 1920, true);
+const frameName = (number) =>
+  `studio-intro/frames/symbol/frame_${String(number).padStart(4, "0")}.png`;
+await validatePng(frameName(1), 1080, 1920, "channel");
+await validatePng(
+  frameName(Math.ceil(expectedFrameCount / 2)),
+  1080,
+  1920,
+  true,
+);
+await validatePng(frameName(expectedFrameCount), 1080, 1920, true);
 
 for (const variant of ["symbol", "wordmark"]) {
   const relativePath = `studio-intro/gif/zuaros-intro-${variant}-preview.gif`;
@@ -250,8 +292,13 @@ if (errors.length) {
   console.log("Media validation passed:");
   console.log("- standalone SVGs contain viewBoxes and no external dependencies");
   console.log("- requested transparent PNG dimensions and alpha channels are valid");
-  console.log("- 6 H.264 MP4 and 4 graphite VP9 WebM files are approximately 1.9 s");
+  console.log(
+    `- 6 H.264 MP4 and 4 graphite VP9 WebM files are ${expectedDurationSeconds.toFixed(3)} s at ${introConfig.framesPerSecond} fps`,
+  );
+  console.log("- every MP4 and WebM decodes its first and last frames cleanly");
   console.log("- 2 VP9 WebM files decode with genuine variable alpha");
   console.log("- 2 animated GIF previews are 720x1280 and within 15 MiB");
-  console.log("- 57 sequential 1080x1920 RGBA PNG frames are present");
+  console.log(
+    `- ${expectedFrameCount} sequential 1080x1920 RGBA PNG frames are present`,
+  );
 }

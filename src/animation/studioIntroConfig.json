@@ -1,0 +1,46 @@
+{
+  "durationMs": 2800,
+  "minDurationMs": 2400,
+  "maxDurationMs": 3200,
+  "framesPerSecond": 30,
+  "ignition": {
+    "inStartMs": 0,
+    "inEndMs": 220,
+    "outStartMs": 300,
+    "outEndMs": 580,
+    "maxOpacity": 0.82
+  },
+  "body": {
+    "startMs": 170,
+    "endMs": 650,
+    "initialScale": 0.92
+  },
+  "spark": {
+    "startMs": 440,
+    "endMs": 780,
+    "pulseEndMs": 850
+  },
+  "orbits": {
+    "startMs": 560,
+    "staggerMs": 75,
+    "durationMs": 570
+  },
+  "particles": {
+    "startMs": 720,
+    "endMs": 940
+  },
+  "wordmark": {
+    "startMs": 1500,
+    "endMs": 1760
+  },
+  "motion": {
+    "startOffsetSeconds": 7.4775,
+    "rate": 2.65,
+    "settleStartMs": 1950,
+    "settleEndMs": 2350,
+    "finalTrailOpacity": 0.42
+  },
+  "finalHoldMs": 450,
+  "exportExitFadeMs": 0,
+  "hostAutoDismissFadeMs": 140
+}

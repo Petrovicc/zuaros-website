@@ -78,6 +78,24 @@ for (const viewport of viewports) {
   }
 }
 
+test("obsolete brand preview URLs resolve to the normal homepage", async ({
+  page,
+}) => {
+  await page.goto("./?brand-preview=1");
+  await expect(page.locator(".site-header")).toBeVisible();
+  await expect(page.locator("h1")).toContainText("Software for");
+  await expect(page.locator(".brand-preview-page")).toHaveCount(0);
+  expect(new URL(page.url()).search).toBe("");
+
+  await page.goto("./?campaign=qa&brand-preview=1&intro=wordmark#services");
+  const normalized = new URL(page.url());
+  expect(normalized.searchParams.get("campaign")).toBe("qa");
+  expect(normalized.searchParams.has("brand-preview")).toBe(false);
+  expect(normalized.searchParams.has("intro")).toBe(false);
+  expect(normalized.hash).toBe("#services");
+  await expect(page.locator(".site-header")).toBeVisible();
+});
+
 test("language persists, browser Serbian defaults, and metadata updates", async ({
   page,
 }) => {

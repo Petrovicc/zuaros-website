@@ -32,12 +32,14 @@ The full emblem retains the hero's intentional asymmetry: one circular path, two
 
 ## Studio intro behavior
 
-The web reference uses a finite **1,900 ms** timeline, with one cached-node `requestAnimationFrame` controller and no React render per frame.
+The web reference uses a finite **2,800 ms** timeline, with one cached-node `requestAnimationFrame` controller and no React render per frame.
 
 - Ignition, Z formation, spark pulse, staggered orbital drawing, particle activation, and optional wordmark appear in the required order.
 - Four particles have distinct size, phase, opacity, period, and mixed clockwise/counter-clockwise directions.
 - Every rendered trail point is independently mapped back onto its ellipse. Its signed phase lag must equal `age / period`, proving that each point is a previous position behind its head for either direction.
-- The symbol-only variant contains no wordmark. The studio variant reaches a fully visible wordmark at about 1,360 ms and holds it for approximately 540 ms.
+- The symbol-only variant contains no wordmark. The studio variant introduces the wordmark only after logo formation, reaches full opacity at 1,760 ms, and shares the resolved 450 ms final hold.
+- Particle motion decelerates from 1,950–2,350 ms, trail intensity settles to 42%, and all motion values then remain unchanged through the end.
+- Exported video uses no exit fade: the stable composition is the last frame. MAUI `AutoDismiss` retains a short optional 140 ms transition into prepared application content.
 - Reduced motion immediately resolves to a stable completed frame, hides trails, stops movement, and does not deadlock completion.
 - The component supports host-controlled fade or slight scale/fade exits, completion callbacks, and optional automatic dismissal.
 
@@ -73,8 +75,4 @@ These are local automated and rendered checks. No claim is made for physical-dev
 
 ## Preview locations
 
-With `npm run dev` running:
-
-- `/?brand-preview=1` — full brand QA surface;
-- `/?brand-preview=1&intro=symbol` — full-screen symbol intro;
-- `/?brand-preview=1&intro=wordmark` — full-screen wordmark intro.
+There is no production or query-parameter Brand Preview. Static contact sheets and final frames live in `media/preview/`, and exported animations live in `media/studio-intro/`. The obsolete `?brand-preview=1` query is removed with `history.replaceState` and the normal homepage renders without reloading.

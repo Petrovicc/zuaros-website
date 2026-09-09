@@ -1,6 +1,6 @@
 # Zuaros intro for .NET MAUI
 
-This folder is a dependency-free (beyond .NET MAUI itself) reference implementation of the Zuaros in-app studio intro. It uses one `GraphicsView`, one `IDrawable`, and MAUI's native `Animation` clock. The default hybrid sequence lasts 1.9 seconds.
+This folder is a dependency-free (beyond .NET MAUI itself) reference implementation of the Zuaros in-app studio intro. It uses one `GraphicsView`, one `IDrawable`, and MAUI's native `Animation` clock. The complete default sequence lasts 2.8 seconds.
 
 The operating-system splash must remain static. Use `Resources/Splash/zuaros-splash.svg` for native startup, then show `ZuarosIntroView` as the first in-app layer after initialization.
 
@@ -34,7 +34,7 @@ var gameContent = new GameHomeView();
 var intro = new ZuarosIntroView(new ZuarosIntroOptions
 {
     ShowWordmark = true,
-    Duration = TimeSpan.FromMilliseconds(1900),
+    Duration = TimeSpan.FromMilliseconds(2800),
     BackgroundColor = Color.FromArgb("#101211"),
     AutoDismiss = true,
     ReducedMotion = accessibilitySettings.ReduceMotion,
@@ -52,7 +52,7 @@ The view plays on `Loaded`. Call `await intro.PlayAsync()` to replay it, or `int
 - **Studio wordmark / recommended hybrid:** `ShowWordmark = true`. The Z ignites, four orbits activate in sequence, four particles move, and the outlined `zuaros` wordmark appears for the final recognition beat before a quick crossfade.
 - **Reduced motion:** `ReducedMotion = true`. The final emblem crossfades in as one restrained composition; particles are stationary and trails are omitted. Set this from the host app's accessibility preference.
 
-The recommended hybrid balances studio recognition with launch speed: the wordmark is fully visible for about 340 ms and present for roughly 720 ms from the start of its fade through the optional exit.
+The recommended hybrid balances studio recognition with launch speed: the wordmark appears only after the orbital identity is established, remains readable through resolution, and shares the final 450 ms hold. `AutoDismiss` uses only the last 140 ms for its optional crossfade; disable it to retain the completed frame.
 
 ## Geometry and rendering notes
 
@@ -66,14 +66,15 @@ All paths, orbit tables, and particle tables are allocated once. A frame only up
 
 ## Timing
 
-At the default 1.9 seconds:
+At the default 2.8 seconds:
 
-1. central ignition: approximately 0–210 ms;
-2. Z reveal: approximately 190–680 ms;
-3. spark pulse: approximately 530–860 ms;
-4. staggered orbit activation: approximately 650–1,360 ms;
-5. particle movement and physically sampled trails: approximately 910–1,710 ms;
-6. optional wordmark: fades in from approximately 1,180–1,370 ms, then holds for about 340 ms before the optional exit;
-7. optional auto-dismiss crossfade: final 190 ms.
+1. central ignition: approximately 0–580 ms;
+2. Z reveal: approximately 170–650 ms;
+3. spark pulse: approximately 440–850 ms;
+4. staggered orbit activation: approximately 560–1,355 ms;
+5. particle movement and physically sampled trails: begins around 720 ms and decelerates from 1,950–2,350 ms;
+6. optional wordmark: fades in from approximately 1,500–1,760 ms;
+7. completed identity: stable final hold from 2,350–2,800 ms;
+8. optional auto-dismiss crossfade: final 140 ms, contained within that hold.
 
-Keep production durations in the requested 1.5–2.2 second range. The native splash background and intro background should both use graphite `#101211` to avoid a startup flash.
+Keep production durations short enough for launch while preserving the formation, resolution, and final hold. The native splash background and intro background should both use graphite `#101211` to avoid a startup flash.

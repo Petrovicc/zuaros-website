@@ -15,8 +15,9 @@ final frames.
   PNG from `logos/png/core/`. The core is the compact Z and detached spark.
 - **Recommended game or application intro:** use
   `studio-intro/mp4/zuaros-intro-symbol-1920x1080.mp4` for landscape or the
-  matching 1080x1920/1440x2560 file for portrait. Choose the wordmark variant
-  when the product should explicitly identify Zuaros.
+  matching 1080x1920/1440x2560 file for portrait. The 2.8-second sequence
+  resolves into a 450 ms stable final hold. Choose the wordmark variant when
+  the product should explicitly identify Zuaros.
 
 ## Formats and transparency
 
@@ -32,8 +33,8 @@ final frames.
   `-transparent-` carry a tested VP9 alpha channel; application support varies.
 - **GIF:** compact 720x1280 looping previews for GitHub and chat. Use MP4 or WebM
   for production quality.
-- **PNG frame sequence:** 57 sequential 1080x1920 RGBA frames at 30 fps, covering
-  the complete 1.9-second symbol animation. These are intended for mobile, game,
+- **PNG frame sequence:** 84 sequential 1080x1920 RGBA frames at 30 fps, covering
+  the complete 2.8-second symbol animation. These are intended for mobile, game,
   and editing pipelines.
 
 ## Naming

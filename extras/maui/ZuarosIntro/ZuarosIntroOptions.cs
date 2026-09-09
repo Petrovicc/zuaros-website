@@ -14,9 +14,10 @@ public sealed class ZuarosIntroOptions
     public bool ShowWordmark { get; set; } = true;
 
     /// <summary>
-    /// Total playback length. The recommended hybrid timing is 1.9 seconds.
+    /// Total playback length. The complete default sequence is 2.8 seconds.
     /// </summary>
-    public TimeSpan Duration { get; set; } = TimeSpan.FromMilliseconds(1900);
+    public TimeSpan Duration { get; set; } =
+        TimeSpan.FromMilliseconds(ZuarosGeometry.IntroDurationMilliseconds);
 
     /// <summary>
     /// Color painted behind the intro. The default is Zuaros graphite.

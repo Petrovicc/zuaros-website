@@ -2,6 +2,9 @@ import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 
 const masterSource = await readFile("src/brand/zuaros-master.svg", "utf8");
+const introConfig = JSON.parse(
+  await readFile("src/animation/studioIntroConfig.json", "utf8"),
+);
 const attributes = (tag) =>
   Object.fromEntries(
     [...tag.matchAll(/([\w:-]+)="([^"]*)"/g)].map((match) => [
@@ -397,6 +400,29 @@ public static partial class ZuarosGeometry
     internal const float CenterX = ${csharpNumber(normalizedCenterX)};
     internal const float CenterY = ${csharpNumber(normalizedCenterY)};
     internal const float WordmarkCanvasHeight = ${csharpNumber(wordmarkCanvasHeight)};
+    internal const float IntroDurationMilliseconds = ${csharpNumber(introConfig.durationMs)};
+    internal const float IgnitionInStartMilliseconds = ${csharpNumber(introConfig.ignition.inStartMs)};
+    internal const float IgnitionInEndMilliseconds = ${csharpNumber(introConfig.ignition.inEndMs)};
+    internal const float IgnitionOutStartMilliseconds = ${csharpNumber(introConfig.ignition.outStartMs)};
+    internal const float IgnitionOutEndMilliseconds = ${csharpNumber(introConfig.ignition.outEndMs)};
+    internal const float BodyStartMilliseconds = ${csharpNumber(introConfig.body.startMs)};
+    internal const float BodyEndMilliseconds = ${csharpNumber(introConfig.body.endMs)};
+    internal const float SparkStartMilliseconds = ${csharpNumber(introConfig.spark.startMs)};
+    internal const float SparkEndMilliseconds = ${csharpNumber(introConfig.spark.endMs)};
+    internal const float SparkPulseEndMilliseconds = ${csharpNumber(introConfig.spark.pulseEndMs)};
+    internal const float OrbitStartMilliseconds = ${csharpNumber(introConfig.orbits.startMs)};
+    internal const float OrbitStaggerMilliseconds = ${csharpNumber(introConfig.orbits.staggerMs)};
+    internal const float OrbitDurationMilliseconds = ${csharpNumber(introConfig.orbits.durationMs)};
+    internal const float ParticleStartMilliseconds = ${csharpNumber(introConfig.particles.startMs)};
+    internal const float ParticleEndMilliseconds = ${csharpNumber(introConfig.particles.endMs)};
+    internal const float WordmarkStartMilliseconds = ${csharpNumber(introConfig.wordmark.startMs)};
+    internal const float WordmarkEndMilliseconds = ${csharpNumber(introConfig.wordmark.endMs)};
+    internal const float MotionStartOffsetSeconds = ${csharpNumber(introConfig.motion.startOffsetSeconds)};
+    internal const float MotionRate = ${csharpNumber(introConfig.motion.rate)};
+    internal const float MotionSettleStartMilliseconds = ${csharpNumber(introConfig.motion.settleStartMs)};
+    internal const float MotionSettleEndMilliseconds = ${csharpNumber(introConfig.motion.settleEndMs)};
+    internal const float FinalTrailOpacity = ${csharpNumber(introConfig.motion.finalTrailOpacity)};
+    internal const float AutoDismissStartProgress = ${csharpNumber((introConfig.durationMs - introConfig.hostAutoDismissFadeMs) / introConfig.durationMs)};
 
     internal static readonly OrbitDefinition[] Orbits =
     {
