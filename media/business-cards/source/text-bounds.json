@@ -1,0 +1,420 @@
+[
+  {
+    "card": "sr-front",
+    "text": "Никола Петровић",
+    "point_size": 14,
+    "bounds_mm": [
+      9.361159217357635,
+      23.40676540798611,
+      52.222506296303536,
+      28.00803493923611
+    ]
+  },
+  {
+    "card": "sr-front",
+    "text": "Развој софтвера",
+    "point_size": 8,
+    "bounds_mm": [
+      9.248046875,
+      29.87919921875,
+      31.438595920138887,
+      32.57601996527778
+    ]
+  },
+  {
+    "card": "sr-front",
+    "text": "Инжењерска решења · Инди игре",
+    "point_size": 8,
+    "bounds_mm": [
+      9.248046875,
+      33.94672309027778,
+      56.11236979166668,
+      36.57601996527778
+    ]
+  },
+  {
+    "card": "sr-front",
+    "text": "zuaros.com",
+    "point_size": 10.5,
+    "bounds_mm": [
+      9.220079907774926,
+      42.24563428113858,
+      29.931502753992874,
+      44.34181678096453
+    ]
+  },
+  {
+    "card": "sr-front",
+    "text": "zuaros.dev@gmail.com",
+    "point_size": 8,
+    "bounds_mm": [
+      9.1736328125,
+      46.37919921875,
+      40.08165147569445,
+      49.10909288194444
+    ]
+  },
+  {
+    "card": "sr-front",
+    "text": "Instagram · Facebook  @zuaros",
+    "point_size": 7.5,
+    "bounds_mm": [
+      9.2325439453125,
+      50.87505289713541,
+      48.44332885742187,
+      53.37102457682291
+    ]
+  },
+  {
+    "card": "sr-back",
+    "text": "zuaros.com",
+    "point_size": 10,
+    "bounds_mm": [
+      35.8095999121666,
+      49.04346122013198,
+      55.53476452761226,
+      51.03982550568051
+    ]
+  },
+  {
+    "card": "en-front",
+    "text": "Nikola Petrović",
+    "point_size": 14,
+    "bounds_mm": [
+      9.361159217357635,
+      23.22194377316369,
+      44.914978929691834,
+      27.055755707952713
+    ]
+  },
+  {
+    "card": "en-front",
+    "text": "Software Development",
+    "point_size": 8,
+    "bounds_mm": [
+      9.159852430555556,
+      29.850260416666668,
+      39.53594835069444,
+      32.57601996527778
+    ]
+  },
+  {
+    "card": "en-front",
+    "text": "Engineering Solutions · Indie Games",
+    "point_size": 8,
+    "bounds_mm": [
+      9.248046875,
+      33.87919921875,
+      56.81930338541668,
+      36.60909288194444
+    ]
+  },
+  {
+    "card": "en-front",
+    "text": "zuaros.com",
+    "point_size": 10.5,
+    "bounds_mm": [
+      9.220079907774926,
+      42.24563428113858,
+      29.931502753992874,
+      44.34181678096453
+    ]
+  },
+  {
+    "card": "en-front",
+    "text": "zuaros.dev@gmail.com",
+    "point_size": 8,
+    "bounds_mm": [
+      9.1736328125,
+      46.37919921875,
+      40.08165147569445,
+      49.10909288194444
+    ]
+  },
+  {
+    "card": "en-front",
+    "text": "Instagram · Facebook  @zuaros",
+    "point_size": 7.5,
+    "bounds_mm": [
+      9.2325439453125,
+      50.87505289713541,
+      48.44332885742187,
+      53.37102457682291
+    ]
+  },
+  {
+    "card": "en-back",
+    "text": "zuaros.com",
+    "point_size": 10,
+    "bounds_mm": [
+      35.8095999121666,
+      49.04346122013198,
+      55.53476452761226,
+      51.03982550568051
+    ]
+  },
+  {
+    "card": "bilingual-front-sr",
+    "text": "Никола Петровић",
+    "point_size": 14,
+    "bounds_mm": [
+      9.361159217357635,
+      23.40676540798611,
+      52.222506296303536,
+      28.00803493923611
+    ]
+  },
+  {
+    "card": "bilingual-front-sr",
+    "text": "Развој софтвера",
+    "point_size": 8,
+    "bounds_mm": [
+      9.248046875,
+      29.87919921875,
+      31.438595920138887,
+      32.57601996527778
+    ]
+  },
+  {
+    "card": "bilingual-front-sr",
+    "text": "Инжењерска решења · Инди игре",
+    "point_size": 8,
+    "bounds_mm": [
+      9.248046875,
+      33.94672309027778,
+      56.11236979166668,
+      36.57601996527778
+    ]
+  },
+  {
+    "card": "bilingual-front-sr",
+    "text": "zuaros.com",
+    "point_size": 10.5,
+    "bounds_mm": [
+      9.220079907774926,
+      42.24563428113858,
+      29.931502753992874,
+      44.34181678096453
+    ]
+  },
+  {
+    "card": "bilingual-front-sr",
+    "text": "zuaros.dev@gmail.com",
+    "point_size": 8,
+    "bounds_mm": [
+      9.1736328125,
+      46.37919921875,
+      40.08165147569445,
+      49.10909288194444
+    ]
+  },
+  {
+    "card": "bilingual-front-sr",
+    "text": "Instagram · Facebook  @zuaros",
+    "point_size": 7.5,
+    "bounds_mm": [
+      9.2325439453125,
+      50.87505289713541,
+      48.44332885742187,
+      53.37102457682291
+    ]
+  },
+  {
+    "card": "bilingual-back-en",
+    "text": "Nikola Petrović",
+    "point_size": 14,
+    "bounds_mm": [
+      9.361159217357635,
+      23.22194377316369,
+      44.914978929691834,
+      27.055755707952713
+    ]
+  },
+  {
+    "card": "bilingual-back-en",
+    "text": "Software Development",
+    "point_size": 8,
+    "bounds_mm": [
+      9.159852430555556,
+      29.850260416666668,
+      39.53594835069444,
+      32.57601996527778
+    ]
+  },
+  {
+    "card": "bilingual-back-en",
+    "text": "Engineering Solutions · Indie Games",
+    "point_size": 8,
+    "bounds_mm": [
+      9.248046875,
+      33.87919921875,
+      56.81930338541668,
+      36.60909288194444
+    ]
+  },
+  {
+    "card": "bilingual-back-en",
+    "text": "zuaros.com",
+    "point_size": 10.5,
+    "bounds_mm": [
+      9.220079907774926,
+      42.24563428113858,
+      29.931502753992874,
+      44.34181678096453
+    ]
+  },
+  {
+    "card": "bilingual-back-en",
+    "text": "zuaros.dev@gmail.com",
+    "point_size": 8,
+    "bounds_mm": [
+      9.1736328125,
+      46.37919921875,
+      40.08165147569445,
+      49.10909288194444
+    ]
+  },
+  {
+    "card": "bilingual-back-en",
+    "text": "Instagram · Facebook  @zuaros",
+    "point_size": 7.5,
+    "bounds_mm": [
+      9.2325439453125,
+      50.87505289713541,
+      48.44332885742187,
+      53.37102457682291
+    ]
+  },
+  {
+    "card": "bilingual-front-sr-with-qr",
+    "text": "Никола Петровић",
+    "point_size": 14,
+    "bounds_mm": [
+      9.361159217357635,
+      23.40676540798611,
+      52.222506296303536,
+      28.00803493923611
+    ]
+  },
+  {
+    "card": "bilingual-front-sr-with-qr",
+    "text": "Развој софтвера",
+    "point_size": 8,
+    "bounds_mm": [
+      9.248046875,
+      29.87919921875,
+      31.438595920138887,
+      32.57601996527778
+    ]
+  },
+  {
+    "card": "bilingual-front-sr-with-qr",
+    "text": "Инжењерска решења · Инди игре",
+    "point_size": 8,
+    "bounds_mm": [
+      9.248046875,
+      33.94672309027778,
+      56.11236979166668,
+      36.57601996527778
+    ]
+  },
+  {
+    "card": "bilingual-front-sr-with-qr",
+    "text": "zuaros.com",
+    "point_size": 10.5,
+    "bounds_mm": [
+      9.220079907774926,
+      42.24563428113858,
+      29.931502753992874,
+      44.34181678096453
+    ]
+  },
+  {
+    "card": "bilingual-front-sr-with-qr",
+    "text": "zuaros.dev@gmail.com",
+    "point_size": 8,
+    "bounds_mm": [
+      9.1736328125,
+      46.37919921875,
+      40.08165147569445,
+      49.10909288194444
+    ]
+  },
+  {
+    "card": "bilingual-front-sr-with-qr",
+    "text": "Instagram · Facebook  @zuaros",
+    "point_size": 7.5,
+    "bounds_mm": [
+      9.2325439453125,
+      50.87505289713541,
+      48.44332885742187,
+      53.37102457682291
+    ]
+  },
+  {
+    "card": "bilingual-back-en-with-qr",
+    "text": "Nikola Petrović",
+    "point_size": 14,
+    "bounds_mm": [
+      9.361159217357635,
+      23.22194377316369,
+      44.914978929691834,
+      27.055755707952713
+    ]
+  },
+  {
+    "card": "bilingual-back-en-with-qr",
+    "text": "Software Development",
+    "point_size": 8,
+    "bounds_mm": [
+      9.159852430555556,
+      29.850260416666668,
+      39.53594835069444,
+      32.57601996527778
+    ]
+  },
+  {
+    "card": "bilingual-back-en-with-qr",
+    "text": "Engineering Solutions · Indie Games",
+    "point_size": 8,
+    "bounds_mm": [
+      9.248046875,
+      33.87919921875,
+      56.81930338541668,
+      36.60909288194444
+    ]
+  },
+  {
+    "card": "bilingual-back-en-with-qr",
+    "text": "zuaros.com",
+    "point_size": 10.5,
+    "bounds_mm": [
+      9.220079907774926,
+      42.24563428113858,
+      29.931502753992874,
+      44.34181678096453
+    ]
+  },
+  {
+    "card": "bilingual-back-en-with-qr",
+    "text": "zuaros.dev@gmail.com",
+    "point_size": 8,
+    "bounds_mm": [
+      9.1736328125,
+      46.37919921875,
+      40.08165147569445,
+      49.10909288194444
+    ]
+  },
+  {
+    "card": "bilingual-back-en-with-qr",
+    "text": "Instagram · Facebook  @zuaros",
+    "point_size": 7.5,
+    "bounds_mm": [
+      9.2325439453125,
+      50.87505289713541,
+      48.44332885742187,
+      53.37102457682291
+    ]
+  }
+]

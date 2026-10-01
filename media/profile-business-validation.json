@@ -1,0 +1,675 @@
+{
+  "images": [
+    {
+      "path": "media/business-cards/bilingual/zuaros-business-card-bilingual-back-en-with-qr.png",
+      "format": "PNG",
+      "width": 2150,
+      "height": 1441,
+      "mode": "RGB",
+      "bytes": 118015,
+      "sha256": "6f667d29089a9b7005bcc24c4ae0942be38415606488199ac8c29fa79f96297d",
+      "png_bit_depth": 8,
+      "png_color_type": 2,
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "media/business-cards/bilingual/zuaros-business-card-bilingual-back-en.png",
+      "format": "PNG",
+      "width": 2150,
+      "height": 1441,
+      "mode": "RGB",
+      "bytes": 116791,
+      "sha256": "a63bc0df889392467a9cf16f986f8e2b84f5146e3858207fc5047e01f9580585",
+      "png_bit_depth": 8,
+      "png_color_type": 2,
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "media/business-cards/bilingual/zuaros-business-card-bilingual-front-sr-with-qr.png",
+      "format": "PNG",
+      "width": 2150,
+      "height": 1441,
+      "mode": "RGB",
+      "bytes": 111806,
+      "sha256": "f08c2574c57a7bdf632dc2275a2ac573958e5a4cc70b6350a5d50ef9570c1393",
+      "png_bit_depth": 8,
+      "png_color_type": 2,
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "media/business-cards/bilingual/zuaros-business-card-bilingual-front-sr.png",
+      "format": "PNG",
+      "width": 2150,
+      "height": 1441,
+      "mode": "RGB",
+      "bytes": 110517,
+      "sha256": "08f8ac2d84229b4b31b170e4db4fa970c8e1827a86a70dc4d2ff281057ee397d",
+      "png_bit_depth": 8,
+      "png_color_type": 2,
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "media/business-cards/en/zuaros-business-card-en-back.png",
+      "format": "PNG",
+      "width": 2150,
+      "height": 1441,
+      "mode": "RGB",
+      "bytes": 71958,
+      "sha256": "739144f64152b5233292a51b444c59746c90866d211840812ab637424f03bedd",
+      "png_bit_depth": 8,
+      "png_color_type": 2,
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "media/business-cards/en/zuaros-business-card-en-front.png",
+      "format": "PNG",
+      "width": 2150,
+      "height": 1441,
+      "mode": "RGB",
+      "bytes": 116791,
+      "sha256": "a63bc0df889392467a9cf16f986f8e2b84f5146e3858207fc5047e01f9580585",
+      "png_bit_depth": 8,
+      "png_color_type": 2,
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "media/business-cards/previews/zuaros-business-card-bilingual-back-en-trim.png",
+      "format": "PNG",
+      "width": 2008,
+      "height": 1299,
+      "mode": "RGB",
+      "bytes": 114790,
+      "sha256": "a7c0d4644f7e2457e88aa9fd0b02212fcea9b17fb3142f4a43f8ad0aee422ed4",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/business-cards/previews/zuaros-business-card-bilingual-back-en-with-qr-trim.png",
+      "format": "PNG",
+      "width": 2008,
+      "height": 1299,
+      "mode": "RGB",
+      "bytes": 116070,
+      "sha256": "3809ec5b24299bc4861c0a009d9565b5f65c520fc22887cafdb02a01c089197d",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/business-cards/previews/zuaros-business-card-bilingual-front-sr-trim.png",
+      "format": "PNG",
+      "width": 2008,
+      "height": 1299,
+      "mode": "RGB",
+      "bytes": 108266,
+      "sha256": "9eba157950f241b40684caff45fe0574b799833c5711af32f7d55e1d455b95ab",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/business-cards/previews/zuaros-business-card-bilingual-front-sr-with-qr-trim.png",
+      "format": "PNG",
+      "width": 2008,
+      "height": 1299,
+      "mode": "RGB",
+      "bytes": 109551,
+      "sha256": "bea4ab05ae1dbbd4d9d0b10c84fabcaaf1b7a92999e4769721cb1a353212e6f8",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/business-cards/previews/zuaros-business-card-en-back-trim.png",
+      "format": "PNG",
+      "width": 2008,
+      "height": 1299,
+      "mode": "RGB",
+      "bytes": 70059,
+      "sha256": "d0e76b78f0f73b5ce87f8d1102401114ef5d909508db3af1fc725a061925ae58",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/business-cards/previews/zuaros-business-card-en-front-trim.png",
+      "format": "PNG",
+      "width": 2008,
+      "height": 1299,
+      "mode": "RGB",
+      "bytes": 114790,
+      "sha256": "a7c0d4644f7e2457e88aa9fd0b02212fcea9b17fb3142f4a43f8ad0aee422ed4",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/business-cards/previews/zuaros-business-card-sr-back-trim.png",
+      "format": "PNG",
+      "width": 2008,
+      "height": 1299,
+      "mode": "RGB",
+      "bytes": 70059,
+      "sha256": "d0e76b78f0f73b5ce87f8d1102401114ef5d909508db3af1fc725a061925ae58",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/business-cards/previews/zuaros-business-card-sr-front-trim.png",
+      "format": "PNG",
+      "width": 2008,
+      "height": 1299,
+      "mode": "RGB",
+      "bytes": 108266,
+      "sha256": "9eba157950f241b40684caff45fe0574b799833c5711af32f7d55e1d455b95ab",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/business-cards/previews/zuaros-business-cards-preview.png",
+      "format": "PNG",
+      "width": 1920,
+      "height": 2810,
+      "mode": "RGB",
+      "bytes": 714480,
+      "sha256": "59975a4fe091d3c60ea897be77ccdb46a3adec5f2abc7be3510c5f10c051f042",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/business-cards/sr-cyrillic/zuaros-business-card-sr-back.png",
+      "format": "PNG",
+      "width": 2150,
+      "height": 1441,
+      "mode": "RGB",
+      "bytes": 71958,
+      "sha256": "739144f64152b5233292a51b444c59746c90866d211840812ab637424f03bedd",
+      "png_bit_depth": 8,
+      "png_color_type": 2,
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "media/business-cards/sr-cyrillic/zuaros-business-card-sr-front.png",
+      "format": "PNG",
+      "width": 2150,
+      "height": 1441,
+      "mode": "RGB",
+      "bytes": 110517,
+      "sha256": "08f8ac2d84229b4b31b170e4db4fa970c8e1827a86a70dc4d2ff281057ee397d",
+      "png_bit_depth": 8,
+      "png_color_type": 2,
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "media/play-console/developer-icon/zuaros-developer-icon-512.png",
+      "format": "PNG",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "bytes": 6219,
+      "sha256": "a9058c8e9bd218f4b53fd6aac5d4536c5bab8ad2107662a3f9a9b3be48762e28",
+      "png_bit_depth": 8,
+      "png_color_type": 6
+    },
+    {
+      "path": "media/play-console/header-image/zuaros-developer-header-4096x2304.jpg",
+      "format": "JPEG",
+      "width": 4096,
+      "height": 2304,
+      "mode": "RGB",
+      "bytes": 477713,
+      "sha256": "748d2cdd1b43d8f9e88ffede43b0f077ccd9d735d227e09ddd83c86e12f99f2d"
+    },
+    {
+      "path": "media/play-console/header-image/zuaros-developer-header-4096x2304.png",
+      "format": "PNG",
+      "width": 4096,
+      "height": 2304,
+      "mode": "RGB",
+      "bytes": 337030,
+      "sha256": "f9d8dadf030f03a22f6500e49fca773e193f3a852f340905f5109454afd118a7",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "media/play-console/preview/play-console-profile-preview.png",
+      "format": "PNG",
+      "width": 1600,
+      "height": 1160,
+      "mode": "RGB",
+      "bytes": 142884,
+      "sha256": "b5c31ce5a8b9c05a284cfb795f1aad6347c96da14c87adb49a6c9dee0cccc7ff",
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    }
+  ],
+  "print_pdfs": [
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-back-en-with-qr.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 32014
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-back-en.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 29845
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-duplex.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        },
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 57240
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-front-sr-with-qr.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 29995
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-front-sr.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 27834
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-with-qr-duplex.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        },
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 61556
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-en-back.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 8128
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-en-duplex.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        },
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 37542
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-en-front.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 29833
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-sr-back.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 8128
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-sr-duplex.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        },
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 35530
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-sr-front.pdf",
+      "pages": [
+        {
+          "media_mm": [
+            91,
+            61
+          ],
+          "trim_mm": [
+            85,
+            55
+          ],
+          "bleed_mm": 3,
+          "rotation": 0,
+          "raster_images": 0
+        }
+      ],
+      "bytes": 27821
+    }
+  ],
+  "qr_checks": [
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-back-en-with-qr.pdf",
+      "render_dpi": 300,
+      "decoded_url": "https://zuaros.com"
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-back-en-with-qr.pdf",
+      "render_dpi": 150,
+      "decoded_url": "https://zuaros.com"
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-front-sr-with-qr.pdf",
+      "render_dpi": 300,
+      "decoded_url": "https://zuaros.com"
+    },
+    {
+      "path": "media/business-cards/print/zuaros-card-bilingual-front-sr-with-qr.pdf",
+      "render_dpi": 150,
+      "decoded_url": "https://zuaros.com"
+    }
+  ],
+  "source_text_checks": [
+    {
+      "path": "media/business-cards/source/zuaros-business-card-bilingual-back-en-editable.svg",
+      "texts": [
+        "Nikola Petrović",
+        "Software Development",
+        "Engineering Solutions · Indie Games",
+        "zuaros.com",
+        "zuaros.dev@gmail.com",
+        "Instagram · Facebook  @zuaros"
+      ]
+    },
+    {
+      "path": "media/business-cards/source/zuaros-business-card-bilingual-back-en-with-qr-editable.svg",
+      "texts": [
+        "Nikola Petrović",
+        "Software Development",
+        "Engineering Solutions · Indie Games",
+        "zuaros.com",
+        "zuaros.dev@gmail.com",
+        "Instagram · Facebook  @zuaros"
+      ]
+    },
+    {
+      "path": "media/business-cards/source/zuaros-business-card-bilingual-front-sr-editable.svg",
+      "texts": [
+        "Никола Петровић",
+        "Развој софтвера",
+        "Инжењерска решења · Инди игре",
+        "zuaros.com",
+        "zuaros.dev@gmail.com",
+        "Instagram · Facebook  @zuaros"
+      ]
+    },
+    {
+      "path": "media/business-cards/source/zuaros-business-card-bilingual-front-sr-with-qr-editable.svg",
+      "texts": [
+        "Никола Петровић",
+        "Развој софтвера",
+        "Инжењерска решења · Инди игре",
+        "zuaros.com",
+        "zuaros.dev@gmail.com",
+        "Instagram · Facebook  @zuaros"
+      ]
+    },
+    {
+      "path": "media/business-cards/source/zuaros-business-card-en-back-editable.svg",
+      "texts": [
+        "zuaros.com"
+      ]
+    },
+    {
+      "path": "media/business-cards/source/zuaros-business-card-en-front-editable.svg",
+      "texts": [
+        "Nikola Petrović",
+        "Software Development",
+        "Engineering Solutions · Indie Games",
+        "zuaros.com",
+        "zuaros.dev@gmail.com",
+        "Instagram · Facebook  @zuaros"
+      ]
+    },
+    {
+      "path": "media/business-cards/source/zuaros-business-card-sr-back-editable.svg",
+      "texts": [
+        "zuaros.com"
+      ]
+    },
+    {
+      "path": "media/business-cards/source/zuaros-business-card-sr-front-editable.svg",
+      "texts": [
+        "Никола Петровић",
+        "Развој софтвера",
+        "Инжењерска решења · Инди игре",
+        "zuaros.com",
+        "zuaros.dev@gmail.com",
+        "Instagram · Facebook  @zuaros"
+      ]
+    }
+  ],
+  "proof_pdf": {
+    "path": "media/business-cards/previews/zuaros-business-cards-actual-size.pdf",
+    "page_mm": [
+      210,
+      297
+    ],
+    "scale_percent": 100,
+    "raster_images": 0
+  },
+  "type_checks": {
+    "minimum_point_size": 7.5,
+    "name_point_size": 14,
+    "email_point_size": 8,
+    "website_point_size": 10.5,
+    "safe_margin_mm_minimum": 4.5,
+    "minimum_rule_width_mm": 0.2
+  },
+  "print_color": "RGB masters, no CMYK or PDF/X claim. Printer must convert with its output profile.",
+  "physical_proof": "A4 PDF at true dimensions with 50 mm ruler. No physical print was performed.",
+  "geometry_source": "src/brand/mark.json; exact master Z, spark and wordmark paths; three master orbits for cards.",
+  "selection": "Icon A chosen after 32/64 px comparison; header B chosen for explicit brand recognition. Rejected variants retained only in temporary review storage.",
+  "promotional_character_counts": {
+    "en": 99,
+    "sr-Cyrl": 92
+  },
+  "status": "PASS"
+}
