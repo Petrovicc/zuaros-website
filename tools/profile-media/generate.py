@@ -1,8 +1,7 @@
-"""Generate additive Zuaros profile/card media; never writes website assets."""
+"""Export the primary bilingual card and icon; approved header is read-only."""
 from pathlib import Path
-import base64, html, io, json, shutil, subprocess, tempfile
+import base64, hashlib, html, io, json, subprocess, tempfile
 from fontTools.ttLib import TTFont
-from fontTools.varLib.instancer import instantiateVariableFont
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.boundsPen import BoundsPen
 from PIL import Image, ImageDraw, ImageFont, ImageCms
@@ -67,18 +66,7 @@ def init_fonts():
         for subset in ['latin','latin-ext','cyrillic']:
             name = f'Inter-{subset}-{weight}'
             target = CARDS / 'source/fonts' / f'{name}.ttf'
-            target.parent.mkdir(parents=True, exist_ok=True)
-            f = TTFont(ROOT / f'node_modules/@fontsource-variable/inter/files/inter-{subset}-wght-normal.woff2')
-            f = instantiateVariableFont(f, {'wght':weight}, inplace=True)
-            f.flavor = None
-            for record in f['name'].names:
-                if record.nameID in [1,4,6,16]:
-                    record.string = name.encode(record.getEncoding())
-                elif record.nameID in [2,17]:
-                    record.string = 'Regular'.encode(record.getEncoding())
-            f.save(target)
-            FONTS[(weight,subset)] = (f,name,target)
-    shutil.copyfile(ROOT/'public/brand/licenses/Inter-OFL.txt',CARDS/'source/fonts/Inter-OFL.txt')
+            FONTS[(weight,subset)] = (TTFont(target),name,target)
 
 def font_for(char, weight):
     for subset in ['latin','latin-ext','cyrillic']:
@@ -123,36 +111,45 @@ def font_style():
     return '<style>'+''.join(rules)+'</style>'
 
 def qr_art(x,y,size):
-    qr=qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M,border=4,box_size=10)
+    qr=qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_Q,border=4,box_size=10)
     qr.add_data('https://zuaros.com'); qr.make(fit=True)
     matrix=qr.get_matrix(); module=size/len(matrix)
-    body=rect(x,y,size,size,'#FFFFFF')
+    body=rect(x,y,size,size,BG)
     for row,cells in enumerate(matrix):
         for col,on in enumerate(cells):
-            if on: body+=rect(x+col*module,y+row*module,module,module,'#000000')
-    return body
+            if on: body+=rect(x+col*module,y+row*module,module,module,GOLD)
+    return f'<g id="qr" data-url="https://zuaros.com" data-ecc="Q" data-modules="{len(matrix)-8}" data-quiet-zone="4">{body}</g>'
 
-def card_art(lang,back=False,qr=False,editable=False,card_id=''):
-    body=rect(0,0,91,61,BG)
-    # Quiet technical detail; intentionally solid strokes >= 0.20 mm.
-    body+=line(86,10,86,25,'#34382F',.2)+line(84.8,10,87.2,10,'#847456',.2)
+def blended(foreground,alpha):
+    # Flatten low-opacity brand linework onto the exact graphite, for print.
+    rgb=lambda value:tuple(int(value[i:i+2],16) for i in (1,3,5))
+    return '#'+''.join(f'{round(a*(1-alpha)+b*alpha):02X}' for a,b in zip(rgb(BG),rgb(foreground)))
+
+def background_orbits(lang):
+    # Oversized master ellipses; only partial curves enter the physical card.
+    # Centres/radii keep all visible curves outside content and QR quiet zones.
+    placements=[(111,-18,.314),(134,-21,.33),(70,116.5,.35)]
+    parts=[]
+    for idx,((cx,cy,scale),orbit) in enumerate(zip(placements,MARK['orbital']['orbits'])):
+        if lang=='en': cx+=2 if idx<2 else -4
+        parts.append(f'<ellipse data-master-orbit="{orbit["id"]}" cx="{cx}" cy="{cy}" rx="{orbit["rx"]*scale}" ry="{orbit["ry"]*scale}" transform="rotate({orbit["rotation"]} {cx} {cy})" fill="none" stroke="{blended(ORBIT,[.15,.12,.10][idx])}" stroke-width=".25"/>')
+    return '<g id="background-orbits">'+''.join(parts)+'</g>'
+
+def card_art(lang,editable=False,card_id=''):
+    body=rect(0,0,91,61,BG)+background_orbits(lang)
     def tx(v,x,y,pt=8,weight=400,color=WHITE):
         return text(v,x,y,pt,weight,color,editable,card_id)
-    if back:
-        body+=emblem(29.5,5,32,True)
-        body+=wordmark(31,38,29)
-        body+=tx('zuaros.com',35.6,51,10,600,GOLD)
-    else:
-        body+=emblem(6.7,5.5,17.5,True)+wordmark(26,9.5,25)
-        body+=tx('Никола Петровић' if lang=='sr' else 'Nikola Petrović',9,27,14,600)
-        body+=tx('Развој софтвера' if lang=='sr' else 'Software Development',9,32,8)
-        body+=tx('Инжењерска решења · Инди игре' if lang=='sr' else 'Engineering Solutions · Indie Games',9,36,8)
-        body+=line(9,39,60 if qr else 82,39,'#847456',.2)
-        body+=tx('zuaros.com',9,44.3,10.5,600,GOLD)
-        body+=tx('zuaros.dev@gmail.com',9,48.5,8)
-        body+=tx('Instagram · Facebook  @zuaros',9,52.8,7.5,400,'#C3C5BE')
-        if qr: body+=qr_art(65,38,17)
-    return svg((font_style() if editable else '')+body,91,61,True)
+    body+=emblem(6.7,5.5,17.5,True)+wordmark(26,9.5,25)
+    body+=tx('Никола Петровић' if lang=='sr' else 'Nikola Petrović',9,27,14,600)
+    body+=tx('Развој софтвера' if lang=='sr' else 'Software Development',9,32.2,8)
+    body+=tx('Инжењерска решења' if lang=='sr' else 'Engineering Solutions',9,36.3,8)
+    body+=line(9,39.4,59,39.4,'#847456',.2)
+    body+=tx('zuaros.com',9,44.3,10.5,600,GOLD)
+    body+=tx('zuaros.dev@gmail.com',9,48.5,8)
+    body+=tx('Instagram · Facebook   @zuaros',9,52.8,7.5,400,'#C3C5BE')
+    body+=qr_art(64,37,19)
+    clip='<defs><clipPath id="card-crop"><rect width="91" height="61"/></clipPath></defs>'
+    return svg((font_style() if editable else '')+clip+'<g clip-path="url(#card-crop)">'+body+'</g>',91,61,True)
 
 def pdf_from_svg(value,path):
     path.parent.mkdir(parents=True,exist_ok=True)
@@ -179,48 +176,29 @@ def raster_svg(value,w,h,output,mode='RGB'):
     return im
 
 def play_assets():
-    for p in ['developer-icon','header-image','promotional-text','preview','source']:(PLAY/p).mkdir(parents=True,exist_ok=True)
-    icons=[]
-    for variant in range(3):
-        b=rect(0,0,512,512,BG)
-        for idx in range(variant):
-            b+=f'<ellipse cx="256" cy="256" rx="204" ry="{204 if idx==0 else 120}" transform="rotate(-38 256 256)" fill="none" stroke="{ORBIT}" stroke-width="1.5" opacity=".5"/>'
-        b+=f'<g transform="translate(74 98) scale(5.45)">{core()}</g>'
-        value=svg(b,512,512)
-        im=raster_svg(value,512,512,TMP/f'icon-{variant}.png','RGBA'); icons.append(im)
-        if variant==0:
-            save(PLAY/'source/zuaros-developer-icon.svg',value)
-            im.save(PLAY/'developer-icon/zuaros-developer-icon-512.png',icc_profile=ICC)
-    sheet=Image.new('RGB',(720,420),'#E7E8E4'); draw=ImageDraw.Draw(sheet)
-    for v,im in enumerate(icons):
-        x=40+v*235; draw.text((x,20),['A: Z + spark','B: one orbit','C: two orbits'][v],fill=BG)
-        sheet.paste(im.resize((160,160),Image.Resampling.LANCZOS),(x,55))
-        for size,y in [(64,240),(32,330)]:sheet.paste(im.resize((size,size),Image.Resampling.LANCZOS),(x,y))
-    sheet.save(TMP/'icon-comparison.png')
-    headers=[]
-    for with_wordmark in [False,True]:
-        defs=f'<defs><radialGradient id="glow"><stop offset="0" stop-color="#806035" stop-opacity=".18"/><stop offset="1" stop-color="{BG}" stop-opacity="0"/></radialGradient></defs>'
-        b=defs+rect(0,0,4096,2304,BG)+rect(780,50,2536,2204,'url(#glow)')
-        b+=emblem(1228,240 if with_wordmark else 332,1640)
-        if with_wordmark:b+=wordmark(1648,1740,800)
-        for x in [890,3206]:
-            b+=line(x,1104,x,1200,'#34382F',2)+line(x-12,1152,x+12,1152,ORBIT,2)
-        value=svg(b,4096,2304)
-        im=raster_svg(value,4096,2304,TMP/f'header-{with_wordmark}.png'); headers.append(im)
-        if with_wordmark:
-            save(PLAY/'source/zuaros-developer-header.svg',value)
-            im.save(PLAY/'header-image/zuaros-developer-header-4096x2304.png',icc_profile=ICC)
-            im.save(PLAY/'header-image/zuaros-developer-header-4096x2304.jpg',quality=96,subsampling=0,icc_profile=ICC)
-    hs=Image.new('RGB',(1600,500),'#E7E8E4')
-    for idx,im in enumerate(headers):hs.paste(im.resize((780,439)),(10+idx*800,40))
-    hd=ImageDraw.Draw(hs);hd.text((10,12),'A: emblem only',fill=BG);hd.text((810,12),'B: emblem + master wordmark',fill=BG)
-    hs.save(TMP/'header-comparison.png')
-    en='Zuaros develops custom software, engineering applications, digital products, and independent games.'
-    sr='Zuaros развија софтвер по мери, инжењерске апликације, дигиталне производе и независне игре.'
-    assert len(en)<=140 and len(sr)<=140
-    save(PLAY/'promotional-text/promotional-text.txt',f'English ({len(en)} characters, including spaces and punctuation)\n{en}\n\nСрпски — ћирилица ({len(sr)} знакова, укључујући размаке и интерпункцију)\n{sr}\n')
-    preview=Image.new('RGB',(1600,1160),'#F4F5F2');preview.paste(headers[1].resize((1536,864)),(32,32))
-    preview.paste(icons[0].resize((136,136)),(80,936));d=ImageDraw.Draw(preview)
+    # Reuse all master ellipse parameters; enlarge only the inner Z+spark group
+    # around its own centre to make the compact profile icon readable.
+    b=rect(0,0,600,600,BG)
+    for o in MARK['orbital']['orbits'][:3]:
+        b+=f'<ellipse data-master-orbit="{o["id"]}" cx="300" cy="300" rx="{o["rx"]}" ry="{o["ry"]}" transform="rotate({o["rotation"]} 300 300)" fill="none" stroke="{ORBIT}" stroke-width="2.3" opacity=".72"/>'
+    for x,y in [(472.009,368.103),(162.137,470.388)]:
+        b+=f'<circle cx="{x}" cy="{y}" r="3.2" fill="{SPARK}"/>'
+    b+=f'<g transform="rotate(-7 300 300) translate(145.9 166.6) scale(4.6)">{core()}</g>'
+    value=svg(b,600,600)
+    save(PLAY/'source/zuaros-developer-icon.svg',value)
+    icon=raster_svg(value,512,512,PLAY/'developer-icon/zuaros-developer-icon-512.png','RGBA')
+    sheet=Image.new('RGB',(1050,600),'#E7E8E4');draw=ImageDraw.Draw(sheet)
+    font=ImageFont.truetype(str(FONTS[(400,'latin')][2]),18)
+    x=25
+    for size in [512,128,64,48,32]:
+        draw.text((x,25),str(size)+' px',font=font,fill=BG)
+        sheet.paste(icon.resize((size,size),Image.Resampling.LANCZOS),(x,65))
+        x+=size+40
+    sheet.save(PLAY/'preview/zuaros-developer-icon-sizes.png',icc_profile=ICC)
+    # Approved header is only read, never regenerated or re-saved.
+    header=Image.open(PLAY/'header-image/zuaros-developer-header-4096x2304.png')
+    preview=Image.new('RGB',(1600,1160),'#F4F5F2');preview.paste(header.resize((1536,864)),(32,32))
+    preview.paste(icon.resize((136,136)),(80,936));d=ImageDraw.Draw(preview)
     regular=ImageFont.truetype(str(FONTS[(400,'latin')][2]),22);bold=ImageFont.truetype(str(FONTS[(600,'latin')][2]),34)
     d.text((250,946),'Zuaros',font=bold,fill=BG)
     d.text((250,1000),'Custom software, engineering applications,',font=regular,fill='#50564F')
@@ -228,61 +206,62 @@ def play_assets():
     d.text((80,1110),'STATIC COMPOSITION PREVIEW / Platform layout and cropping may vary',font=regular,fill='#666C63')
     preview.save(PLAY/'preview/play-console-profile-preview.png',icc_profile=ICC)
 
+
 def card_assets():
-    entries=[('sr-cyrillic','sr-front','sr',False,False),('sr-cyrillic','sr-back','sr',True,False),
-             ('en','en-front','en',False,False),('en','en-back','en',True,False),
-             ('bilingual','bilingual-front-sr','sr',False,False),('bilingual','bilingual-back-en','en',False,False),
-             ('bilingual','bilingual-front-sr-with-qr','sr',False,True),('bilingual','bilingual-back-en-with-qr','en',False,True)]
+    entries=[('bilingual-front-sr','sr'),('bilingual-back-en','en')]
     flats={}
-    for folder,identifier,lang,back,qr in entries:
+    for identifier,lang in entries:
         name='zuaros-business-card-'+identifier
-        art=card_art(lang,back,qr,card_id=identifier)
-        save(CARDS/folder/(name+'.svg'),art)
-        save(CARDS/'source'/(name+'-editable.svg'),card_art(lang,back,qr,True))
+        art=card_art(lang,card_id=identifier)
+        save(CARDS/'bilingual'/(name+'.svg'),art)
+        save(CARDS/'source'/(name+'-editable.svg'),card_art(lang,editable=True))
         pdf=CARDS/'print'/('zuaros-card-'+identifier+'.pdf');pdf_from_svg(art,pdf)
-        png=CARDS/folder/(name+'.png');render_pdf(pdf,png)
+        png=CARDS/'bilingual'/(name+'.png');render_pdf(pdf,png)
         im=Image.open(png).convert('RGB');im.save(png,dpi=(600,600),icc_profile=ICC)
-        # Final trim preview at 600 dpi: crop according to PDF physical geometry.
         box=(round(im.width*3/91),round(im.height*3/61),round(im.width*88/91),round(im.height*58/61))
         flat=im.crop(box);flats[identifier]=flat
-        (CARDS/'previews').mkdir(exist_ok=True)
         flat.save(CARDS/'previews'/(name+'-trim.png'),dpi=(600,600),icc_profile=ICC)
-    pairs=[('sr','sr-front','sr-back'),('en','en-front','en-back'),('bilingual','bilingual-front-sr','bilingual-back-en'),('bilingual-with-qr','bilingual-front-sr-with-qr','bilingual-back-en-with-qr')]
-    for name,a,b in pairs:
-        writer=PdfWriter()
-        for entry in [a,b]:writer.append(CARDS/'print'/f'zuaros-card-{entry}.pdf')
-        writer.add_metadata({'/Title':f'Zuaros {name} - front, back','/Subject':'Two landscape pages, head-to-head; printer to impose'})
-        writer.write(CARDS/'print'/f'zuaros-card-{name}-duplex.pdf')
+    writer=PdfWriter()
+    for identifier,_ in entries:writer.append(CARDS/'print'/f'zuaros-card-{identifier}.pdf')
+    writer.add_metadata({'/Title':'Zuaros primary bilingual card - Serbian front, English back','/Subject':'Two landscape pages, head-to-head; printer to impose'})
+    writer.write(CARDS/'print/zuaros-card-bilingual-duplex.pdf')
     font=ImageFont.truetype(str(FONTS[(400,'latin')][2]),26)
     title=ImageFont.truetype(str(FONTS[(600,'latin')][2]),42)
-    sheet=Image.new('RGB',(1920,2810),'#E6E7E3');d=ImageDraw.Draw(sheet)
-    d.text((80,55),'ZUAROS / BUSINESS CARDS',font=title,fill=BG)
-    d.text((80,115),'85 x 55 mm / graphite + solar gold / front and back',font=font,fill='#62685F')
-    for row,(name,a,b) in enumerate(pairs):
-        y=205+row*650;d.text((80,y),{'sr':'SERBIAN CYRILLIC','en':'ENGLISH','bilingual':'BILINGUAL / SR + EN','bilingual-with-qr':'BILINGUAL / OPTIONAL QR'}[name],font=font,fill=BG)
-        for col,ident in enumerate([a,b]):sheet.paste(flats[ident].resize((840,544),Image.Resampling.LANCZOS),(80+col*920,y+50))
-    sheet.save(CARDS/'previews/zuaros-business-cards-preview.png',icc_profile=ICC)
+    sheet=Image.new('RGB',(1920,870),'#E6E7E3');d=ImageDraw.Draw(sheet)
+    d.text((80,55),'ZUAROS / PRIMARY BILINGUAL CARD',font=title,fill=BG)
+    d.text((80,120),'85 x 55 mm / 3 mm bleed / gold QR on graphite',font=font,fill='#62685F')
+    for col,(identifier,_) in enumerate(entries):
+        x=80+col*920
+        d.text((x,210),'SERBIAN / FRONT' if col==0 else 'ENGLISH / BACK',font=font,fill=BG)
+        sheet.paste(flats[identifier].resize((840,544),Image.Resampling.LANCZOS),(x,260))
+    sheet.save(CARDS/'previews/zuaros-business-card-bilingual-preview.png',icc_profile=ICC)
     # A4 proof at exact physical size; vector cards, trim guides and 50 mm ruler.
     proof=CARDS/'previews/zuaros-business-cards-actual-size.pdf'
     c=canvas.Canvas(str(proof),pagesize=(210*mm,297*mm))
-    c.setTitle('Zuaros actual-size proof - print at 100%, do not fit')
-    c.setFont('Helvetica',12);c.drawString(15*mm,282*mm,'ZUAROS / ACTUAL-SIZE PROOF')
+    c.setTitle('Zuaros primary bilingual card - actual-size proof')
+    c.setFont('Helvetica',12);c.drawString(15*mm,282*mm,'ZUAROS / PRIMARY BILINGUAL CARD / ACTUAL SIZE')
     c.setFont('Helvetica',8);c.drawString(15*mm,275*mm,'Print at 100% / Actual size. Trim guides are 85 x 55 mm. Do not fit to page.')
-    for idx,ident in enumerate(['bilingual-front-sr','bilingual-back-en','sr-back','en-front','bilingual-front-sr-with-qr','bilingual-back-en-with-qr']):
-        row,col=divmod(idx,2); x=(12+col*96)*mm;y=(198-row*78)*mm
-        folder='en' if ident=='en-front' else 'sr-cyrillic' if ident=='sr-back' else 'bilingual'
-        drawing=svg2rlg(str(CARDS/folder/f'zuaros-business-card-{ident}.svg'))
+    for idx,(identifier,_) in enumerate(entries):
+        x=(12+idx*96)*mm;y=198*mm
+        drawing=svg2rlg(str(CARDS/'bilingual'/f'zuaros-business-card-{identifier}.svg'))
+        c.saveState()
+        crop=c.beginPath();crop.rect(x,y,91*mm,61*mm);c.clipPath(crop,stroke=0,fill=0)
         renderPDF.draw(drawing,c,x,y)
+        c.restoreState()
         c.setStrokeColorRGB(.45,.45,.45);c.setLineWidth(.3)
         for xx in [x+3*mm,x+88*mm]:
             for yy in [y+3*mm,y+58*mm]:
                 c.line(xx-2*mm,yy,xx+2*mm,yy);c.line(xx,yy-2*mm,xx,yy+2*mm)
-        c.setFillColorRGB(0,0,0);c.setFont('Helvetica',7);c.drawString(x,y-4*mm,ident)
-    c.line(15*mm,20*mm,65*mm,20*mm);c.line(15*mm,18*mm,15*mm,22*mm);c.line(65*mm,18*mm,65*mm,22*mm)
-    c.drawString(15*mm,14*mm,'50 mm calibration ruler');c.showPage();c.save()
+        c.setFillColorRGB(0,0,0);c.setFont('Helvetica',7);c.drawString(x,y-4*mm,identifier)
+    c.line(15*mm,170*mm,65*mm,170*mm);c.line(15*mm,168*mm,15*mm,172*mm);c.line(65*mm,168*mm,65*mm,172*mm)
+    c.drawString(15*mm,164*mm,'50 mm calibration ruler');c.showPage();c.save()
     render_pdf(proof,TMP/'actual-size-proof.png',150)
     save(CARDS/'source/text-bounds.json',json.dumps(TEXT_BOUNDS,ensure_ascii=False,indent=2)+'\n')
 
+
 if __name__=='__main__':
+    protected=list((PLAY/'header-image').glob('*'))+[PLAY/'source/zuaros-developer-header.svg']
+    hashes={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in protected}
     init_fonts();play_assets();card_assets()
-    print(json.dumps({'temporary_review_directory':str(TMP),'text_bounds_checked':len(TEXT_BOUNDS)},ensure_ascii=False))
+    assert hashes=={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in protected}
+    print(json.dumps({'temporary_review_directory':str(TMP),'text_bounds_checked':len(TEXT_BOUNDS),'header_unchanged':True},ensure_ascii=False))

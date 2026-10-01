@@ -56,7 +56,7 @@ individual app or game listing assets.
 
 | File | Verified specification |
 | --- | --- |
-| `play-console/developer-icon/zuaros-developer-icon-512.png` | 512 x 512 px, 32-bit RGBA PNG, 6,219 bytes |
+| `play-console/developer-icon/zuaros-developer-icon-512.png` | 512 x 512 px, 32-bit RGBA PNG, 37,813 bytes |
 | `play-console/header-image/zuaros-developer-header-4096x2304.png` | 4096 x 2304 px, 24-bit RGB PNG, no alpha, 337,030 bytes |
 | `play-console/header-image/zuaros-developer-header-4096x2304.jpg` | 4096 x 2304 px, RGB JPEG, quality 96, 4:4:4, 477,713 bytes |
 
@@ -74,98 +74,110 @@ Copy the text itself, without the language/count labels, from
 Counts include spaces and punctuation. Both fit the 140-character limit.
 `play-console/preview/play-console-profile-preview.png` is a **static local preview
 only**, not an exact reproduction of Google's UI. `play-console/source/` contains
-the reusable vector sources, not upload files. Three icon compositions were
-compared at 32 and 64 px; the Z + spark composition was selected for clarity.
-Two headers were compared; emblem + master wordmark was selected for recognition.
-Unselected variants are not part of the delivery.
+the reusable vector sources, not upload files. The current icon uses the master
+Z and spark with three master orbital paths and two tiny points. Its compact
+composition was reviewed at 512, 128, 64, 48 and 32 px; see
+`play-console/preview/zuaros-developer-icon-sizes.png`.
+
+The approved header PNG, JPG and SVG source are unchanged. Their original SHA-256
+hashes are checked by the validator. Promotional text also remains unchanged.
 
 ## Business Cards
 
-Open `business-cards/previews/zuaros-business-cards-preview.png` to compare every
-front/back pair. The practical international version is **bilingual**, with
-Serbian Cyrillic on the front and English on the back.
+**PRIMARY / RECOMMENDED: the bilingual card, Serbian Cyrillic front and English
+back, with the integrated gold QR on both sides.** This is the official current
+Zuaros business card. The two professional fields are Software Development and
+Engineering Solutions; the Serbian equivalents are Развој софтвера and
+Инжењерска решења. No game category, address, telephone number or job title is
+included in the primary package.
 
-| Version | SVG and 600 dpi PNG artwork | Two-page print PDF |
+Start with `business-cards/previews/zuaros-business-card-bilingual-preview.png`.
+The Serbian front is on the left and the English back is on the right.
+
+| Side | SVG and 600 dpi PNG (same basename) | Vector print PDF |
 | --- | --- | --- |
-| Serbian Cyrillic | `business-cards/sr-cyrillic/` | `business-cards/print/zuaros-card-sr-duplex.pdf` |
-| English | `business-cards/en/` | `business-cards/print/zuaros-card-en-duplex.pdf` |
-| Bilingual, SR front / EN back | `business-cards/bilingual/` | `business-cards/print/zuaros-card-bilingual-duplex.pdf` |
-| Bilingual QR alternative | `business-cards/bilingual/*-with-qr.*` | `business-cards/print/zuaros-card-bilingual-with-qr-duplex.pdf` |
+| Serbian front | `business-cards/bilingual/zuaros-business-card-bilingual-front-sr.svg` / `.png` | `business-cards/print/zuaros-card-bilingual-front-sr.pdf` |
+| English back | `business-cards/bilingual/zuaros-business-card-bilingual-back-en.svg` / `.png` | `business-cards/print/zuaros-card-bilingual-back-en.pdf` |
 
-Each language directory contains `zuaros-business-card-<version>-<side>.svg` and
-matching `.png` files. Bilingual names end in `-front-sr` or `-back-en`.
-The QR alternative adds `-with-qr`. The monolingual reverse is a restrained
-emblem, wordmark, and website composition; the bilingual reverse contains the
-English identity and contacts.
+For the print shop, send **`business-cards/print/zuaros-card-bilingual-duplex.pdf`**.
+It contains the Serbian front, then the English back, both upright with the same
+top edge. The separate `-with-qr` variants have been superseded and removed:
+QR is part of the primary design, so there is only one current bilingual pair.
+
+### Layout and orbital background
+
+The existing upper-left orbital emblem and master wordmark, name block, and
+contact hierarchy are retained. Website remains gold and prominent; email is
+secondary and the social line tertiary. Contact information matches on both sides.
+
+Three oversized master ellipses create large partial arcs cropped at the card
+edges. Two sweep through the upper-right region; a third briefly enters at the
+bottom. The English side shifts the placements slightly within the same system.
+They use the existing orbit gold **#B59A70**, flattened onto graphite at 15%, 12%
+and 10% to preserve low prominence without relying on print transparency.
+Their **0.25 mm** strokes are vector and stay clear of the name, descriptors,
+contacts and QR quiet zone. The logo's three master orbits retain 0.20 mm strokes.
 
 ### Print shop handoff
 
-Send the desired two-page PDF from `business-cards/print/` and these instructions:
-
 - **Final trim:** 85 x 55 mm, landscape.
 - **Bleed:** 3 mm on every side; full MediaBox and BleedBox are 91 x 61 mm.
-- **TrimBox:** inset 3 mm, from (3, 3) to (88, 58) mm in the artwork.
-- All important text is at least **4.5 mm inside trim**; name 14 pt, website
-  10.5 pt, email/descriptors 8 pt, social line 7.5 pt.
-- Both pages are upright, front first and back second, with the same top edge.
-  Printer to impose as a head-to-head pair. Do not rotate a supplied side or
-  resize to fit. Crop marks are intentionally omitted from production artwork;
-  use PDF boxes for imposition and add marks outside the bleed if needed.
-- All artwork and final text are **vector paths**. No rasterized text, font
-  substitution, or external font dependency exists in production SVG/PDF files.
-- Minimum technical line width is **0.20 mm** (about 0.57 pt); three master
-  orbital paths are used on cards for small-format clarity.
-- These are **RGB vector print masters**, not CMYK or certified PDF/X files.
-  The printer should interpret the brand RGB values as sRGB and perform final
-  CMYK conversion using the actual press/paper ICC profile, then supply a proof.
-  No invented rich-black formula, spot gold, or foil separation is supplied.
-- Exact brand colors: graphite **#101211**, solar gold **#EDB466**, spark
-  **#F6C580**, off-white **#F1F0E9**. Print orbit/rule color **#847456** is a
-  deliberate solid subdued gold; minor technical detail uses **#34382F**.
-  The graphite is intentional. Confirm solid dark coverage on the chosen stock.
+- **TrimBox:** inset 3 mm, from (3, 3) to (88, 58) mm.
+- Important text is at least **4.5 mm inside trim**; name 14 pt, website 10.5 pt,
+  email/descriptors 8 pt, social line 7.5 pt.
+- Print at supplied size. The printer should impose a head-to-head pair using
+  the PDF boxes and add any required crop marks outside the bleed.
+- Production SVG and PDF text is outlined. All artwork remains vector; no
+  rasterized text, font substitution, or external font dependency is required.
+- These are **RGB vector masters**, not CMYK or certified PDF/X files. The print
+  shop should interpret the RGB values as sRGB, convert using its actual press
+  and stock ICC profile, and supply a proof. No rich-black recipe or foil/spot
+  separation is invented.
+- Exact brand colors: graphite **#101211**, primary gold **#EDB466**, spark
+  **#F6C580**, off-white **#F1F0E9**. QR modules use the same primary gold as the
+  Z and website. Existing subdued logo/divider color **#847456** is retained.
 
-Individual one-page print files are also supplied:
+### QR validation
 
-```text
-business-cards/print/zuaros-card-sr-front.pdf
-business-cards/print/zuaros-card-sr-back.pdf
-business-cards/print/zuaros-card-en-front.pdf
-business-cards/print/zuaros-card-en-back.pdf
-business-cards/print/zuaros-card-bilingual-front-sr.pdf
-business-cards/print/zuaros-card-bilingual-back-en.pdf
-business-cards/print/zuaros-card-bilingual-front-sr-with-qr.pdf
-business-cards/print/zuaros-card-bilingual-back-en-with-qr.pdf
-```
+Both sides point only to **https://zuaros.com**. The QR is **19 x 19 mm** including
+its four-module quiet zone. The pattern is 25 x 25 modules, approximately
+**0.576 mm per module**, with **Q error correction**. Gold modules sit directly on
+**#101211 graphite**, including all negative space and the quiet zone. There is
+no white square, frame or content in that zone.
 
-### QR, editing, and office use
+ZXing decoded both sides from the final PDFs at **600, 300, 150 and 120 dpi**,
+without recoloring or manually inverting the rendered images. The full 600 dpi
+PNG exports also decode. Pixel inspection confirms all four quiet-zone strips
+are pure graphite. A real press/stock proof remains necessary; no physical print
+was performed here.
 
-The QR alternatives point only to **https://zuaros.com**. The 17 mm square
-includes a four-module white quiet zone, with approximately 0.515 mm modules
-and error correction M. Both languages were decoded from independently
-rendered final PDFs at 300 and 150 dpi. A physical stock/press proof is still
-needed to verify real printing conditions; no physical print was performed here.
+### Editable sources, previews and office use
 
-`business-cards/source/` retains editable SVG text, self-contained embedded
-font data, and the corresponding static Inter subset TTFs with the OFL license.
-These are derived from the website's installed Inter variable fonts. Inter is
-used consistently across both scripts because the installed Space Grotesk
-subsets do not support Cyrillic. The wordmark remains the existing custom vector
-geometry. In an editor that ignores embedded SVG fonts, install the supplied
-uniquely named subsets before editing. Edit whole text runs or the generator,
-then regenerate and revalidate the outlined production copies.
+`business-cards/source/zuaros-business-card-bilingual-*-editable.svg` retains live
+text and embedded fonts. The supplied static Inter subset TTFs and OFL license
+are unchanged. In editors that ignore embedded SVG fonts, install those uniquely
+named subsets. The master wordmark remains custom vector geometry. After edits,
+regenerate and validate the outlined production assets.
 
-For **Word/PowerPoint**, insert an outlined SVG from a language directory for
-crisp scaling, or a PNG from `business-cards/previews/*-trim.png` for compatibility.
-The language-directory PNGs include bleed and are 2150 x 1441 px at 600 dpi;
-the `*-trim.png` previews omit bleed. They are not print-layout templates.
+For **Word/PowerPoint**, use the outlined SVG or the flat
+`business-cards/previews/zuaros-business-card-bilingual-*-trim.png` previews.
+Production PNGs include bleed and are **2150 x 1441 px at 600 dpi**. Trim previews
+omit bleed. Preview PNGs are not print-layout templates.
 
-All files in `business-cards/previews/` are **preview/proof only**. The A4
-`zuaros-business-cards-actual-size.pdf` provides a true-size layout and 50 mm
-calibration ruler: print at **100% / Actual size**, with fit-to-page disabled.
-Check the ruler with a physical ruler. Screen previews cannot guarantee physical
-size on an uncalibrated display.
+The updated A4 `business-cards/previews/zuaros-business-cards-actual-size.pdf`
+shows the two primary sides at physical size, with a 50 mm calibration ruler.
+Print at **100% / Actual size**, with fit-to-page disabled. Screen previews do
+not guarantee physical size on an uncalibrated display.
 
-The metadata, text, safe-area, vector-content and QR checks are recorded in
-`profile-business-validation.json`. Generation and validation instructions are
-in `../tools/profile-media/README.md`. Existing media and website files are
-untouched by these tools.
+### Historical/reference designs
+
+Existing `sr-cyrillic/`, `en/`, their corresponding print files, and the original
+`previews/zuaros-business-cards-preview.png` overview remain unchanged as
+**historical/reference assets only**. That old overview shows superseded card
+content and is not the production selection guide. The exporter no longer
+regenerates monolingual cards. Use the primary bilingual files above for new work.
+
+`profile-business-validation.json` records actual metadata, print boxes, exact
+text, safe areas, QR results, master icon geometry and protected header hashes.
+See `../tools/profile-media/README.md` for reproduction. Website source, website
+logos, studio intro, approved header and unrelated media are unchanged.
