@@ -1,0 +1,73 @@
+Algol Privacy Policy
+
+App: Algol · Publisher: Zuaros · Android package: dev.zuaros.algol
+
+Last updated: 3 October 2026
+
+Algol is a gravity and merge game for a general audience aged 13 and older. This policy explains how information is handled when you play, connect to Google Play Games, use cloud saves, or choose advertising. Contact Zuaros at zuaros.dev@gmail.com.
+
+Gameplay and information on your device
+
+Algol stores your progress, scores, discoveries, inventory, current run, settings, and recovery copies on your device so that you can play and resume safely. Gameplay is available offline and without ads. Algol has no separate Zuaros account-registration system or publisher-operated player-account database.
+
+Game progress and advertising preferences are stored separately. Your advertising choice is not included in Google Play Games cloud saves or Android backup. Algol does not send your save contents, boost balances, or Google Play Games player identifiers to its advertising SDK.
+
+Optional Google Play Games and cloud saves
+
+You can use Google Play Games with your Google account. Depending on your Google settings, it may reconnect automatically. Algol uses your Play Games player ID, gamer name, and profile image to display your connected profile, and submits game achievements and qualifying scores. Google controls the visibility of your gamer profile and leaderboard information through your Play Games settings. Google's SDK also processes analytics and diagnostics to operate and improve its service.
+
+Cloud backup is optional. If enabled, Algol sends a gameplay snapshot to Google's app-specific Saved Games storage to support backup and restore. A snapshot can contain your progress, inventory, discoveries, settings, and current run. Conflicting saves require a choice in the game. Advertising consent is not synchronized.
+
+Use Profile & Cloud to manage backup and the separate local and cloud reset controls. You can also manage or delete game data through Google's Play Games controls. Google handles its services under the Google Privacy Policy and describes SDK processing in its Play Games data disclosure.
+
+Advertising and service providers
+
+Algol uses Unity LevelPlay with ironSource Ads demand. Banners are eligible on the main menu and Atlas; rewarded ads are optional and offer the reward shown before you choose to watch. Ad availability is not guaranteed. Rewarded ads grant a reward only when the service confirms it was earned; closing an ad early or an unavailable ad does not earn a reward.
+
+The advertising services may process device and app information, device or advertising identifiers, IP-derived approximate location, ad interactions, and diagnostics. Purposes include ad delivery and personalization where permitted, measurement and analytics, fraud prevention, security, and service operation. Applicable information may be shared with advertising partners as described in the providers' policies; contextual advertising still involves data processing.
+
+See the Unity Privacy Policy and ironSource SDK data disclosure for provider practices and privacy controls. Algol currently uses ironSource demand; it does not enable AdMob or a separate Unity Ads network adapter.
+
+Your advertising choices
+
+Before advertising initializes, Algol presents unselected choices:
+
+Personalized ads: permits the disclosed device-data processing and advertising-identifier access for personalization, delivery, measurement, and fraud prevention.
+
+Basic / Contextual ads: opts out of personalization. Algol sends advertising-ID opt-out and do-not-sell/share signals. Eligible banners and optional rewarded ads use the same reward rules, but providers still process information needed to deliver, measure, and protect advertising.
+
+Continue without ads: keeps gameplay available and prevents advertising initialization on a fresh launch while this choice applies.
+
+For Basic ads, Algol requests a regional privacy classification from its HTTPS service. Cloudflare derives a country classification from the connection. Algol receives only the applicable framework, not your IP address or exact location. A current US classification permits the Basic opt-out route. In other or unknown regions, Basic ads require a separate affirmative permission for device access; declining it leaves ads disabled. Choosing Personalized includes the stated device-access permission.
+
+Change your choice at any time in Settings > Privacy. Withdrawal stops new ad requests and removes loaded ads. An already initialized third-party SDK may remain in memory until the app closes; the saved disabled choice prevents initialization at the next launch. Withdrawal does not reverse earlier processing.
+
+Your device stores the preference, device-access decision, policy version, decision time, and a random receipt identifier. An ordinary restart keeps your choice. Clearing app data, reinstalling, or a material change to advertising purposes or consent wording may require a new choice.
+
+Hosting, contact, and external links
+
+The regional classification service runs on Cloudflare. It does not create player accounts or store consent sessions, IP addresses, or country classifications in an Algol database. Cloudflare processes network information to deliver and protect the service under its Privacy Policy.
+
+This policy page contains no analytics, advertising scripts, cookies, or tracking code of its own. Its hosting provider may process ordinary connection and security information when serving the page. Contacting Zuaros by email provides us with your address and the information you choose to include, which we use to handle your request. Atlas source links and other external websites have their own privacy practices.
+
+Retention and deletion
+
+Local progress remains until it is reset or app storage is removed. Recovery copies may remain after an in-game reset to protect against accidental loss; clearing Algol's app storage removes those local copies. Cloud gameplay data can be reset separately or deleted through the applicable Google controls. A reset marker may remain to prevent stale saves from silently restoring deleted progress. Uninstalling the game does not by itself delete Google's cloud records.
+
+Google and advertising providers control retention of their own records under their policies. Zuaros keeps correspondence only as needed to handle requests and meet applicable obligations. We do not promise a single retention period for independent providers or automatic deletion of their records.
+
+Security and international users
+
+Algol uses HTTPS for its online service requests; Google and Unity describe encryption in transit for their SDK data. Local saves remain subject to your device's security. No storage or transmission method is completely secure.
+
+Service providers may process information outside your country under their applicable privacy policies and safeguards. Depending on where you live, you may have rights to access, correct, delete, restrict, or object to processing, withdraw consent, or complain to a data-protection authority. Use the in-game controls, the relevant provider's privacy controls, or contact Zuaros. We may request information reasonably needed to verify and answer your request.
+
+Children's privacy
+
+Algol is intended for a general audience aged 13 and older and is not directed to children under 13. Algol does not request an exact age or birth date. If you believe a child under 13 has provided personal information through Algol, contact Zuaros so we can review the request and take appropriate action for information within our control. Google and advertising providers maintain their own account and privacy requirements.
+
+Changes and contact
+
+We may update this policy when the game or its services change. The date above identifies the latest revision. Material changes to advertising purposes, providers, or consent wording will be reflected in the in-app choice flow.
+
+Zuaros — Algol zuaros.dev@gmail.com · zuaros.com

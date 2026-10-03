@@ -31,9 +31,14 @@ for (const entry of manifest) {
     await expect(page.locator("h1")).toContainText(entry.app);
     await expect(page.locator("time")).toHaveAttribute("datetime", entry.date);
     const original = readFileSync(`docs/privacy-sources/${entry.slug}.txt`, "utf8").split(/\r?\n\r?\n/).map(normalize).filter(Boolean);
-    // ACAR repeats its page title at the start of the source body.
+    // The source may include its page title; the layout displays it separately.
     if (original[0] === entry.sourceTitle) original.shift();
-    const rendered = [await page.locator("time").innerText(), ...await page.locator(".policy-content > p, .policy-content > h2, .policy-content li").allTextContents()].map(normalize);
+    // Dates move beside the heading in the shared layout (Algol places its
+    // app/publisher/package paragraph before the date in the supplied HTML).
+    const dateIndex = original.findIndex((text) => /^(Last updated|Effective date):/.test(text));
+    expect(dateIndex).toBeGreaterThanOrEqual(0);
+    expect(normalize(await page.locator("time").innerText())).toBe(original.splice(dateIndex, 1)[0]);
+    const rendered = (await page.locator(".policy-content > p, .policy-content > h2, .policy-content li").allTextContents()).map(normalize);
     expect(rendered).toEqual(original);
     const links: { text: string; href: string }[] = JSON.parse(readFileSync(`docs/privacy-sources/${entry.slug}.links.json`, "utf8"));
     for (const link of links) await expect(page.locator(".policy-content").getByRole("link", { name: link.text, exact: true })).toHaveAttribute("href", link.href);
@@ -80,7 +85,7 @@ for (const path of routes) {
     expect((await staticPage.goto(path))?.status()).toBe(200);
     await expect(staticPage.locator("h1")).toBeVisible();
     if (path !== "/privacy/") await expect(staticPage.locator(".policy-content")).toContainText("zuaros.dev@gmail.com");
-    else await expect(staticPage.locator(".policy-directory li")).toHaveCount(3);
+    else await expect(staticPage.locator(".policy-directory li")).toHaveCount(manifest.length);
     await context.close();
   });
 }
@@ -90,7 +95,7 @@ test("privacy directory, footer, keyboard and mobile navigation", async ({ page,
   await page.locator("footer").getByRole("link", { name: "Privacy", exact: true }).click();
   await expect(page).toHaveURL(/\/privacy\/$/);
   await expect(page.locator(".policy-content")).toHaveCount(0);
-  await expect(page.locator(".policy-directory li")).toHaveCount(3);
+  await expect(page.locator(".policy-directory li")).toHaveCount(manifest.length);
   await page.getByRole("link", { name: /MemoSpin/ }).click();
   await expect(page).toHaveURL(/\/privacy\/memospin\/$/);
   await page.setViewportSize(viewports[0]);
