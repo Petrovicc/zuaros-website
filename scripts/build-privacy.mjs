@@ -37,7 +37,7 @@ try {
     await writeFile(`dist${path}index.html`, html);
     console.log(`Generated ${path}index.html`);
   }
-  const paths = ["/", "/privacy/", ...manifest.map(({ slug }) => `/privacy/${slug}/`)];
+  const paths = ["/", "/memospin/", "/privacy/", ...manifest.map(({ slug }) => `/privacy/${slug}/`)];
   await writeFile("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path) => `<url><loc>${origin}${path}</loc></url>`).join("")}</urlset>\n`);
   if ((await readFile("dist/CNAME", "utf8")).trim() !== "zuaros.com") throw new Error("Missing custom-domain CNAME.");
 } finally {
