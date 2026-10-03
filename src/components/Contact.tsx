@@ -94,21 +94,22 @@ export function Contact({ t }: { t: Translation }) {
   );
 }
 
-export function Footer({ t }: { t: Translation }) {
+export function Footer({ t, homePrefix = "" }: { t: Translation; homePrefix?: string }) {
   return (
     <footer className="site-footer">
       <div className="container">
         <div className="footer-main">
           <div>
-            <a href="#home" aria-label={`Zuaros — ${t.nav.home}`}>
+            <a href={homePrefix || "#home"} aria-label={`Zuaros — ${t.nav.home}`}>
               <Brand />
             </a>
             <p>{t.footer.description}</p>
           </div>
           <nav aria-label={t.footer.navigation}>
-            <a href="#about">{t.nav.about}</a>
-            <a href="#services">{t.nav.services}</a>
-            <a href="#games">{t.nav.games}</a>
+            <a href={`${homePrefix}#about`}>{t.nav.about}</a>
+            <a href={`${homePrefix}#services`}>{t.nav.services}</a>
+            <a href={`${homePrefix}#games`}>{t.nav.games}</a>
+            <a href="/privacy/">{t.footer.privacy}</a>
             <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
           </nav>
         </div>
@@ -116,7 +117,7 @@ export function Footer({ t }: { t: Translation }) {
           <span>
             © {new Date().getFullYear()} Zuaros. {t.footer.rights}
           </span>
-          <a href="#home">
+          <a href={homePrefix ? "#top" : "#home"}>
             {t.footer.top}
             <span aria-hidden="true">↑</span>
           </a>

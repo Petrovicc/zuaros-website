@@ -2,7 +2,7 @@
 
 The official bilingual website and reusable vector identity for Zuaros: custom software, energy and engineering solutions, education and research tools, and independent games. The brand package includes the compact Z/spark mark, full orbital emblem, document lockups, transparent raster exports, a short studio intro, and a .NET MAUI reference implementation.
 
-[Website](https://petrovicc.github.io/zuaros-website/) · [Repository](https://github.com/Petrovicc/zuaros-website) · [Deployments](https://github.com/Petrovicc/zuaros-website/actions/workflows/deploy.yml)
+[Website](https://zuaros.com/) · [Repository](https://github.com/Petrovicc/zuaros-website) · [Deployments](https://github.com/Petrovicc/zuaros-website/actions/workflows/deploy.yml)
 
 ## Stack
 
@@ -34,7 +34,7 @@ npm run build
 npm test
 ```
 
-The production preview is started automatically. The 40 tests cover English/Serbian website layouts; navigation, storage, clipboard, accessibility, and reduced motion; every particle direction and historical trail; lifecycle and bounded SVG work; the complete SVG/PNG asset inventory; transparent raster dimensions; intro timing; and centered studio-intro rendering at the requested portrait and landscape resolutions. See `docs/VALIDATION.md` for details.
+The strict production-artifact server is started automatically. The 68 tests cover English/Serbian website layouts; navigation, storage, clipboard, accessibility, and reduced motion; every particle direction and historical trail; lifecycle and bounded SVG work; the complete SVG/PNG asset inventory; transparent raster dimensions; intro timing; and the separate privacy pages' content, static routing, metadata and responsive layouts. See `docs/VALIDATION.md` and `docs/PRIVACY_POLICY_MIGRATION.md` for details.
 
 ## Deployment: GitHub Pages
 
@@ -42,18 +42,19 @@ The `main` branch deploys through `.github/workflows/deploy.yml`. The workflow i
 
 In GitHub **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**. The workflow also supports manual dispatch.
 
-The exact URL returned by `actions/configure-pages` is passed as `SITE_URL`. Vite derives the base path, canonical URL, OpenGraph image URLs, and sitemap from that URL. A project repository, `USERNAME.github.io` repository, and configured custom domain are therefore handled without hardcoding a username or repository path. Local builds use `/` and deliberately omit a fictional production canonical URL.
+The official production URL is **https://zuaros.com/**. The URL returned by `actions/configure-pages` is passed as `SITE_URL`; the build rejects any domain or path other than this custom-domain root. Vite uses `/` for assets. `public/CNAME` is copied to `dist/CNAME` and contains `zuaros.com`. Local production builds use the same canonical URLs as deployment.
 
-To test a project subpath locally (PowerShell):
+To test the production artifact on a strict static server (PowerShell):
 
 ```powershell
-$env:SITE_URL = 'https://petrovicc.github.io/zuaros-website/'
+$env:SITE_URL = 'https://zuaros.com/'
 npm run build
-$env:TEST_BASE_PATH = '/zuaros-website/'
 npm test
 ```
 
-The site uses section fragments instead of history-based routes, so refreshes and direct section links work on static hosting. Language is a local preference on the same URL; there are no misleading separate-language canonical URLs. Social crawlers see the static English metadata. The visible page title and description follow the visitor's selected language.
+The homepage uses section fragments. Legal pages are independent, prerendered `index.html` documents at `/privacy/` and `/privacy/<app>/`, so direct requests and refreshes work on GitHub Pages without a SPA fallback. `scripts/build-privacy.mjs` renders the shared React header/footer and each policy into static HTML, with its own metadata and sitemap entry. Each policy's hydration data contains only that policy. The directory contains links, not policy bodies. Legal text and metadata remain in their original English; the shared navigation can switch language. Homepage language behavior remains unchanged.
+
+Policy sources, URL mapping, and migration verification: [Privacy policy migration](docs/PRIVACY_POLICY_MIGRATION.md). Edit each legal document independently in `src/privacy/policies/`; source snapshots in `docs/privacy-sources/` are the migration baseline, not text to overwrite casually. `npm run build` is required to generate legal routes; use the production build for route testing.
 
 References: [Vite static deployment](https://vite.dev/guide/static-deploy), [GitHub custom Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 

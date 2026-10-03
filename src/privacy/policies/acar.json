@@ -1,0 +1,196 @@
+{
+  "app": "ACAR",
+  "slug": "acar",
+  "sourceUrl": "https://sites.google.com/view/acar-privacy-policy/home",
+  "sourceTitle": "ACAR Privacy Policy",
+  "date": "2026-08-26",
+  "dateLabel": "Effective date: August 26, 2026",
+  "contact": "zuaros.dev@gmail.com",
+  "links": [],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "ACAR (Automated Car Availability Radar) is a vehicle search and monitoring application provided by Zuaros."
+    },
+    {
+      "type": "p",
+      "text": "This Privacy Policy explains how ACAR handles information when you use the application."
+    },
+    {
+      "type": "h2",
+      "text": "1. Information handled by ACAR"
+    },
+    {
+      "type": "p",
+      "text": "ACAR is designed to minimize the collection of personal information."
+    },
+    {
+      "type": "p",
+      "text": "The application may process:"
+    },
+    {
+      "type": "li",
+      "text": "vehicle search criteria entered by the user, such as brand, body type, price, mileage, engine displacement, seller type, and contact preferences;"
+    },
+    {
+      "type": "li",
+      "text": "saved search configurations;"
+    },
+    {
+      "type": "li",
+      "text": "listing interaction history;"
+    },
+    {
+      "type": "li",
+      "text": "application preferences such as language, theme, notification settings, and background monitoring settings."
+    },
+    {
+      "type": "p",
+      "text": "Saved searches, interaction history, and application preferences are stored locally on the user's device unless otherwise stated."
+    },
+    {
+      "type": "h2",
+      "text": "2. Vehicle search data"
+    },
+    {
+      "type": "p",
+      "text": "To provide vehicle search functionality, ACAR transmits search criteria to third-party vehicle marketplace services, currently including Willhaben."
+    },
+    {
+      "type": "p",
+      "text": "This information is transmitted only for the purpose of retrieving vehicle listings that match the user's requested search criteria."
+    },
+    {
+      "type": "p",
+      "text": "Search requests are transmitted using encrypted HTTPS connections."
+    },
+    {
+      "type": "p",
+      "text": "ACAR does not use this information for advertising, marketing, user profiling, or analytics."
+    },
+    {
+      "type": "h2",
+      "text": "3. Third-party services"
+    },
+    {
+      "type": "p",
+      "text": "ACAR accesses publicly available vehicle listing information provided by third-party marketplace services."
+    },
+    {
+      "type": "p",
+      "text": "Third-party services may process requests according to their own privacy policies, terms, and technical systems."
+    },
+    {
+      "type": "p",
+      "text": "ACAR is not affiliated with, endorsed by, or operated by Willhaben or other third-party marketplaces unless explicitly stated otherwise."
+    },
+    {
+      "type": "p",
+      "text": "Vehicle listings, seller information, prices, photographs, and other marketplace content remain the responsibility of their respective platforms and users."
+    },
+    {
+      "type": "h2",
+      "text": "4. Local data storage"
+    },
+    {
+      "type": "p",
+      "text": "Saved searches, application settings, and listing interaction history may be stored locally on the user's device."
+    },
+    {
+      "type": "p",
+      "text": "Users can remove stored history through the application where such functionality is available. Local application data can also be removed by clearing the application's storage or uninstalling ACAR."
+    },
+    {
+      "type": "h2",
+      "text": "5. Background monitoring and notifications"
+    },
+    {
+      "type": "p",
+      "text": "If enabled by the user, ACAR may perform background monitoring to check for newly available vehicle listings matching active saved searches."
+    },
+    {
+      "type": "p",
+      "text": "The application may use Android notifications to inform users when matching listings are detected."
+    },
+    {
+      "type": "p",
+      "text": "Background monitoring can be enabled or disabled by the user."
+    },
+    {
+      "type": "h2",
+      "text": "6. Personal information"
+    },
+    {
+      "type": "p",
+      "text": "The current version of ACAR does not require users to create an account and does not request names, email addresses, passwords, financial information, contacts, photographs, precise location, or other personal profile information."
+    },
+    {
+      "type": "h2",
+      "text": "7. Advertising and analytics"
+    },
+    {
+      "type": "p",
+      "text": "ACAR does not currently display third-party advertising."
+    },
+    {
+      "type": "p",
+      "text": "The current version does not use user search information for advertising or marketing purposes."
+    },
+    {
+      "type": "h2",
+      "text": "8. Data sale"
+    },
+    {
+      "type": "p",
+      "text": "ACAR does not sell users' personal information."
+    },
+    {
+      "type": "h2",
+      "text": "9. Children's privacy"
+    },
+    {
+      "type": "p",
+      "text": "ACAR is not designed or intended for children."
+    },
+    {
+      "type": "h2",
+      "text": "10. Security"
+    },
+    {
+      "type": "p",
+      "text": "ACAR uses encrypted network connections where supported and takes reasonable measures to protect information processed by the application."
+    },
+    {
+      "type": "p",
+      "text": "No electronic transmission or storage system can be guaranteed to be completely secure."
+    },
+    {
+      "type": "h2",
+      "text": "11. Changes to this Privacy Policy"
+    },
+    {
+      "type": "p",
+      "text": "This Privacy Policy may be updated if ACAR's functionality, data handling practices, or supported services change."
+    },
+    {
+      "type": "p",
+      "text": "The current version will remain available at this public Privacy Policy URL."
+    },
+    {
+      "type": "h2",
+      "text": "12. Contact"
+    },
+    {
+      "type": "p",
+      "text": "For questions regarding this Privacy Policy or ACAR, contact:"
+    },
+    {
+      "type": "p",
+      "text": "Zuaros"
+    },
+    {
+      "type": "p",
+      "text": "zuaros.dev@gmail.com"
+    }
+  ]
+}

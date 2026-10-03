@@ -3,14 +3,12 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  // Pages provides the exact URL, including a project subpath or custom domain.
-  const siteUrl = env.SITE_URL ? new URL(env.SITE_URL) : undefined;
-  if (siteUrl) {
-    siteUrl.pathname = siteUrl.pathname.replace(/\/?$/, "/");
-    siteUrl.search = "";
-    siteUrl.hash = "";
+  const siteUrl = new URL(env.SITE_URL || "https://zuaros.com/");
+  if (siteUrl.origin !== "https://zuaros.com" || !/^\/?$/.test(siteUrl.pathname) || siteUrl.search || siteUrl.hash) {
+    throw new Error("Zuaros production must use https://zuaros.com/ with a root base path.");
   }
-  const base = siteUrl?.pathname ?? "/";
+  siteUrl.pathname = "/";
+  const base = "/";
   return {
     base,
     plugins: [
@@ -41,6 +39,9 @@ export default defineConfig(({ mode }) => {
         },
       },
     ],
-    build: { target: "es2022" },
+    build: {
+      target: "es2022",
+      rollupOptions: { input: ["index.html", "privacy/index.html"] },
+    },
   };
 });

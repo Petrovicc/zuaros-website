@@ -1,0 +1,29 @@
+[
+  {
+    "app": "MemoSpin",
+    "slug": "memospin",
+    "sourceUrl": "https://sites.google.com/view/memospin-privacy-policy/home",
+    "sourceTitle": "MemoSpin Privacy Policy",
+    "date": "2026-10-02",
+    "dateLabel": "Last updated: October 2, 2026",
+    "contact": "zuaros.dev@gmail.com"
+  },
+  {
+    "app": "ACAR",
+    "slug": "acar",
+    "sourceUrl": "https://sites.google.com/view/acar-privacy-policy/home",
+    "sourceTitle": "ACAR Privacy Policy",
+    "date": "2026-08-26",
+    "dateLabel": "Effective date: August 26, 2026",
+    "contact": "zuaros.dev@gmail.com"
+  },
+  {
+    "app": "SpinStake",
+    "slug": "spinstake",
+    "sourceUrl": "https://sites.google.com/view/spinstake-privacy-policy/home",
+    "sourceTitle": "SpinStake Privacy Policy",
+    "date": "2026-09-04",
+    "dateLabel": "Last updated: September 4, 2026",
+    "contact": "zuaros.dev@gmail.com"
+  }
+]

@@ -7,10 +7,12 @@ export function Header({
   t,
   language,
   setLanguage,
+  homePrefix = "",
 }: {
   t: Translation;
   language: Language;
   setLanguage: (value: Language) => void;
+  homePrefix?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +54,7 @@ export function Header({
     >
       <div className="container header-inner">
         <a
-          href="#home"
+          href={homePrefix || "#home"}
           aria-label={`Zuaros — ${t.nav.home}`}
           onClick={() => setOpen(false)}
         >
@@ -66,13 +68,13 @@ export function Header({
           {(
             ["about", "services", "engineering", "games", "projects"] as const
           ).map((id) => (
-            <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>
+            <a key={id} href={`${homePrefix}#${id}`} onClick={() => setOpen(false)}>
               {t.nav[id]}
             </a>
           ))}
           <a
             className="mobile-contact"
-            href="#contact"
+            href={`${homePrefix}#contact`}
             onClick={() => setOpen(false)}
           >
             {t.nav.contact} <Arrow diagonal />
@@ -98,7 +100,7 @@ export function Header({
               SR
             </button>
           </div>
-          <a className="header-contact" href="#contact">
+          <a className="header-contact" href={`${homePrefix}#contact`}>
             {t.nav.contact}
             <Arrow diagonal />
           </a>

@@ -1,0 +1,177 @@
+{
+  "app": "SpinStake",
+  "slug": "spinstake",
+  "sourceUrl": "https://sites.google.com/view/spinstake-privacy-policy/home",
+  "sourceTitle": "SpinStake Privacy Policy",
+  "date": "2026-09-04",
+  "dateLabel": "Last updated: September 4, 2026",
+  "contact": "zuaros.dev@gmail.com",
+  "links": [
+    {
+      "text": "Google Privacy Policy",
+      "href": "https://policies.google.com/privacy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "SpinStake is a local multiplayer party game provided by Zuaros. This Privacy Policy explains how information is handled when you use SpinStake, Android package dev.zuaros.spinstake."
+    },
+    {
+      "type": "p",
+      "text": "SpinStake uses fictional Power and Risk game mechanics. It does not provide real-money wagering, purchases, financial accounts or payouts. Normal multiplayer play connects phones directly over the same local Wi-Fi network and does not require a Zuaros account or a Zuaros-operated online game server."
+    },
+    {
+      "type": "h2",
+      "text": "1. Information used by the game"
+    },
+    {
+      "type": "p",
+      "text": "SpinStake processes information needed to configure and run your game, including:"
+    },
+    {
+      "type": "li",
+      "text": "The nickname, player color and optional preferred-drink text you choose."
+    },
+    {
+      "type": "li",
+      "text": "Room codes, local host network addresses and ports, temporary session/player identifiers, and tokens used to join or reconnect to a room."
+    },
+    {
+      "type": "li",
+      "text": "Game settings, player readiness, Power/Risk selections, roulette results, challenges, votes, scores and other session state."
+    },
+    {
+      "type": "li",
+      "text": "Custom challenge text you enter or choose to save."
+    },
+    {
+      "type": "li",
+      "text": "Local preferences, such as animation settings and whether camera permission has previously been requested."
+    },
+    {
+      "type": "p",
+      "text": "You can use a nickname instead of your real name. Do not enter confidential information in nicknames, preferred-drink fields or shared challenges."
+    },
+    {
+      "type": "h2",
+      "text": "2. Local multiplayer and sharing with other players"
+    },
+    {
+      "type": "p",
+      "text": "When you create a room, your phone hosts the game. Other players' phones connect to that host over the local network. SpinStake uses local network discovery to find rooms and exchanges game messages directly between participating devices. Network addresses and connection information are used to establish these connections."
+    },
+    {
+      "type": "p",
+      "text": "The host processes the information needed to manage the session. Other players receive profile and game information made visible by the game's rules, including nicknames, chosen profile details, shared challenges, votes/results and scores. Some selections remain hidden from other players until the appropriate game phase."
+    },
+    {
+      "type": "p",
+      "text": "This normal game traffic is not sent to a Zuaros-operated cloud service. Participants may save shared custom challenges to their own devices. Zuaros does not control copies other players choose to retain or screenshots they take."
+    },
+    {
+      "type": "h2",
+      "text": "3. Optional camera access and QR codes"
+    },
+    {
+      "type": "p",
+      "text": "If you choose Scan QR Code, SpinStake asks for camera permission to read the host's room invitation. Camera frames are processed on your device by the QR reader. SpinStake does not save the camera images or upload them to Zuaros or an online scanning service. Scanning stops when the scanning screen is closed."
+    },
+    {
+      "type": "p",
+      "text": "The decoded invitation contains connection details such as the host's local address, room/session identifiers and a temporary joining token. These details are used to connect to the host. Showing a room's QR code shares those invitation details with anyone who scans it."
+    },
+    {
+      "type": "p",
+      "text": "Camera access is optional: you can join using the room code instead. You can change camera permission at any time through Android's app-permission settings. The app does not request access to your microphone, contacts, photo library or precise device location."
+    },
+    {
+      "type": "h2",
+      "text": "4. Local storage and device backups"
+    },
+    {
+      "type": "p",
+      "text": "SpinStake stores settings, your chosen profile details, the last room/host and reconnection details, and saved custom challenges in the application's local storage. These support preferences and reconnecting to a room."
+    },
+    {
+      "type": "p",
+      "text": "Android backup is enabled in the current app. Depending on your device, Android version and backup settings, the operating system may back up eligible app data to your backup provider, such as Google, or transfer it to another device. These backups are managed by the operating system/provider, not by a Zuaros backup service, and may restore saved data when you reinstall or migrate the app. Manage backups through your device or backup-provider settings. Google's handling of its services is described in the Google Privacy Policy."
+    },
+    {
+      "type": "h2",
+      "text": "5. Retention and deletion"
+    },
+    {
+      "type": "p",
+      "text": "Local settings and saved challenges remain until you change or delete them or remove the application's local data. Saved challenges can be deleted through the challenge library. You can remove local SpinStake data by clearing its storage in Android settings or uninstalling the app. Backup copies are managed separately through your device/provider and may need to be removed there."
+    },
+    {
+      "type": "p",
+      "text": "The host keeps the active game and related connection state in memory. This state is discarded when hosting is stopped, the room is replaced or the host application process ends. Ending a round or leaving a room does not delete saved preferences or challenges. Other players' independently saved copies are not remotely deleted."
+    },
+    {
+      "type": "p",
+      "text": "There is no Zuaros game account or centralized player-history database to delete. For privacy inquiries, use the contact details below."
+    },
+    {
+      "type": "h2",
+      "text": "6. Advertising, analytics and other services"
+    },
+    {
+      "type": "p",
+      "text": "The current app does not display third-party advertising or include an advertising, behavioral-analytics or automatic crash-reporting service operated by Zuaros. Zuaros does not sell game information or use it to create advertising profiles. The QR generation and scanning libraries perform their functions locally."
+    },
+    {
+      "type": "p",
+      "text": "Google Play, Android and your device or backup provider may independently process installation, diagnostic or backup information under their own policies and your settings. Their platform-level processing is separate from SpinStake's local multiplayer functionality."
+    },
+    {
+      "type": "p",
+      "text": "If you contact Zuaros by email, your email address and message are used to respond to your inquiry. Avoid including unnecessary sensitive information. Support correspondence is retained only as needed to handle the inquiry and any applicable legal obligations."
+    },
+    {
+      "type": "h2",
+      "text": "7. Security"
+    },
+    {
+      "type": "p",
+      "text": "The app uses Android's application storage controls and session/joining tokens to support local play. Its current local multiplayer protocol sends game messages without transport encryption. Other parties able to inspect traffic on the local network may be able to read those messages. Use SpinStake on a trusted network with people you know, and keep room invitations private to your group."
+    },
+    {
+      "type": "p",
+      "text": "No storage or transmission method can guarantee complete security."
+    },
+    {
+      "type": "h2",
+      "text": "8. Children's privacy"
+    },
+    {
+      "type": "p",
+      "text": "SpinStake is a social party game and is not designed or intended for children. It does not use a registration system to collect children's information. If you have a concern about information involving a child, contact Zuaros below."
+    },
+    {
+      "type": "h2",
+      "text": "9. Changes to this policy"
+    },
+    {
+      "type": "p",
+      "text": "This policy may be updated when the app's features or data-handling practices change. The revised policy will show an updated date and will be available at the public privacy-policy page linked from the app's store listing."
+    },
+    {
+      "type": "h2",
+      "text": "10. Contact"
+    },
+    {
+      "type": "p",
+      "text": "For questions about SpinStake or this Privacy Policy:"
+    },
+    {
+      "type": "p",
+      "text": "Zuaros"
+    },
+    {
+      "type": "p",
+      "text": "zuaros.dev@gmail.com"
+    }
+  ]
+}

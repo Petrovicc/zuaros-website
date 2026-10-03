@@ -1,0 +1,95 @@
+ACAR Privacy Policy
+
+Effective date: August 26, 2026
+
+ACAR (Automated Car Availability Radar) is a vehicle search and monitoring application provided by Zuaros.
+
+This Privacy Policy explains how ACAR handles information when you use the application.
+
+1. Information handled by ACAR
+
+ACAR is designed to minimize the collection of personal information.
+
+The application may process:
+
+vehicle search criteria entered by the user, such as brand, body type, price, mileage, engine displacement, seller type, and contact preferences;
+
+saved search configurations;
+
+listing interaction history;
+
+application preferences such as language, theme, notification settings, and background monitoring settings.
+
+Saved searches, interaction history, and application preferences are stored locally on the user's device unless otherwise stated.
+
+2. Vehicle search data
+
+To provide vehicle search functionality, ACAR transmits search criteria to third-party vehicle marketplace services, currently including Willhaben.
+
+This information is transmitted only for the purpose of retrieving vehicle listings that match the user's requested search criteria.
+
+Search requests are transmitted using encrypted HTTPS connections.
+
+ACAR does not use this information for advertising, marketing, user profiling, or analytics.
+
+3. Third-party services
+
+ACAR accesses publicly available vehicle listing information provided by third-party marketplace services.
+
+Third-party services may process requests according to their own privacy policies, terms, and technical systems.
+
+ACAR is not affiliated with, endorsed by, or operated by Willhaben or other third-party marketplaces unless explicitly stated otherwise.
+
+Vehicle listings, seller information, prices, photographs, and other marketplace content remain the responsibility of their respective platforms and users.
+
+4. Local data storage
+
+Saved searches, application settings, and listing interaction history may be stored locally on the user's device.
+
+Users can remove stored history through the application where such functionality is available. Local application data can also be removed by clearing the application's storage or uninstalling ACAR.
+
+5. Background monitoring and notifications
+
+If enabled by the user, ACAR may perform background monitoring to check for newly available vehicle listings matching active saved searches.
+
+The application may use Android notifications to inform users when matching listings are detected.
+
+Background monitoring can be enabled or disabled by the user.
+
+6. Personal information
+
+The current version of ACAR does not require users to create an account and does not request names, email addresses, passwords, financial information, contacts, photographs, precise location, or other personal profile information.
+
+7. Advertising and analytics
+
+ACAR does not currently display third-party advertising.
+
+The current version does not use user search information for advertising or marketing purposes.
+
+8. Data sale
+
+ACAR does not sell users' personal information.
+
+9. Children's privacy
+
+ACAR is not designed or intended for children.
+
+10. Security
+
+ACAR uses encrypted network connections where supported and takes reasonable measures to protect information processed by the application.
+
+No electronic transmission or storage system can be guaranteed to be completely secure.
+
+11. Changes to this Privacy Policy
+
+This Privacy Policy may be updated if ACAR's functionality, data handling practices, or supported services change.
+
+The current version will remain available at this public Privacy Policy URL.
+
+12. Contact
+
+For questions regarding this Privacy Policy or ACAR, contact:
+
+Zuaros
+
+zuaros.dev@gmail.com

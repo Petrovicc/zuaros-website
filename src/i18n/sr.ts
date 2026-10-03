@@ -188,6 +188,7 @@ export const sr: Translation = {
     rights: "Sva prava zadržana.",
     top: "Na vrh",
     navigation: "Navigacija u podnožju",
+    privacy: "Privatnost",
   },
   seo: {
     title: "Zuaros — Softver po meri i inženjering",

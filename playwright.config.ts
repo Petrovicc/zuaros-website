@@ -1,6 +1,5 @@
 import { defineConfig } from "@playwright/test";
 
-const path = process.env.TEST_BASE_PATH || "/";
 const port = process.env.TEST_PORT || "4173";
 export default defineConfig({
   testDir: "./tests",
@@ -9,14 +8,14 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: "list",
   use: {
-    baseURL: `http://127.0.0.1:${port}${path}`,
+    baseURL: process.env.TEST_BASE_URL || `http://127.0.0.1:${port}/`,
     browserName: "chromium",
     locale: "en-GB",
     screenshot: "only-on-failure",
   },
-  webServer: {
-    command: `npm run preview -- --port ${port} --strictPort --base ${path}`,
-    url: `http://127.0.0.1:${port}${path}`,
+  webServer: process.env.TEST_BASE_URL ? undefined : {
+    command: "node scripts/serve-static.mjs",
+    url: `http://127.0.0.1:${port}/`,
     reuseExistingServer: !process.env.CI,
   },
 });

@@ -184,6 +184,7 @@ export const en = {
     rights: "All rights reserved.",
     top: "Back to top",
     navigation: "Footer navigation",
+    privacy: "Privacy",
   },
   seo: {
     title: "Zuaros — Custom software & engineering",

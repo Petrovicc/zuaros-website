@@ -1,0 +1,225 @@
+{
+  "app": "MemoSpin",
+  "slug": "memospin",
+  "sourceUrl": "https://sites.google.com/view/memospin-privacy-policy/home",
+  "sourceTitle": "MemoSpin Privacy Policy",
+  "date": "2026-10-02",
+  "dateLabel": "Last updated: October 2, 2026",
+  "contact": "zuaros.dev@gmail.com",
+  "links": [
+    {
+      "text": "https://unity.com/legal/privacy-policy",
+      "href": "https://unity.com/legal/privacy-policy"
+    },
+    {
+      "text": "https://docs.unity.com/en-us/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire",
+      "href": "https://docs.unity.com/en-us/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire"
+    },
+    {
+      "text": "https://policies.google.com/privacy",
+      "href": "https://policies.google.com/privacy"
+    },
+    {
+      "text": "https://www.cloudflare.com/privacypolicy/",
+      "href": "https://www.cloudflare.com/privacypolicy/"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "MemoSpin is a memory and multiplayer game published by Zuaros, Android package dev.zuaros.memospin. This policy describes the information used by the current Unity version of the game and its online services. Contact: zuaros.dev@gmail.com."
+    },
+    {
+      "type": "h2",
+      "text": "ACCOUNT AND DATA DELETION"
+    },
+    {
+      "type": "p",
+      "text": "To request deletion of your MemoSpin account and associated game data, email zuaros.dev@gmail.com with the subject \"MemoSpin account deletion\". Include your MemoSpin nickname and, if available, your player ID or the Google Play Games identity linked to the game. You can make this request even if you have uninstalled MemoSpin. Do not send passwords, payment-card information or authentication codes. We may ask for information needed to verify that the account belongs to you."
+    },
+    {
+      "type": "p",
+      "text": "Deletion covers the account and associated stored progress, profile, energy balances, statistics, rankings, Coins, cosmetic inventory and purchase-entitlement records. Limited transaction or security records may be retained where necessary to prevent duplicate purchases or rewards, resolve disputes, or meet legal obligations. We will explain any applicable retention when responding to your request. We handle requests without undue delay and in accordance with applicable law. Clearing Android app storage or uninstalling only removes local data; it does not by itself delete the online account. Deleting MemoSpin data does not delete your Google account or independently held Google payment records, and does not automatically refund purchases."
+    },
+    {
+      "type": "h2",
+      "text": "1. Player identity and game information"
+    },
+    {
+      "type": "p",
+      "text": "Unity Authentication creates an anonymous player identity for online features. You may choose to link that identity to Google Play Games. We use player identifiers and authentication information to associate the game with the correct account. Zuaros does not receive your Google password."
+    },
+    {
+      "type": "p",
+      "text": "MemoSpin processes your chosen nickname, game preferences, progression, XP, earned cosmetic Coins, owned/equipped cosmetics and their transaction history, achievements, challenges, energy balances and regeneration times, match activity and results, rankings, tournament participation and purchase entitlements. Online services also receive technical connection information such as IP addresses, request times, device/app information and diagnostic events. You do not need to use your real name as a nickname."
+    },
+    {
+      "type": "h2",
+      "text": "2. Local storage and Solo play"
+    },
+    {
+      "type": "p",
+      "text": "The game stores settings, Solo boards and progress, statistics, accessibility preferences, audio preferences and cached account information on your device. Some Solo play is available offline. Account energy, purchases and other protected transactions require online verification. Solo stars, XP, unlocked stages, achievements and recent completion history are backed up to the signed-in account when connected. Pending offline Coin claims include a bounded timestamped action replay used to validate legal Solo play. Imported legacy history does not itself create Coins. Local information may be synchronized when a connection becomes available. Authentication SDKs also store session information so that the game can reconnect to your player identity."
+    },
+    {
+      "type": "p",
+      "text": "Local data remains until changed, cleared in Android settings or removed by uninstalling, subject to Android backup and transfer settings. Clearing local data before linking or otherwise retaining access to a guest account can make that account difficult to recover."
+    },
+    {
+      "type": "h2",
+      "text": "3. Unity Gaming Services"
+    },
+    {
+      "type": "p",
+      "text": "MemoSpin uses Unity Authentication for player identity; Cloud Save for account and game records; Cloud Code for authoritative game, energy, purchase and reward operations; Multiplayer Services, Sessions and Relay for online sessions and connectivity; Matchmaker for ranked matches; Leaderboards for competitive scores; and Remote Config for game configuration such as challenge settings."
+    },
+    {
+      "type": "p",
+      "text": "These services process the identifiers, gameplay and technical information necessary to provide their functions, maintain service reliability and prevent abuse. Remote Config requests can include application and device context needed to return the appropriate configuration. MemoSpin does not use the former Zuaros/Azure gameplay backend."
+    },
+    {
+      "type": "h2",
+      "text": "4. Multiplayer, rankings and tournaments"
+    },
+    {
+      "type": "p",
+      "text": "Other participants can see your nickname and information needed for the shared game, such as player/team position, ownership-ring styles, shared cosmetic arena/shape, revealed moves, scores and results. Rankings and leaderboards may show a nickname, score, league or rank. Do not put private information in your nickname. The game does not provide unrestricted public text chat."
+    },
+    {
+      "type": "p",
+      "text": "Authoritative services validate turns, calculate results and energy charges, and maintain match and tournament state. Room codes, session IDs, connection information and reconnection state are used to operate online matches. Match and account records can remain after a room closes to support progress, rankings, recovery and dispute or abuse investigation."
+    },
+    {
+      "type": "h2",
+      "text": "5. Google Play Games"
+    },
+    {
+      "type": "p",
+      "text": "When you choose to link Google Play Games, Google processes the sign-in and returns authorization information used to associate your Play Games identity with your existing MemoSpin account. This is used for account continuity. The game can use your Play Games display name and icon as profile defaults; a customized MemoSpin name is retained. The icon is loaded through Google Play services and cached locally at a reduced size. It is not uploaded to MemoSpin game records. You can choose the MemoSpin avatar or opt back into Play Games defaults. Recovering a linked account opens that account separately rather than merging it with a guest account. Google also processes data under its own policies. Linking does not give Zuaros your Google password or payment credentials."
+    },
+    {
+      "type": "h2",
+      "text": "6. Advertising and privacy choices"
+    },
+    {
+      "type": "p",
+      "text": "MemoSpin uses Unity LevelPlay with ironSource advertising. Banners may appear on menu screens; they are hidden during active gameplay. Rewarded videos are voluntary and start only when requested. The Remove Ads and Premium entitlements remove passive banners; voluntary rewarded videos can remain available."
+    },
+    {
+      "type": "p",
+      "text": "The advertising SDK processes device or advertising identifiers, IP/network information and approximate location, ad interactions, app/device information and diagnostics. These are used for advertising, measurement, fraud prevention and service reliability. Advertising providers may share advertising-related information with their partners as described in their privacy policies. MemoSpin does not request precise device location."
+    },
+    {
+      "type": "p",
+      "text": "The game asks for an advertising privacy choice before initializing ads. You can change this in Settings > Privacy > Change ad choices. Selecting non-personalized ads does not mean that advertising services process no data: technical information, identifiers where permitted, ad interactions and fraud-prevention information may still be processed. You can also manage advertising identifiers and privacy controls in Android settings."
+    },
+    {
+      "type": "h2",
+      "text": "7. Reward verification"
+    },
+    {
+      "type": "p",
+      "text": "A requested rewarded video creates a temporary pending reward associated with your player ID and your selected Solo or Multiplayer energy pool. LevelPlay sends a signed completion notification to a small callback service hosted on Cloudflare Workers. That service checks the notification and calls Unity Cloud Code, which validates the pending reward and prevents repeated grants."
+    },
+    {
+      "type": "p",
+      "text": "The callback processes a player ID, temporary reward identifier, event identifier, timestamp, reward amount and verification signature. Successful verified rewards add five plays to the selected pool once. A client-side completion message alone cannot grant a reward. The callback service does not intentionally record complete callback URLs or signatures in application logs. Cloudflare still processes network requests to operate and protect its hosting service."
+    },
+    {
+      "type": "h2",
+      "text": "8. Purchases"
+    },
+    {
+      "type": "p",
+      "text": "Google Play Billing processes optional purchases: Remove Ads Forever, Unlimited Energy Forever, MemoSpin Premium Forever and the repeatable +100 Energy Booster. The booster applies to the Solo or Multiplayer pool selected before purchase."
+    },
+    {
+      "type": "p",
+      "text": "MemoSpin and Unity Cloud Code process product IDs, package identity, purchase tokens, purchase state, transaction identifiers, entitlement state and verification times. The server checks purchases with the Google Play Android Developer API. Records support acknowledgement, consumption, entitlement restoration and prevention of duplicate grants. An obfuscated account identifier is supplied to Google Play for purchase association and fraud prevention."
+    },
+    {
+      "type": "p",
+      "text": "Zuaros does not receive full payment-card numbers, banking credentials or your Google password. Google controls payment-method and billing records. Permanent entitlements can be restored after verification; a consumed booster is not a permanent entitlement and cannot be granted again from the same transaction."
+    },
+    {
+      "type": "h2",
+      "text": "9. Support and diagnostics"
+    },
+    {
+      "type": "p",
+      "text": "If you email us, we receive your email address, message and any information or attachments you choose to provide. We use them to respond and resolve your request. Avoid sending unnecessary sensitive information."
+    },
+    {
+      "type": "p",
+      "text": "The game and its service providers process operational and diagnostic information to detect failures, maintain connectivity and prevent invalid game actions or transaction replay. Authentication credentials and payment credentials are not intended to be included in application diagnostic logs. MemoSpin ad diagnostics record stages, times, SDK versions, environment, bounded error descriptions and local attempt correlations. They do not intentionally log advertising IDs, purchase receipts, authorization credentials or hidden boards. Advertising SDKs have their own measurement and diagnostic processing."
+    },
+    {
+      "type": "h2",
+      "text": "10. Retention and your choices"
+    },
+    {
+      "type": "p",
+      "text": "Online account, progression and entitlement records are retained while needed to provide the account and its features, subject to deletion requests and legitimate retention needs described above. Temporary sessions and reward tickets expire; transaction and replay-prevention records may outlast a session. Service providers can have their own operational, security and legally required retention periods."
+    },
+    {
+      "type": "p",
+      "text": "Depending on applicable law, you may request access, correction or deletion of your information, object to or restrict certain processing, or withdraw consent where processing relies on consent. Contact zuaros.dev@gmail.com. Changing consent does not undo processing that already occurred. You may also contact the relevant data-protection authority."
+    },
+    {
+      "type": "h2",
+      "text": "11. Children"
+    },
+    {
+      "type": "p",
+      "text": "MemoSpin is intended for a general audience aged 13 and above and is not directed to children under 13. Do not provide sensitive personal information through nicknames or support messages. If you believe a child under 13 has supplied personal information to Zuaros, contact us so that we can investigate and take appropriate action."
+    },
+    {
+      "type": "h2",
+      "text": "12. Security and international processing"
+    },
+    {
+      "type": "p",
+      "text": "Internet services are provided by Unity, Google and Cloudflare and may process information outside your country. We use encrypted service connections, access controls and server-side validation to protect account and transaction operations. No transmission or storage system can guarantee complete security."
+    },
+    {
+      "type": "h2",
+      "text": "13. Provider information"
+    },
+    {
+      "type": "p",
+      "text": "Unity privacy policy: https://unity.com/legal/privacy-policy"
+    },
+    {
+      "type": "p",
+      "text": "Unity LevelPlay data practices: https://docs.unity.com/en-us/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire"
+    },
+    {
+      "type": "p",
+      "text": "Google privacy policy: https://policies.google.com/privacy"
+    },
+    {
+      "type": "p",
+      "text": "Cloudflare privacy policy: https://www.cloudflare.com/privacypolicy/"
+    },
+    {
+      "type": "p",
+      "text": "These providers explain their own processing and privacy controls in their policies. This MemoSpin policy describes how Zuaros uses their services for the game."
+    },
+    {
+      "type": "h2",
+      "text": "14. Changes and contact"
+    },
+    {
+      "type": "p",
+      "text": "We update this policy when the game's services or data practices change. The revised date appears at the top. The current policy is available from MemoSpin and its Google Play listing."
+    },
+    {
+      "type": "p",
+      "text": "Zuaros"
+    },
+    {
+      "type": "p",
+      "text": "zuaros.dev@gmail.com"
+    }
+  ]
+}
