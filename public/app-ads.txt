@@ -1,0 +1,2 @@
+OWNERDOMAIN=zuaros.com
+ironsrc.com, 687835, DIRECT
