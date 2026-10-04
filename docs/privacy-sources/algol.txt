@@ -2,7 +2,7 @@ Algol Privacy Policy
 
 App: Algol · Publisher: Zuaros · Android package: dev.zuaros.algol
 
-Last updated: 3 October 2026
+Last updated: 4 October 2026
 
 Algol is a gravity and merge game for a general audience aged 13 and older. This policy explains how information is handled when you play, connect to Google Play Games, use cloud saves, or choose advertising. Contact Zuaros at zuaros.dev@gmail.com.
 
@@ -11,6 +11,8 @@ Gameplay and information on your device
 Algol stores your progress, scores, discoveries, inventory, current run, settings, and recovery copies on your device so that you can play and resume safely. Gameplay is available offline and without ads. Algol has no separate Zuaros account-registration system or publisher-operated player-account database.
 
 Game progress and advertising preferences are stored separately. Your advertising choice is not included in Google Play Games cloud saves or Android backup. Algol does not send your save contents, boost balances, or Google Play Games player identifiers to its advertising SDK.
+
+Play-energy balances, refill timestamps, and transaction receipts are part of saved gameplay progress. Optional device-motion input is processed transiently on your device while playing. Algol does not store or transmit raw motion readings. It saves only the resulting gameplay state and whether the once-per-run effect has been used; earned achievements may be synchronized with Google Play Games.
 
 Optional Google Play Games and cloud saves
 
@@ -22,7 +24,7 @@ Use Profile & Cloud to manage backup and the separate local and cloud reset cont
 
 Advertising and service providers
 
-Algol uses Unity LevelPlay with ironSource Ads demand. Banners are eligible on the main menu and Atlas; rewarded ads are optional and offer the reward shown before you choose to watch. Ad availability is not guaranteed. Rewarded ads grant a reward only when the service confirms it was earned; closing an ad early or an unavailable ad does not earn a reward.
+Algol uses Unity LevelPlay with ironSource Ads demand. Banners are eligible on the main menu, Atlas, and in a separate strip above the gameplay controls when screen space permits. They are hidden during pause screens, privacy dialogs, other blocking dialogs, and fullscreen ads. Rewarded ads are optional and offer the reward shown before you choose to watch. Ad availability is not guaranteed. Rewarded ads grant a reward only when the service confirms it was earned; closing an ad early or an unavailable ad does not earn a reward.
 
 The advertising services may process device and app information, device or advertising identifiers, IP-derived approximate location, ad interactions, and diagnostics. Purposes include ad delivery and personalization where permitted, measurement and analytics, fraud prevention, security, and service operation. Applicable information may be shared with advertising partners as described in the providers' policies; contextual advertising still involves data processing.
 
