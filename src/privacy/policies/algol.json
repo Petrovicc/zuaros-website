@@ -3,8 +3,8 @@
   "slug": "algol",
   "sourceUrl": "",
   "sourceTitle": "Algol Privacy Policy",
-  "date": "2026-10-03",
-  "dateLabel": "Last updated: 3 October 2026",
+  "date": "2026-10-04",
+  "dateLabel": "Last updated: 4 October 2026",
   "contact": "zuaros.dev@gmail.com",
   "links": [
     {
@@ -54,6 +54,10 @@
       "text": "Game progress and advertising preferences are stored separately. Your advertising choice is not included in Google Play Games cloud saves or Android backup. Algol does not send your save contents, boost balances, or Google Play Games player identifiers to its advertising SDK."
     },
     {
+      "type": "p",
+      "text": "Play-energy balances, refill timestamps, and transaction receipts are part of saved gameplay progress. Optional device-motion input is processed transiently on your device while playing. Algol does not store or transmit raw motion readings. It saves only the resulting gameplay state and whether the once-per-run effect has been used; earned achievements may be synchronized with Google Play Games."
+    },
+    {
       "type": "h2",
       "text": "Optional Google Play Games and cloud saves"
     },
@@ -75,7 +79,7 @@
     },
     {
       "type": "p",
-      "text": "Algol uses Unity LevelPlay with ironSource Ads demand. Banners are eligible on the main menu and Atlas; rewarded ads are optional and offer the reward shown before you choose to watch. Ad availability is not guaranteed. Rewarded ads grant a reward only when the service confirms it was earned; closing an ad early or an unavailable ad does not earn a reward."
+      "text": "Algol uses Unity LevelPlay with ironSource Ads demand. Banners are eligible on the main menu, Atlas, and in a separate strip above the gameplay controls when screen space permits. They are hidden during pause screens, privacy dialogs, other blocking dialogs, and fullscreen ads. Rewarded ads are optional and offer the reward shown before you choose to watch. Ad availability is not guaranteed. Rewarded ads grant a reward only when the service confirms it was earned; closing an ad early or an unavailable ad does not earn a reward."
     },
     {
       "type": "p",
