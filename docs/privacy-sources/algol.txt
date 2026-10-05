@@ -2,7 +2,7 @@ Algol Privacy Policy
 
 App: Algol · Publisher: Zuaros · Android package: dev.zuaros.algol
 
-Last updated: 4 October 2026
+Last updated: 5 October 2026
 
 Algol is a gravity and merge game for a general audience aged 13 and older. This policy explains how information is handled when you play, connect to Google Play Games, use cloud saves, or choose advertising. Contact Zuaros at zuaros.dev@gmail.com.
 
@@ -24,11 +24,11 @@ Use Profile & Cloud to manage backup and the separate local and cloud reset cont
 
 Advertising and service providers
 
-Algol uses Unity LevelPlay with ironSource Ads demand. Banners are eligible on the main menu, Atlas, and in a separate strip above the gameplay controls when screen space permits. They are hidden during pause screens, privacy dialogs, other blocking dialogs, and fullscreen ads. Rewarded ads are optional and offer the reward shown before you choose to watch. Ad availability is not guaranteed. Rewarded ads grant a reward only when the service confirms it was earned; closing an ad early or an unavailable ad does not earn a reward.
+Algol integrates Unity LevelPlay with ironSource Ads and Unity Ads. LevelPlay selects from eligible configured advertising sources; availability is not guaranteed. Banners are eligible on the main menu, Atlas, and in a separate strip above the gameplay controls when screen space permits. They are hidden during pause screens, privacy dialogs, other blocking dialogs, and fullscreen ads. Rewarded ads are optional and offer the reward shown before you choose to watch. A reward is granted only when the service confirms it was earned; closing an ad early or an unavailable ad does not earn a reward.
 
-The advertising services may process device and app information, device or advertising identifiers, IP-derived approximate location, ad interactions, and diagnostics. Purposes include ad delivery and personalization where permitted, measurement and analytics, fraud prevention, security, and service operation. Applicable information may be shared with advertising partners as described in the providers' policies; contextual advertising still involves data processing.
+The advertising services may collect and share device and app information, device or advertising identifiers, IP-derived approximate location, ad interactions, and diagnostics. Unity Ads also declares collection and sharing of purchase-history information. Algol has no in-app purchases and does not supply gameplay inventory or energy balances as purchase data. Purposes include ad delivery and personalization where permitted, measurement and analytics, fraud prevention, security, and service operation. Provider-specific practices and purposes are described in the disclosures below; contextual advertising still involves data processing.
 
-See the Unity Privacy Policy and ironSource SDK data disclosure for provider practices and privacy controls. Algol currently uses ironSource demand; it does not enable AdMob or a separate Unity Ads network adapter.
+See the Unity Privacy Policy, ironSource SDK data disclosure, and Unity Ads SDK data disclosure for provider practices and privacy controls. Both advertising sources use Algol's existing LevelPlay integration. Algol does not enable AdMob.
 
 Your advertising choices
 
@@ -44,7 +44,7 @@ For Basic ads, Algol requests a regional privacy classification from its HTTPS s
 
 Change your choice at any time in Settings > Privacy. Withdrawal stops new ad requests and removes loaded ads. An already initialized third-party SDK may remain in memory until the app closes; the saved disabled choice prevents initialization at the next launch. Withdrawal does not reverse earlier processing.
 
-Your device stores the preference, device-access decision, policy version, decision time, and a random receipt identifier. An ordinary restart keeps your choice. Clearing app data, reinstalling, or a material change to advertising purposes or consent wording may require a new choice.
+Your device stores the preference, device-access decision, policy version, decision time, and a random receipt identifier. An ordinary restart keeps your choice. A material change to advertising providers, purposes or consent wording pauses previously allowed advertising until a new choice is made. An existing valid Ads disabled choice stays disabled across a policy update. Clearing app data or reinstalling may require a new choice.
 
 Hosting, contact, and external links
 
