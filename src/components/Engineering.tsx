@@ -4,12 +4,6 @@ import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 
 export function Engineering({ t }: { t: Translation }) {
-  const steps = [
-    t.engineering.signal,
-    t.engineering.acquisition,
-    t.engineering.processing,
-    t.engineering.insight,
-  ];
   return (
     <section
       id="engineering"
@@ -31,61 +25,36 @@ export function Engineering({ t }: { t: Translation }) {
             </a>
           </div>
           <div className="engineering-panel">
-            <p className="diagram-label">{t.engineering.diagram}</p>
-            <div
-              className="signal-diagram"
-              role="img"
-              aria-label={`${steps.join(" → ")}. ${t.engineering.diagramNote}`}
-            >
-              <svg viewBox="0 0 480 190" aria-hidden="true" fill="none">
+            <div className="engineering-art" aria-hidden="true">
+              <svg viewBox="0 0 480 240" fill="none" focusable="false">
                 <defs>
-                  <linearGradient id="flow">
-                    <stop stopColor="#9abbb4" stopOpacity=".15" />
-                    <stop offset="1" stopColor="#9abbb4" />
-                  </linearGradient>
+                  <radialGradient id="engineering-glow">
+                    <stop stopColor="#edb466" stopOpacity=".09" />
+                    <stop offset="1" stopColor="#edb466" stopOpacity="0" />
+                  </radialGradient>
                 </defs>
-                <g stroke="#2c403c">
-                  <path d="M0 38h480M0 76h480M0 114h480M0 152h480M40 0v190M80 0v190M120 0v190M160 0v190M200 0v190M240 0v190M280 0v190M320 0v190M360 0v190M400 0v190M440 0v190" />
+                <ellipse cx="288" cy="120" rx="180" ry="120" fill="url(#engineering-glow)" />
+                <g className="engineering-orbits">
+                  <ellipse cx="288" cy="120" rx="132" ry="65" transform="rotate(-24 288 120)" />
+                  <ellipse cx="288" cy="120" rx="72" ry="102" transform="rotate(36 288 120)" />
+                  <path d="M205 45a112 112 0 0 1 183 103M359 207a112 112 0 0 1-164-47" />
                 </g>
-                <path
-                  d="M10 96h30l12-25 14 50 15-65 18 79 15-39h35"
-                  stroke="#9abbb4"
-                  strokeWidth="1.6"
-                />
-                <path
-                  className="signal-flow"
-                  d="M149 96h42m40 0h55m45 0h45m40 0h48"
-                  stroke="url(#flow)"
-                  strokeWidth="2"
-                  strokeDasharray="5 7"
-                />
-                <g fill="#152421" stroke="#6c9790">
-                  <rect x="191" y="76" width="40" height="40" rx="2" />
-                  <rect x="286" y="76" width="44" height="40" rx="2" />
-                  <circle cx="396" cy="96" r="20" />
+                <g className="engineering-paths">
+                  <path d="M24 120h29c12 0 14-27 26-27s14 54 26 54 14-27 26-27h61l96-52 96 52-96 52-96-52" />
+                  <path d="M104 183h53l35-63M288 68v104M384 120h66" />
+                  <path d="m192 120 96 0 45 77" />
                 </g>
-                <g stroke="#b3d4c7" strokeWidth="1.4">
-                  <path d="M201 86h20v20h-20zM297 96h22m-11-10v20m78 11 7 6 11-13" />
+                <g className="engineering-nodes">
+                  <circle cx="192" cy="120" r="4" />
+                  <circle cx="288" cy="68" r="4" />
+                  <circle cx="288" cy="172" r="4" />
+                  <circle cx="384" cy="120" r="4" />
+                  <circle cx="333" cy="197" r="3" />
                 </g>
-                <path
-                  d="M307 76V44h89v32M211 116v34h96v-34"
-                  stroke="#547870"
-                  strokeDasharray="3 5"
-                />
+                <circle className="engineering-core-ring" cx="288" cy="120" r="15" />
+                <circle className="engineering-core" cx="288" cy="120" r="5" />
               </svg>
-              <div className="signal-labels">
-                {steps.map((step, i) => (
-                  <span key={step}>
-                    <small>0{i + 1}</small>
-                    {step}
-                  </span>
-                ))}
-              </div>
             </div>
-            <p className="diagram-note">
-              <span className="tiny-spark" />
-              {t.engineering.diagramNote}
-            </p>
             <div className="engineering-points">
               {t.engineering.points.map(([title, text]) => (
                 <div key={title}>

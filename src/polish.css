@@ -27,10 +27,6 @@
   .engineering-points p {
     min-width: 0;
   }
-  .signal-labels {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    overflow-wrap: anywhere;
-  }
   .navigation a,
   .header-contact {
     font-size: 0.875rem;
@@ -42,10 +38,6 @@
   .coordinate-bottom,
   .section-label,
   .service-tags,
-  .diagram-label,
-  .signal-labels,
-  .signal-labels small,
-  .diagram-note,
   .research-tags li,
   .research-label,
   .research-diagram > p,
@@ -145,9 +137,6 @@
     }
     .research-diagram > p {
       text-align: center;
-    }
-    .signal-labels {
-      font-size: 0.75rem;
     }
     .footer-bottom {
       font-size: 0.75rem;

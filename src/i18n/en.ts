@@ -88,12 +88,6 @@ export const en = {
         "SCADA-related tools, edge applications, and engineering workflows.",
       ],
     ],
-    diagram: "SIGNAL PROCESSING / CONCEPTUAL FLOW",
-    signal: "Field signals",
-    acquisition: "Acquisition",
-    processing: "Processing",
-    insight: "Insight",
-    diagramNote: "Conceptual data flow · not live telemetry",
     cta: "Discuss an engineering challenge",
   },
   software: {

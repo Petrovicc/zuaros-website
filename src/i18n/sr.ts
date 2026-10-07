@@ -92,12 +92,6 @@ export const sr: Translation = {
         "Alati povezani sa SCADA sistemima, edge aplikacije i inženjerski procesi.",
       ],
     ],
-    diagram: "OBRADA SIGNALA / KONCEPTUALNI TOK",
-    signal: "Signali",
-    acquisition: "Akvizicija",
-    processing: "Obrada",
-    insight: "Uvid",
-    diagramNote: "Konceptualni tok podataka · nije prikaz merenja uživo",
     cta: "Razgovarajmo o inženjerskom izazovu",
   },
   software: {
