@@ -39,7 +39,7 @@ function PolicyContent({ policy }: { policy: Policy }) {
       i--;
       content.push(<ul key={i}>{items}</ul>);
     } else if (block.type === "h2") {
-      content.push(<h2 key={i}>{block.text}</h2>);
+      content.push(<h2 key={i} id={block.id}>{block.text}</h2>);
     } else {
       content.push(<p key={i}>{linkedText(block.text, policy)}</p>);
     }

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import type { Policy } from "../src/privacy/types";
 
 const manifest: Pick<Policy, "app" | "slug" | "sourceTitle" | "date">[] = JSON.parse(readFileSync("src/privacy/manifest.json", "utf8"));
@@ -30,7 +30,9 @@ for (const entry of manifest) {
     await expect(page.locator("h1")).toHaveCount(1);
     await expect(page.locator("h1")).toContainText(entry.app);
     await expect(page.locator("time")).toHaveAttribute("datetime", entry.date);
-    const original = readFileSync(`docs/privacy-sources/${entry.slug}.txt`, "utf8").split(/\r?\n\r?\n/).map(normalize).filter(Boolean);
+    const revision = `docs/privacy-revisions/${entry.date}/${entry.slug}`;
+    const source = existsSync(`${revision}.txt`) ? revision : `docs/privacy-sources/${entry.slug}`;
+    const original = readFileSync(`${source}.txt`, "utf8").split(/\r?\n\r?\n/).map(normalize).filter(Boolean);
     // The source may include its page title; the layout displays it separately.
     if (original[0] === entry.sourceTitle) original.shift();
     // Dates move beside the heading in the shared layout (Algol places its
@@ -40,9 +42,13 @@ for (const entry of manifest) {
     expect(normalize(await page.locator("time").innerText())).toBe(original.splice(dateIndex, 1)[0]);
     const rendered = (await page.locator(".policy-content > p, .policy-content > h2, .policy-content li").allTextContents()).map(normalize);
     expect(rendered).toEqual(original);
-    const links: { text: string; href: string }[] = JSON.parse(readFileSync(`docs/privacy-sources/${entry.slug}.links.json`, "utf8"));
+    const links: { text: string; href: string }[] = JSON.parse(readFileSync(`${source}.links.json`, "utf8"));
     for (const link of links) await expect(page.locator(".policy-content").getByRole("link", { name: link.text, exact: true })).toHaveAttribute("href", link.href);
     await expect(page.locator('.policy-content a[href^="mailto:"]').first()).toHaveAttribute("href", "mailto:zuaros.dev@gmail.com");
+    if (["memospin", "spinstake"].includes(entry.slug)) {
+      await page.goto(`${path}#account-data-deletion`);
+      await expect(page.locator("#account-data-deletion")).toBeVisible();
+    }
     for (const other of manifest.filter((item) => item.slug !== entry.slug)) await expect(page.locator("article")).not.toContainText(other.app);
     await page.getByRole("button", { name: "Srpski", exact: true }).click();
     await expect(page).toHaveTitle(`${entry.app} Privacy Policy | Zuaros`);

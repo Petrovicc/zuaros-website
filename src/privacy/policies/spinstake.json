@@ -1,177 +1,166 @@
 {
   "app": "SpinStake",
   "slug": "spinstake",
-  "sourceUrl": "https://sites.google.com/view/spinstake-privacy-policy/home",
+  "sourceUrl": "https://zuaros.com/privacy/spinstake/",
   "sourceTitle": "SpinStake Privacy Policy",
-  "date": "2026-09-04",
-  "dateLabel": "Last updated: September 4, 2026",
+  "date": "2026-10-17",
+  "dateLabel": "Last updated: October 17, 2026",
   "contact": "zuaros.dev@gmail.com",
   "links": [
     {
-      "text": "Google Privacy Policy",
+      "text": "https://unity.com/legal/privacy-policy",
+      "href": "https://unity.com/legal/privacy-policy"
+    },
+    {
+      "text": "https://www.inmobi.com/privacy-policy",
+      "href": "https://www.inmobi.com/privacy-policy"
+    },
+    {
+      "text": "https://policies.google.com/privacy",
       "href": "https://policies.google.com/privacy"
+    },
+    {
+      "text": "https://www.cloudflare.com/privacypolicy/",
+      "href": "https://www.cloudflare.com/privacypolicy/"
     }
   ],
   "blocks": [
     {
       "type": "p",
-      "text": "SpinStake is a local multiplayer party game provided by Zuaros. This Privacy Policy explains how information is handled when you use SpinStake, Android package dev.zuaros.spinstake."
+      "text": "SpinStake is an adults-only (18+) party game provided by Zuaros, based in Serbia, for Android package dev.zuaros.spinstake. Contact: zuaros.dev@gmail.com."
     },
     {
       "type": "p",
-      "text": "SpinStake uses fictional Power and Risk game mechanics. It does not provide real-money wagering, purchases, financial accounts or payouts. Normal multiplayer play connects phones directly over the same local Wi-Fi network and does not require a Zuaros account or a Zuaros-operated online game server."
+      "text": "This policy covers the Unity edition (version 2.2 and later). The earlier local-network edition is described at the end. Available services depend on the installed version, configuration, regional requirements and your choices. SpinStake uses fictional Power and Risk outcomes. It has no real-money wagers, cash prizes, payouts or trading. Players agree consequences out loud; the Unity edition does not record those conversations or offer a challenge-text library."
     },
     {
       "type": "h2",
-      "text": "1. Information used by the game"
+      "text": "Request account or data deletion",
+      "id": "account-data-deletion"
     },
     {
       "type": "p",
-      "text": "SpinStake processes information needed to configure and run your game, including:"
+      "text": "To request deletion of your SpinStake online identity and associated data, email zuaros.dev@gmail.com with the subject “SpinStake account and data deletion.” You can do this without installing or opening the app. If available, include the SpinStake player reference from Settings > Account & restore > Delete account & data. Do not send a password, sign-in code, payment-card details or a purchase-token file. If you no longer have the reference, explain how you used SpinStake so we can help identify the record. We may ask for the minimum information needed to verify the request before deleting someone’s data."
+    },
+    {
+      "type": "p",
+      "text": "Deletion removes the verified account’s recoverable profile, game records and saved progress. Minimal records needed to verify legitimate purchases, prevent duplicate rewards or fraud, resolve disputes or meet legal obligations may be retained for those purposes; we will explain any applicable exception when handling the request. Deletion does not cancel or refund a Google Play purchase. Other participants’ screenshots and independently retained copies cannot be remotely erased by Zuaros."
+    },
+    {
+      "type": "p",
+      "text": "To erase local names, games and settings, clear SpinStake’s storage in Android settings or uninstall the app. This can remove an unlinked guest identity’s recovery information; contact us before doing so if you need help locating online data. Device backups are controlled separately by Android and your backup provider and may restore saved data. Manage those backups in your provider’s settings."
+    },
+    {
+      "type": "h2",
+      "text": "Local play and saved settings"
+    },
+    {
+      "type": "p",
+      "text": "Shared-device play and the tutorial can run locally. SpinStake stores entered nicknames, game settings, private selections, outcomes, match progress, Energy balances and recharge timestamps, purchase entitlements, and audio, motion, haptic and privacy preferences on the device. A local start may be recorded for later reconciliation with the online Energy balance. Local nicknames are participant labels, not separate online accounts. Use a nickname instead of a real name and avoid private or sensitive information."
+    },
+    {
+      "type": "p",
+      "text": "Private pass-and-play relies on handing the device to the named participant. The device owner can access its local files. Clearing storage can remove local progress; simply ending a match does not erase saved settings."
+    },
+    {
+      "type": "h2",
+      "text": "Online games and identity"
+    },
+    {
+      "type": "p",
+      "text": "Online play uses Unity Gaming Services: Authentication, Multiplayer Services/Sessions, Relay, Cloud Code and Cloud Save. A guest identifier authenticates the installation. Where Play Games linking is available, linking or recovery uses Google Play Games authorization to associate the game identity with your chosen Google account; SpinStake does not receive your Google password."
+    },
+    {
+      "type": "p",
+      "text": "These services process player and session identifiers, entered online nicknames, room membership and readiness, game settings, selections, outcomes, targeting choices, Energy transactions, recovery information and service/network diagnostics needed to operate and secure the game. Internet service providers necessarily receive network information such as IP addresses. Cloud records support authoritative results, reconnection, recovery, transaction verification and abuse prevention. Leaving a room does not automatically delete those records; contact us to request deletion."
+    },
+    {
+      "type": "p",
+      "text": "Room participants see nicknames and game state allowed by the rules. Current placements remain private until reveal. Keep room invitations private to your group. Local play and the tutorial do not require joining an online room."
+    },
+    {
+      "type": "h2",
+      "text": "Consent and advertising"
+    },
+    {
+      "type": "p",
+      "text": "SpinStake uses InMobi Choice to present and record privacy preferences, including applicable TCF and GPP choices. The consent service processes the app configuration, privacy choices and technical/network information needed to choose the regional flow and maintain consent records. The configured advertising partner is ironSource Mobile, through Unity LevelPlay. Adding the Choice consent SDK does not enable InMobi advertising demand."
+    },
+    {
+      "type": "p",
+      "text": "Where advertising is available and permitted, LevelPlay/ironSource may process device or advertising identifiers, approximate location derived from network information, ad interactions and diagnostic information for ad delivery, measurement, fraud prevention and security. SpinStake does not request precise location permission. See the provider policies below for their processing and rights procedures."
+    },
+    {
+      "type": "p",
+      "text": "Open Settings > Privacy to review or change consent preferences. You can reject consent or withdraw a vendor’s permission through that form. A separate “Pause advertising” control stops further app ad requests; it does not by itself rewrite the consent provider’s records. When consent is unresolved, rejected, revoked or cannot be verified, the app does not initialize or request advertising through its ad integration. Games remain usable without consenting to ads, subject to the ordinary Energy rules."
+    },
+    {
+      "type": "p",
+      "text": "Rewarded video is voluntary and offered outside an active match. A completed, server-verified reward adds 5 Energy. Natural Energy is capped at 30; earned overflow is preserved as additional credits. A normal interstitial may be attempted after a completed match, subject to availability, pacing and verified ownership; it is not a condition for leaving the results screen. Ad-Free/Premium ownership excludes automatic interstitials. No banner is used."
+    },
+    {
+      "type": "p",
+      "text": "For verified rewards, the ad provider sends a signed callback containing the game user identifier, reward event, amount, time and a one-use ticket to SpinStake’s Cloudflare-hosted reward service and Unity backend. These records prevent forged or duplicate rewards and allow delayed verification. They are not a public player profile."
+    },
+    {
+      "type": "h2",
+      "text": "Purchases and restoration"
+    },
+    {
+      "type": "p",
+      "text": "Where available, Google Play handles purchases and payment information. SpinStake does not receive payment-card details. Purchase tokens, product identifiers, an obfuscated game-account identifier and fulfillment/entitlement records are used to validate purchases, restore legitimate ownership and prevent duplicate fulfillment. Purchased access and credits are kept separate from naturally regenerated Energy. Store/Manage Purchases shows the existing 7-Energy consumable and permanent removal of automatic ads using localized Google Play prices. Voluntary rewarded ads remain an explicit choice after ad removal. Purchased credits survive the natural recharge cap; consumed orders are not granted again on restoration. Existing legitimate Premium/Unlimited entitlements remain supported. The game does not sell Power/Risk outcome advantages."
+    },
+    {
+      "type": "h2",
+      "text": "Permissions, security and other providers"
+    },
+    {
+      "type": "p",
+      "text": "The Unity edition does not request camera, microphone, contacts, photo-library or precise-location access. It uses internet/network access, optional vibration and installed SDK permissions for Play Billing, advertising identifiers and attribution. A permission present in the application does not mean advertising is requested without the consent gate."
+    },
+    {
+      "type": "p",
+      "text": "Cloud service and reward requests use encrypted transport. Access checks restrict private selections and account-bound transactions. No storage or transmission method is completely secure. Android, Google Play and device/backup providers may separately process installation, diagnostics and backups under their own policies. If you contact Zuaros, your email and message are used to handle the inquiry and applicable obligations."
+    },
+    {
+      "type": "p",
+      "text": "Providers may process information outside your country under their privacy terms and applicable safeguards. Depending on where you live, you may have rights to access, correct, delete or restrict data, withdraw consent, object to processing, or complain to your data-protection authority. Contact Zuaros for help with SpinStake data and use the provider controls for their independent processing. Withdrawing consent does not change the validity of processing already performed before withdrawal."
+    },
+    {
+      "type": "p",
+      "text": "Provider information:"
     },
     {
       "type": "li",
-      "text": "The nickname, player color and optional preferred-drink text you choose."
+      "text": "Unity: https://unity.com/legal/privacy-policy"
     },
     {
       "type": "li",
-      "text": "Room codes, local host network addresses and ports, temporary session/player identifiers, and tokens used to join or reconnect to a room."
+      "text": "InMobi: https://www.inmobi.com/privacy-policy"
     },
     {
       "type": "li",
-      "text": "Game settings, player readiness, Power/Risk selections, roulette results, challenges, votes, scores and other session state."
+      "text": "Google: https://policies.google.com/privacy"
     },
     {
       "type": "li",
-      "text": "Custom challenge text you enter or choose to save."
-    },
-    {
-      "type": "li",
-      "text": "Local preferences, such as animation settings and whether camera permission has previously been requested."
-    },
-    {
-      "type": "p",
-      "text": "You can use a nickname instead of your real name. Do not enter confidential information in nicknames, preferred-drink fields or shared challenges."
+      "text": "Cloudflare: https://www.cloudflare.com/privacypolicy/"
     },
     {
       "type": "h2",
-      "text": "2. Local multiplayer and sharing with other players"
+      "text": "Adults only and policy changes"
     },
     {
       "type": "p",
-      "text": "When you create a room, your phone hosts the game. Other players' phones connect to that host over the local network. SpinStake uses local network discovery to find rooms and exchanges game messages directly between participating devices. Network addresses and connection information are used to establish these connections."
-    },
-    {
-      "type": "p",
-      "text": "The host processes the information needed to manage the session. Other players receive profile and game information made visible by the game's rules, including nicknames, chosen profile details, shared challenges, votes/results and scores. Some selections remain hidden from other players until the appropriate game phase."
-    },
-    {
-      "type": "p",
-      "text": "This normal game traffic is not sent to a Zuaros-operated cloud service. Participants may save shared custom challenges to their own devices. Zuaros does not control copies other players choose to retain or screenshots they take."
+      "text": "SpinStake is intended for people aged 18 or over and is not directed at children. Contact Zuaros if you believe a child has supplied personal information. We update this policy when the app or its data practices change; the revised date appears above."
     },
     {
       "type": "h2",
-      "text": "3. Optional camera access and QR codes"
+      "text": "Earlier local-network edition"
     },
     {
       "type": "p",
-      "text": "If you choose Scan QR Code, SpinStake asks for camera permission to read the host's room invitation. Camera frames are processed on your device by the QR reader. SpinStake does not save the camera images or upload them to Zuaros or an online scanning service. Scanning stops when the scanning screen is closed."
-    },
-    {
-      "type": "p",
-      "text": "The decoded invitation contains connection details such as the host's local address, room/session identifiers and a temporary joining token. These details are used to connect to the host. Showing a room's QR code shares those invitation details with anyone who scans it."
-    },
-    {
-      "type": "p",
-      "text": "Camera access is optional: you can join using the room code instead. You can change camera permission at any time through Android's app-permission settings. The app does not request access to your microphone, contacts, photo library or precise device location."
-    },
-    {
-      "type": "h2",
-      "text": "4. Local storage and device backups"
-    },
-    {
-      "type": "p",
-      "text": "SpinStake stores settings, your chosen profile details, the last room/host and reconnection details, and saved custom challenges in the application's local storage. These support preferences and reconnecting to a room."
-    },
-    {
-      "type": "p",
-      "text": "Android backup is enabled in the current app. Depending on your device, Android version and backup settings, the operating system may back up eligible app data to your backup provider, such as Google, or transfer it to another device. These backups are managed by the operating system/provider, not by a Zuaros backup service, and may restore saved data when you reinstall or migrate the app. Manage backups through your device or backup-provider settings. Google's handling of its services is described in the Google Privacy Policy."
-    },
-    {
-      "type": "h2",
-      "text": "5. Retention and deletion"
-    },
-    {
-      "type": "p",
-      "text": "Local settings and saved challenges remain until you change or delete them or remove the application's local data. Saved challenges can be deleted through the challenge library. You can remove local SpinStake data by clearing its storage in Android settings or uninstalling the app. Backup copies are managed separately through your device/provider and may need to be removed there."
-    },
-    {
-      "type": "p",
-      "text": "The host keeps the active game and related connection state in memory. This state is discarded when hosting is stopped, the room is replaced or the host application process ends. Ending a round or leaving a room does not delete saved preferences or challenges. Other players' independently saved copies are not remotely deleted."
-    },
-    {
-      "type": "p",
-      "text": "There is no Zuaros game account or centralized player-history database to delete. For privacy inquiries, use the contact details below."
-    },
-    {
-      "type": "h2",
-      "text": "6. Advertising, analytics and other services"
-    },
-    {
-      "type": "p",
-      "text": "The current app does not display third-party advertising or include an advertising, behavioral-analytics or automatic crash-reporting service operated by Zuaros. Zuaros does not sell game information or use it to create advertising profiles. The QR generation and scanning libraries perform their functions locally."
-    },
-    {
-      "type": "p",
-      "text": "Google Play, Android and your device or backup provider may independently process installation, diagnostic or backup information under their own policies and your settings. Their platform-level processing is separate from SpinStake's local multiplayer functionality."
-    },
-    {
-      "type": "p",
-      "text": "If you contact Zuaros by email, your email address and message are used to respond to your inquiry. Avoid including unnecessary sensitive information. Support correspondence is retained only as needed to handle the inquiry and any applicable legal obligations."
-    },
-    {
-      "type": "h2",
-      "text": "7. Security"
-    },
-    {
-      "type": "p",
-      "text": "The app uses Android's application storage controls and session/joining tokens to support local play. Its current local multiplayer protocol sends game messages without transport encryption. Other parties able to inspect traffic on the local network may be able to read those messages. Use SpinStake on a trusted network with people you know, and keep room invitations private to your group."
-    },
-    {
-      "type": "p",
-      "text": "No storage or transmission method can guarantee complete security."
-    },
-    {
-      "type": "h2",
-      "text": "8. Children's privacy"
-    },
-    {
-      "type": "p",
-      "text": "SpinStake is a social party game and is not designed or intended for children. It does not use a registration system to collect children's information. If you have a concern about information involving a child, contact Zuaros below."
-    },
-    {
-      "type": "h2",
-      "text": "9. Changes to this policy"
-    },
-    {
-      "type": "p",
-      "text": "This policy may be updated when the app's features or data-handling practices change. The revised policy will show an updated date and will be available at the public privacy-policy page linked from the app's store listing."
-    },
-    {
-      "type": "h2",
-      "text": "10. Contact"
-    },
-    {
-      "type": "p",
-      "text": "For questions about SpinStake or this Privacy Policy:"
-    },
-    {
-      "type": "p",
-      "text": "Zuaros"
-    },
-    {
-      "type": "p",
-      "text": "zuaros.dev@gmail.com"
+      "text": "Older releases connected phones directly over local Wi-Fi and processed nickname/profile details, local connection addresses, joining/reconnect tokens, selections, challenges, votes and results on participating devices. That edition could save preferred-drink text and custom challenges locally. Its optional camera permission scanned room QR invitations locally without uploading camera images; manual room-code entry was also available. It did not include the Unity edition’s online account, cloud game storage, advertising or purchase integration. Its local game protocol was not encrypted, so it should be used only on a trusted network. Local storage and Android backups could retain saved data after a room ended. Delete saved challenges through that edition’s library, clear app storage, and manage backups separately as applicable. Other players’ saved copies remain under their control."
     }
   ]
 }

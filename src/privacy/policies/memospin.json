@@ -1,10 +1,10 @@
 {
   "app": "MemoSpin",
   "slug": "memospin",
-  "sourceUrl": "https://sites.google.com/view/memospin-privacy-policy/home",
+  "sourceUrl": "https://zuaros.com/privacy/memospin/",
   "sourceTitle": "MemoSpin Privacy Policy",
-  "date": "2026-10-02",
-  "dateLabel": "Last updated: October 2, 2026",
+  "date": "2026-10-17",
+  "dateLabel": "Last updated: October 17, 2026",
   "contact": "zuaros.dev@gmail.com",
   "links": [
     {
@@ -22,6 +22,10 @@
     {
       "text": "https://www.cloudflare.com/privacypolicy/",
       "href": "https://www.cloudflare.com/privacypolicy/"
+    },
+    {
+      "text": "https://zuaros.com/privacy/memospin/",
+      "href": "https://zuaros.com/privacy/memospin/"
     }
   ],
   "blocks": [
@@ -31,7 +35,8 @@
     },
     {
       "type": "h2",
-      "text": "ACCOUNT AND DATA DELETION"
+      "text": "ACCOUNT AND DATA DELETION",
+      "id": "account-data-deletion"
     },
     {
       "type": "p",
@@ -111,7 +116,7 @@
     },
     {
       "type": "p",
-      "text": "The game asks for an advertising privacy choice before initializing ads. You can change this in Settings > Privacy > Change ad choices. Selecting non-personalized ads does not mean that advertising services process no data: technical information, identifiers where permitted, ad interactions and fraud-prevention information may still be processed. You can also manage advertising identifiers and privacy controls in Android settings."
+      "text": "The game asks for an advertising privacy choice before initializing ads. You can change this in Settings > Privacy > Change ad choices. The choice is stored on the device and passed to LevelPlay as GDPR consent and do-not-sell privacy signals. MemoSpin currently uses its own preference screen for these choices. Selecting non-personalized ads does not stop ad requests or delete information already processed: technical information, identifiers where permitted, ad interactions and fraud-prevention information may still be processed. You can also manage advertising identifiers and privacy controls in Android settings and use the provider controls described below."
     },
     {
       "type": "h2",
@@ -135,7 +140,7 @@
     },
     {
       "type": "p",
-      "text": "MemoSpin and Unity Cloud Code process product IDs, package identity, purchase tokens, purchase state, transaction identifiers, entitlement state and verification times. The server checks purchases with the Google Play Android Developer API. Records support acknowledgement, consumption, entitlement restoration and prevention of duplicate grants. An obfuscated account identifier is supplied to Google Play for purchase association and fraud prevention."
+      "text": "MemoSpin and Unity Cloud Code process product IDs, package identity, purchase tokens, purchase state, transaction identifiers, entitlement state and verification times. The server checks purchases with the Google Play Android Developer API. Records support acknowledgement, consumption, entitlement restoration and prevention of duplicate grants. An obfuscated account identifier is supplied to Google Play for purchase association and fraud prevention. A temporary opaque purchase-intent identifier is also supplied to Google Play as an obfuscated profile identifier. It binds the verified purchase to the game account, product and selected Energy pool without sending a nickname or real name as that identifier."
     },
     {
       "type": "p",
@@ -211,7 +216,7 @@
     },
     {
       "type": "p",
-      "text": "We update this policy when the game's services or data practices change. The revised date appears at the top. The current policy is available from MemoSpin and its Google Play listing."
+      "text": "We update this policy when the game's services or data practices change. The revised date appears at the top. The current policy is published at https://zuaros.com/privacy/memospin/. Older installed versions or store listings may still link to the earlier Google Sites copy. Available features depend on the installed version and configuration."
     },
     {
       "type": "p",
