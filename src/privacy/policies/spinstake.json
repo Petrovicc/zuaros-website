@@ -72,6 +72,10 @@
     },
     {
       "type": "p",
+      "text": "Optional Google Play Games linking requests the games_lite permission and Google's bundled drive.appdata permission for server authorization. The latter permits access only to SpinStake's hidden application-configuration folder in Google Drive, not ordinary Drive files, photos or documents. SpinStake does not implement Drive storage, read or write that folder, or request access to your other Drive files. The authorization code is sent securely to Unity Authentication to link your existing game identity. You can review or revoke SpinStake's Google access through your Google Account's third-party connections settings; revocation does not itself delete existing SpinStake game records or purchase history. Contact Zuaros to request deletion as described above."
+    },
+    {
+      "type": "p",
       "text": "These services process player and session identifiers, entered online nicknames, room membership and readiness, game settings, selections, outcomes, targeting choices, Energy transactions, recovery information and service/network diagnostics needed to operate and secure the game. Internet service providers necessarily receive network information such as IP addresses. Cloud records support authoritative results, reconnection, recovery, transaction verification and abuse prevention. Leaving a room does not automatically delete those records; contact us to request deletion."
     },
     {
