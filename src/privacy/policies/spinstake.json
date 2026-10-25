@@ -3,8 +3,8 @@
   "slug": "spinstake",
   "sourceUrl": "https://zuaros.com/privacy/spinstake/",
   "sourceTitle": "SpinStake Privacy Policy",
-  "date": "2026-10-17",
-  "dateLabel": "Last updated: October 17, 2026",
+  "date": "2026-10-25",
+  "dateLabel": "Last updated: October 25, 2026",
   "contact": "zuaros.dev@gmail.com",
   "links": [
     {
@@ -56,7 +56,7 @@
     },
     {
       "type": "p",
-      "text": "Shared-device play and the tutorial can run locally. SpinStake stores entered nicknames, game settings, private selections, outcomes, match progress, Energy balances and recharge timestamps, purchase entitlements, and audio, motion, haptic and privacy preferences on the device. A local start may be recorded for later reconciliation with the online Energy balance. Local nicknames are participant labels, not separate online accounts. Use a nickname instead of a real name and avoid private or sensitive information."
+      "text": "Shared-device play and the tutorial can run locally. SpinStake stores entered nicknames, game settings, private selections, outcomes, match progress, Energy balances and recharge/elapsed-time records, purchase entitlements, and audio, motion, haptic and privacy preferences on the device. A local start may be recorded for later reconciliation with the online Energy balance. Local nicknames are participant labels, not separate online accounts. Use a nickname instead of a real name and avoid private or sensitive information. Version 2.3 includes prerecorded synthetic croupier voices for offline playback; this feature does not record speech or send nicknames to a voice-generation service."
     },
     {
       "type": "p",
@@ -68,7 +68,7 @@
     },
     {
       "type": "p",
-      "text": "Online play uses Unity Gaming Services: Authentication, Multiplayer Services/Sessions, Relay, Cloud Code and Cloud Save. A guest identifier authenticates the installation. Where Play Games linking is available, linking or recovery uses Google Play Games authorization to associate the game identity with your chosen Google account; SpinStake does not receive your Google password."
+      "text": "Online play uses Unity Gaming Services: Authentication, Multiplayer Services/Sessions, Cloud Code and Cloud Save. Earlier Unity versions also used Relay transport. A guest identifier authenticates the installation. Where Play Games linking is available, linking or recovery uses Google Play Games authorization to associate the game identity with your chosen Google account; SpinStake does not receive your Google password."
     },
     {
       "type": "p",
@@ -100,7 +100,7 @@
     },
     {
       "type": "p",
-      "text": "Rewarded video is voluntary and offered outside an active match. A completed, server-verified reward adds 5 Energy. Natural Energy is capped at 30; earned overflow is preserved as additional credits. A normal interstitial may be attempted after a completed match, subject to availability, pacing and verified ownership; it is not a condition for leaving the results screen. Ad-Free/Premium ownership excludes automatic interstitials. No banner is used."
+      "text": "Rewarded video is voluntary and offered outside an active match. A completed, server-verified reward adds 5 Energy. Natural Energy is capped at 30; earned overflow is preserved as additional credits. A normal interstitial may be attempted after a completed match, subject to availability, pacing and verified ownership; it is not a condition for leaving the results screen. Starting with version 2.3, bottom banners may appear on ordinary game screens. Banners are hidden during number selection, the tutorial, keyboard entry, consent forms, full-screen ads, purchase dialogs and other essential overlays. Verified Ad-Free/Premium ownership excludes banners and automatic interstitials; voluntary rewarded videos remain optional. Version 2.2 does not use banners."
     },
     {
       "type": "p",
